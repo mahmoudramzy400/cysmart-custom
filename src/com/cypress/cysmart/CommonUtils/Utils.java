@@ -740,7 +740,7 @@ public class Utils {
 
 
     public static int getCustomCharacteristicValue(BluetoothGattCharacteristic characteristic) {
-        int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 0);
+        int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 1);
         return customeValue;
 
     }

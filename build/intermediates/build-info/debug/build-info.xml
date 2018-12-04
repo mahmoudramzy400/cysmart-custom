@@ -7,108 +7,90 @@
     format="10"
     ir-eligibility="COMPATIBLE"
     plugin-version="3.2.1"
-    timestamp="1543847722411"
-    token="-8444489448495640334"
+    timestamp="1543961729197"
+    token="3518713117888943053"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="3514" />
+        duration="5450" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="42" />
+        duration="17" />
     <task
         name="verifier"
-        duration="28" />
+        duration="14" />
 
     <artifact
-        location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_0.apk"
+        location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\utente\Desktop\android studio\src\build\intermediates\instant-run-apk\debug\src-debug.apk"
+        location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\instant-run-apk\debug\bluetoochapp-debug.apk"
         type="SPLIT_MAIN" />
 
     <build
         build-mode="FULL"
-        timestamp="1543840015818"
+        timestamp="1543958514776"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\dep\dependencies.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_2.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_8.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_5.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_6.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_0.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_6.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_7.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_4.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_5.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_9.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_7.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_3.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_9.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_8.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\instant-run-apk\debug\src-debug.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\instant-run-apk\debug\bluetoochapp-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1543843984602"
+        timestamp="1543961565112"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_4.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1543844282956"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_8.apk"
-            type="SPLIT" />
-    </build>
-    <build
-        build-mode="COLD"
-        ir-eligibility="COMPATIBLE"
-        timestamp="1543845691267"
-        verifier="COLD_SWAP_REQUESTED" >
-        <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\instant-run-apk\debug\src-debug.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\instant-run-apk\debug\bluetoochapp-debug.apk"
             type="SPLIT_MAIN" />
     </build>
     <build
         build-mode="COLD"
         ir-eligibility="COMPATIBLE"
-        timestamp="1543847722411"
+        timestamp="1543961729197"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\split-apk\debug\slices\slice_0.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\utente\Desktop\android studio\src\build\intermediates\instant-run-apk\debug\src-debug.apk"
+            location="C:\Users\utente\Desktop\android studio\bluetoochapp\build\intermediates\instant-run-apk\debug\bluetoochapp-debug.apk"
             type="SPLIT_MAIN" />
     </build>
 
