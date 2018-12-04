@@ -19,6 +19,7 @@ import com.cypress.cysmart.CustomApp.data.models.CycleChannelG1;
 import com.cypress.cysmart.CustomApp.data.models.CycleChannelG2;
 import com.cypress.cysmart.CustomApp.data.models.CycleChannelG3;
 
+import com.cypress.cysmart.CustomApp.utils.GattAttributes;
 import com.cypress.cysmart.CustomApp.utils.UUIDDatabase;
 
 public class CustomService extends Service {
@@ -66,18 +67,48 @@ public class CustomService extends Service {
 
         if (mCustomeService != null ){
 
-            // Voltage characteristics
-            mCharacteristicVoltageG1 = mCustomeService.getCharacteristic( UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G1 ) ;
-            mCharacteristicVoltageG2 = mCustomeService.getCharacteristic( UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G1 ) ;
-            mCharacteristicVoltageG3 = mCustomeService.getCharacteristic( UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G3  )   ;
+            for (BluetoothGattCharacteristic gattCharacteristic : mCustomeService.getCharacteristics() ){
+                // ___________________Voltage characteristics_______________________
+                if (gattCharacteristic.getUuid().toString().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G1) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G1_INSTANCE ){
+                    mCharacteristicVoltageG1 =gattCharacteristic ;
+                }
+
+                if (gattCharacteristic.getUuid().toString().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G2) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G2_INSTANCE ){
+                    mCharacteristicVoltageG2 =gattCharacteristic ;
+                }
+
+                if (gattCharacteristic.getUuid().toString().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G3) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G3_INSTANCE ){
+                    mCharacteristicVoltageG3 =gattCharacteristic ;
+                }
+
+                // ___________________________Current Characteristics _____________________________
+
+                if (gattCharacteristic.getUuid().toString().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G1) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G1_INSTANCE ){
+                    mCharacteristicCurrentG1 =gattCharacteristic ;
+                }
+
+                if (gattCharacteristic.getUuid().toString().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G2) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G2_INSTANCE ){
+                    mCharacteristicCurrentG2 =gattCharacteristic ;
+                }
+
+                if (gattCharacteristic.getUuid().toString().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G3) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G3_INSTANCE ){
+                    mCharacteristicCurrentG3 =gattCharacteristic ;
+                }
 
 
-            // Current Characteristics
-            mCharacteristicCurrentG1 = mCustomeService.getCharacteristic(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G1 );
-            mCharacteristicCurrentG2 = mCustomeService.getCharacteristic(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G2 );
-            mCharacteristicCurrentG3 = mCustomeService.getCharacteristic(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G3 );
+                if (gattCharacteristic.getUuid().toString().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_D) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_D_INSTANCE ){
+                    mCharacteristicCurrentD =gattCharacteristic ;
+                }
 
-            mCharacteristicCurrentD = mCustomeService.getCharacteristic(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_D );
+            }
+
 
             registerReceiver( mGattUpdateReceiver, Utils.makeGattUpdateIntentFilter());
 
@@ -101,8 +132,32 @@ public class CustomService extends Service {
         public void run() {
             Log.i(TAG , "Run starting")  ;
 
-            // read current of channel D
-             prepareBroadcastDataRead(mCharacteristicCurrentD);
+            switch (mCurrentVoltageChannel){
+
+                case 1 :
+                    // read  G1
+                    prepareBroadcastDataRead(mCharacteristicCurrentD);
+                    prepareBroadcastDataRead(mCharacteristicCurrentG1);
+                    prepareBroadcastDataRead(mCharacteristicVoltageG1);
+                    break;
+
+                case 2 :
+                    // read  G2
+                    prepareBroadcastDataRead(mCharacteristicCurrentD);
+                    prepareBroadcastDataRead(mCharacteristicCurrentG2);
+                    prepareBroadcastDataRead(mCharacteristicVoltageG2);
+                    break;
+
+                case 3 :
+                    // read  G1
+                    // read  G2
+                    prepareBroadcastDataRead(mCharacteristicCurrentD);
+                    prepareBroadcastDataRead(mCharacteristicCurrentG3);
+                    prepareBroadcastDataRead(mCharacteristicVoltageG3);
+                    break;
+
+
+            }
 
              mHandler.postDelayed(this ,MINIMUM_DURATION_OF_READING_VOLTAGE ) ;
         }
@@ -179,19 +234,24 @@ public class CustomService extends Service {
                         // characteristic of current D
                         if (receivedCharacteristicUUID.equals(mCharacteristicCurrentD.getUuid().toString()) &&
                                 receivedCharacteristicInstanceId== mCharacteristicCurrentD.getInstanceId() ){
+                            Log.i(TAG , "receive Current D") ;
                             handleCurrentOfD(array);
+
                         }
                         if (receivedCharacteristicUUID.equals(mCharacteristicCurrentG1.getUuid().toString()) &&
                                 receivedCharacteristicInstanceId == mCharacteristicCurrentG1.getInstanceId() ){
+                            Log.i(TAG , "receive Current G1") ;
                             handleCurrentOfG1(array);
                         }
                         if (receivedCharacteristicUUID.equals(mCharacteristicCurrentG2.getUuid().toString()) &&
                                 receivedCharacteristicInstanceId == mCharacteristicCurrentG2.getInstanceId() ){
+                            Log.i(TAG , "receive Current G2") ;
                             handleCurrentOfG2(array);
                         }
 
                         if (receivedCharacteristicUUID.equals(mCharacteristicCurrentG3.getUuid().toString()) &&
                                 receivedCharacteristicInstanceId == mCharacteristicCurrentG3.getInstanceId() ){
+                            Log.i(TAG , "receive Current G3") ;
                             handleCurrentOfG3(array);
                         }
 
@@ -199,13 +259,14 @@ public class CustomService extends Service {
                         // characteristic of voltage of g1
                         if (receivedCharacteristicUUID.equals(mCharacteristicVoltageG1.getUuid().toString()) &&
                                 receivedCharacteristicInstanceId== mCharacteristicVoltageG1.getInstanceId() ){
-
+                            Log.i(TAG , "receive Voltage G1") ;
                             // this voltage of G1
                             handleVoltageG1(array);
                         }
 
                         if (receivedCharacteristicUUID.equals(mCharacteristicVoltageG2.getUuid().toString()) &&
                                 receivedCharacteristicInstanceId== mCharacteristicVoltageG2.getInstanceId() ){
+                            Log.i(TAG , "receive Voltage G2") ;
                             // this Voltage of G2
                             handleVoltageG2(array);
                         }
@@ -213,6 +274,7 @@ public class CustomService extends Service {
 
                         if (receivedCharacteristicUUID.equals(mCharacteristicVoltageG3.getUuid().toString()) &&
                                 receivedCharacteristicInstanceId== mCharacteristicVoltageG3.getInstanceId() ){
+                            Log.i(TAG , "receive Voltage G3") ;
                             // this Voltage of G3
                             handleVoltageG3(array);
 
@@ -366,25 +428,7 @@ public class CustomService extends Service {
         Log.i(TAG  , "Current of D : " + mHexCurrentD );
 
 
-       switch (mCurrentVoltageChannel){
 
-           case 1 :
-               // read current of G1
-               prepareBroadcastDataRead(mCharacteristicCurrentG1);
-               break;
-
-           case 2 :
-               // read current of G2
-               prepareBroadcastDataRead(mCharacteristicCurrentG2);
-               break;
-
-           case 3 :
-               // read current of G3
-               prepareBroadcastDataRead(mCharacteristicCurrentG3);
-               break;
-
-
-       }
     }
     private void handleCurrentOfG1 (byte [] array ){
 
@@ -392,7 +436,6 @@ public class CustomService extends Service {
         // mHexCurrentG1 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG1= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG1) ;
         Log.i(TAG  , "Current of G1 : " + mHexCurrentG1);
-        prepareBroadcastDataRead(mCharacteristicVoltageG1);
     }
     private void handleCurrentOfG2 (byte [] array ){
 
@@ -400,7 +443,6 @@ public class CustomService extends Service {
         //  mHexCurrentG2 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG2= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG2) ;
         Log.i(TAG  , "Current of G2 : " + mHexCurrentG2);
-        prepareBroadcastDataRead(mCharacteristicVoltageG2);
     }
 
     private void handleCurrentOfG3 (byte [] array) {
@@ -409,7 +451,6 @@ public class CustomService extends Service {
         // mHexCurrentG3 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG3= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG3) ;
         Log.i(TAG  , "Current of G3 : " + mHexCurrentG3);
-        prepareBroadcastDataRead(mCharacteristicVoltageG3);
     }
 
 }
