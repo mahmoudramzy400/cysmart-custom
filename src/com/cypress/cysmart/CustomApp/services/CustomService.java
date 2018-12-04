@@ -101,30 +101,10 @@ public class CustomService extends Service {
         public void run() {
             Log.i(TAG , "Run starting")  ;
 
-            switch (mCurrentVoltageChannel){
-                case 1 :
-                    // read voltage of channel G1
-                    prepareBroadcastDataRead(mCharacteristicVoltageG1);
-                    // read current of channel D G1
-                    prepareBroadcastDataRead(mCharacteristicCurrentD);
-                    prepareBroadcastDataRead(mCharacteristicCurrentG1);
-                    break;
-                case 2 :
-                    // read voltage of channel G2
-                    prepareBroadcastDataRead(mCharacteristicVoltageG2);
-                    // read current of channel D G2
-                    prepareBroadcastDataRead(mCharacteristicCurrentD);
-                    prepareBroadcastDataRead(mCharacteristicCurrentG2);
-                    break;
-                case 3 :
-                    // read voltage of channel G3
-                    prepareBroadcastDataRead(mCharacteristicVoltageG3);
-                    // read current of channel D G3
-                    prepareBroadcastDataRead(mCharacteristicCurrentD);
-                    prepareBroadcastDataRead(mCharacteristicCurrentG3);
-                    break;
-            }
-            mHandler.postDelayed(this ,MINIMUM_DURATION_OF_READING_VOLTAGE ) ;
+            // read current of channel D
+             prepareBroadcastDataRead(mCharacteristicCurrentD);
+
+             mHandler.postDelayed(this ,MINIMUM_DURATION_OF_READING_VOLTAGE ) ;
         }
     } ;
 
@@ -253,7 +233,7 @@ public class CustomService extends Service {
 
 
         //   int hexaValue = Utils.ByteArraytoHexInt( value );
-        int hexaValue =  Utils.getCustomeCharValue(mCharacteristicVoltageG1) ;
+        int hexaValue =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG1)/1000 ;
         Log.i(TAG  , "Voltage of G1 : " + hexaValue ) ;
 
         if (hexaValue >0 ){
@@ -293,7 +273,7 @@ public class CustomService extends Service {
     private void handleVoltageG2 (byte[] value){
 
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
-        int hexaValue =  Utils.getCustomeCharValue(mCharacteristicVoltageG2) ;
+        int hexaValue =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG2)/1000 ;
         Log.i(TAG  , "Voltage of G2 : " + hexaValue) ;
 
 
@@ -336,7 +316,7 @@ public class CustomService extends Service {
     private void handleVoltageG3 (byte[] value){
 
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
-        int hexaValue =  Utils.getCustomeCharValue(mCharacteristicVoltageG3) ;
+        int hexaValue =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG3)/1000 ;
         Log.i(TAG  , "Voltage of G3 : " + hexaValue) ;
         if (hexaValue >0 ){
 
@@ -382,30 +362,54 @@ public class CustomService extends Service {
 
 
         // mHexCurrentD = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentD= Utils.getCustomeCharValue(mCharacteristicCurrentD) ;
+        mHexCurrentD= Utils.getCustomCharacteristicValue(mCharacteristicCurrentD) ;
         Log.i(TAG  , "Current of D : " + mHexCurrentD );
+
+
+       switch (mCurrentVoltageChannel){
+
+           case 1 :
+               // read current of G1
+               prepareBroadcastDataRead(mCharacteristicCurrentG1);
+               break;
+
+           case 2 :
+               // read current of G2
+               prepareBroadcastDataRead(mCharacteristicCurrentG2);
+               break;
+
+           case 3 :
+               // read current of G3
+               prepareBroadcastDataRead(mCharacteristicCurrentG3);
+               break;
+
+
+       }
     }
     private void handleCurrentOfG1 (byte [] array ){
 
 
         // mHexCurrentG1 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG1= Utils.getCustomeCharValue(mCharacteristicCurrentG1) ;
+        mHexCurrentG1= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG1) ;
         Log.i(TAG  , "Current of G1 : " + mHexCurrentG1);
+        prepareBroadcastDataRead(mCharacteristicVoltageG1);
     }
     private void handleCurrentOfG2 (byte [] array ){
 
 
         //  mHexCurrentG2 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG2= Utils.getCustomeCharValue(mCharacteristicCurrentG2) ;
+        mHexCurrentG2= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG2) ;
         Log.i(TAG  , "Current of G2 : " + mHexCurrentG2);
+        prepareBroadcastDataRead(mCharacteristicVoltageG2);
     }
 
     private void handleCurrentOfG3 (byte [] array) {
 
 
         // mHexCurrentG3 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG3= Utils.getCustomeCharValue(mCharacteristicCurrentG3) ;
+        mHexCurrentG3= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG3) ;
         Log.i(TAG  , "Current of G3 : " + mHexCurrentG3);
+        prepareBroadcastDataRead(mCharacteristicVoltageG3);
     }
 
 }
