@@ -19,7 +19,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
+  <component name="NewModuleRootManager">
     <output url="file://$MODULE_DIR$/build/intermediates/javac/debug/compileDebugJavaWithJavac/classes" />
     <output-test url="file://$MODULE_DIR$/build/intermediates/javac/debugUnitTest/compileDebugUnitTestJavaWithJavac/classes" />
     <exclude-output />
@@ -65,13 +65,6 @@
       <sourceFolder url="file://$MODULE_DIR$/assets" type="java-resource" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/main/shaders" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
-      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/res" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/tests/resources" type="java-test-resource" />
       <sourceFolder url="file://$MODULE_DIR$/tests/assets" type="java-test-resource" />
@@ -79,6 +72,13 @@
       <sourceFolder url="file://$MODULE_DIR$/tests/java" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/rs" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests/shaders" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/res" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/resources" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/assets" type="java-test-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/aidl" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/java" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/rs" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/src/test/shaders" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/annotation_processor_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/apk_list" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/blame" />
@@ -117,10 +117,11 @@
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
       <excludeFolder url="file://$MODULE_DIR$/build/tmp" />
     </content>
-    <orderEntry type="jdk" jdkName="Android API 26 Platform" jdkType="Android SDK" />
+    <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\utente\Desktop\android studio\src\libs\android-support-v4.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\utente\Desktop\android studio\src\libs\Android-WebRequest.jar:unspecified@jar" level="project" />
-    <orderEntry type="library" name="Gradle: __local_aars__:C.\Users\utente\Desktop\android studio\src\libs\achartengine-1.0.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\Software Engineering\android development\AndroidStudioProjects\src\libs\Android-WebRequest.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\Software Engineering\android development\AndroidStudioProjects\src\libs\achartengine-1.0.0.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: __local_aars__:E.\Software Engineering\android development\AndroidStudioProjects\src\libs\android-support-v4.jar:unspecified@jar" level="project" />
+    <orderEntry type="library" name="Gradle: android-android-26" level="project" />
   </component>
 </module>

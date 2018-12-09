@@ -51,6 +51,9 @@ public class GattAttributes {
     public static final String CHARACTERISTIC_SHUNT_VOL_D       = "c73e6128-2c25-46fe-8cfa-dbe4750af915" ;
     public static final int CHARACTERISTIC_SHUNT_VOL_D_INSTANCE = 3 ;
 
+    //_____________________________________ Time characteristic ____________________________
+    public static final String CHARACTERISTIC_TIME ="c73e6128-2c25-46fe-8cfa-dbe4750af912" ;
+    public static final int CHARACTERISTIC_TIME_INSTANCE =  0 ;
 
     // _______________________________________ Our service _________________________
     public static final String CUSTOM_SERVICE                   = "c73e6128-2c25-46fe-8cfa-dbe4750af910" ;

@@ -34,6 +34,7 @@ public class CustomService extends Service {
     private BluetoothGattCharacteristic mCharacteristicCurrentG1 ,
             mCharacteristicCurrentG2 ,
             mCharacteristicCurrentG3 ;
+    private BluetoothGattCharacteristic mCharacteristicTime ;
 
     private BluetoothGattCharacteristic mCharacteristicCurrentD ;
 
@@ -44,11 +45,16 @@ public class CustomService extends Service {
     private CycleChannelG3 mCurrentCycleG3 = new CycleChannelG3()  ;
 
 
-    private int mHexCurrentG1 = 0 ;
-    private int mHexCurrentG2 = 0 ;
-    private int mHexCurrentG3 = 0 ;
-    private int mHexCurrentD =  0 ;
-    private int mCurrentVoltageChannel = 1 ;
+    private int mHexCurrentG1  = 0 ;
+    private int mHexCurrentG2  = 0 ;
+    private int mHexCurrentG3  = 0 ;
+    private int mHexCurrentD   = 0 ;
+    private int mHexVoltageG1  = 0 ;
+    private int mHexVoltageG2 = 0 ;
+    private int mHexVoltageG3 = 0 ;
+    private long mCurrentTime  = 0 ;
+    private int mCurrentChannel= 1 ;
+
     private Handler mHandler = new Handler() ;
     @Nullable
     @Override
@@ -105,6 +111,11 @@ public class CustomService extends Service {
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_D) &&
                         gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_D_INSTANCE ){
                     mCharacteristicCurrentD =gattCharacteristic ;
+                }
+
+                if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_TIME) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_TIME_INSTANCE ) {
+                    mCharacteristicTime = gattCharacteristic ;
                 }
 
             }
@@ -245,6 +256,12 @@ public class CustomService extends Service {
                             handleVoltageG3(array);
 
                         }
+
+                        //________________________Handle Time __________________________________
+                        if (receivedCharacteristicUUID.equals(mCharacteristicTime.getUuid().toString() ) &&
+                                receivedCharacteristicInstanceId == mCharacteristicTime.getInstanceId() ){
+                            handleTime (array) ;
+                        }
                     }
 
                 }
@@ -261,124 +278,33 @@ public class CustomService extends Service {
 
 
         //   int hexaValue = Utils.ByteArraytoHexInt( value );
-        int hexaValue =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG1) ;
-        Log.i(TAG  , "Voltage of G1 : " + hexaValue ) ;
+        mHexVoltageG1 =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG1) ;
+        prepareBroadcastDataRead(mCharacteristicTime);
 
-        if (hexaValue >0 ){
+        mCurrentChannel = 2 ;
 
-            // check if that is max hex value to get ld and lg
-            if (hexaValue >= mCurrentCycleG1.getMaxVoltage() && !mCurrentCycleG1.isLdsSeted() && !mCurrentCycleG1.isLgsSeted() ){
-                // the voltage is increased
-                mCurrentCycleG1.setMaxVoltage( hexaValue );
-            }else {
-
-                // the voltage start decreasing
-                mCurrentCycleG1.setLds(mHexCurrentD);
-                mCurrentCycleG1.setLgs(mHexCurrentG1);
-                // we set  lgs and lds
-                mCurrentCycleG1.setLgsSeted(true);
-                mCurrentCycleG1.setLdsSeted(true);
-                Log.i(TAG  , "ChannelG1 lds = " +mHexCurrentD ) ;
-                Log.i(TAG ,  "ChannelG1 lgs =" + mHexCurrentG1 ) ;
-
-            }
-
-
-        }else{
-            // Switch to next channel
-            mCurrentVoltageChannel =2 ;
-        }
-
-        if (hexaValue == 0 ){
-            // The voltage of g1 of get last d  and g (lgs0 , lds0 )
-            mCurrentCycleG1.setLds0( mHexCurrentD );
-            mCurrentCycleG1.setLgs0( mHexCurrentG1 );
-            Log.i(TAG , "ChannelG1 lds0 = "+ mHexCurrentD ) ;
-            Log.i(TAG , "ChannelG1 lgs0 = "+mHexCurrentG1 );
-        }
     }
 
     private void handleVoltageG2 (byte[] value){
 
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
-        int hexaValue =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG2) ;
-        Log.i(TAG  , "Voltage of G2 : " + hexaValue) ;
+        mHexVoltageG2 =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG2) ;
+        prepareBroadcastDataRead(mCharacteristicTime);
+
+        mCurrentChannel = 3 ;
 
 
-        if (hexaValue >0 ){
-
-            // check if that is max hex value to get ld and lg
-            if (hexaValue >= mCurrentCycleG2.getMaxVoltage() && !mCurrentCycleG2.isLdsSeted() && !mCurrentCycleG2.isLgsSeted() ){
-                // the voltage is increased
-                mCurrentCycleG2.setMaxVoltage( hexaValue );
-            }else {
-
-                // the voltage start decreasing
-                mCurrentCycleG2.setLds(mHexCurrentD);
-                mCurrentCycleG2.setLgs(mHexCurrentG2);
-                // we set  lgs and lds
-                mCurrentCycleG2.setLgsSeted(true);
-                mCurrentCycleG2.setLdsSeted(true);
-                Log.i(TAG  , "ChannelG2 lds = " +mHexCurrentD ) ;
-                Log.i(TAG ,  "ChannelG2 lgs =" + mHexCurrentG2 ) ;
-
-            }
-
-
-        }else{
-            // Switch to next channel
-            mCurrentVoltageChannel =3 ;
-        }
-
-        if (hexaValue == 0 ){
-            // The voltage of g1 of get last d  and g (lgs0 , lds0 )
-            mCurrentCycleG2.setLds0( mHexCurrentD );
-            mCurrentCycleG2.setLgs0( mHexCurrentG2 );
-
-            Log.i(TAG , "ChannelG2 lds0 = "+ mHexCurrentD ) ;
-            Log.i(TAG , "ChannelG2 lgs0 = "+mHexCurrentG2 );
-        }
 
     }
 
     private void handleVoltageG3 (byte[] value){
 
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
-        int hexaValue =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG3) ;
-        Log.i(TAG  , "Voltage of G3 : " + hexaValue) ;
-        if (hexaValue >0 ){
+        mHexVoltageG3 =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG3) ;
+        prepareBroadcastDataRead(mCharacteristicTime);
 
-            // check if that is max hex value to get ld and lg
-            if (hexaValue >= mCurrentCycleG3.getMaxVoltage() && !mCurrentCycleG3.isLdsSeted() && !mCurrentCycleG3.isLgsSeted() ){
-                // the voltage is increased
-                mCurrentCycleG3.setMaxVoltage( hexaValue );
-            }else {
+        mCurrentChannel = 1 ;
 
-                // the voltage start decreasing
-                mCurrentCycleG3.setLds(mHexCurrentD);
-                mCurrentCycleG3.setLgs(mHexCurrentG3);
-                // we set  lgs and lds
-                mCurrentCycleG3.setLgsSeted(true);
-                mCurrentCycleG3.setLdsSeted(true);
-                Log.i(TAG  , "ChannelG3 lds = " +mHexCurrentD ) ;
-                Log.i(TAG ,  "ChannelG3 lgs =" + mHexCurrentG3 ) ;
-
-            }
-
-
-        }else{
-            // Switch to next channel
-            mCurrentVoltageChannel =1 ;
-        }
-
-        if (hexaValue == 0 ){
-            // The voltage of g1 of get last d  and g (lgs0 , lds0 )
-            mCurrentCycleG3.setLds0( mHexCurrentD );
-            mCurrentCycleG3.setLgs0( mHexCurrentG3 );
-
-            Log.i(TAG , "ChannelG3 lds0 = "+ mHexCurrentD ) ;
-            Log.i(TAG , "ChannelG3 lgs0 = "+mHexCurrentG3  );
-        }
     }
 
 
@@ -391,9 +317,8 @@ public class CustomService extends Service {
 
         // mHexCurrentD = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentD= Utils.getCustomCharacteristicValue(mCharacteristicCurrentD) ;
-        Log.i(TAG  , "Current of D : " + mHexCurrentD );
 
-        switch (mCurrentVoltageChannel){
+        switch (mCurrentChannel){
 
             case 1 :
                 // read  G1
@@ -421,7 +346,6 @@ public class CustomService extends Service {
 
         // mHexCurrentG1 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG1= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG1) ;
-        Log.i(TAG  , "Current of G1 : " + mHexCurrentG1);
         prepareBroadcastDataRead(mCharacteristicVoltageG1);
     }
     private void handleCurrentOfG2 (byte [] array ){
@@ -429,7 +353,6 @@ public class CustomService extends Service {
 
         //  mHexCurrentG2 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG2= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG2) ;
-        Log.i(TAG  , "Current of G2 : " + mHexCurrentG2);
         prepareBroadcastDataRead(mCharacteristicVoltageG2);
     }
 
@@ -438,8 +361,31 @@ public class CustomService extends Service {
 
         // mHexCurrentG3 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG3= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG3) ;
-        Log.i(TAG  , "Current of G3 : " + mHexCurrentG3);
+
         prepareBroadcastDataRead(mCharacteristicVoltageG3);
+    }
+
+
+    private void handleTime(byte [] array ) {
+
+        // get time
+        mCurrentTime = Utils.getCustomCharacteristicValue(mCharacteristicTime ) ;
+
+        switch (mCurrentChannel){
+            case 1 :
+                Log.i(TAG , "time :" + mCurrentTime + " | Current of D :" +mHexCurrentD + " | current of G1 : " + mHexCurrentG1 + " |Voltage of G1: " +mHexVoltageG1) ;
+                break;
+
+            case 2 :
+                Log.i(TAG , "time :" + mCurrentTime + " | Current of D :" +mHexCurrentD + " | current of G2 : " + mHexCurrentG2 + " |Voltage of G2: " +mHexVoltageG2) ;
+                break;
+
+            case 3 :
+                Log.i(TAG , "time :" + mCurrentTime + " | Current of D :" +mHexCurrentD + " | current of G3 : " + mHexCurrentG3 + " |Voltage of G3: " +mHexVoltageG3) ;
+                break;
+        }
+
+
     }
 
 }

@@ -42,6 +42,8 @@ public class UUIDDatabase {
 
     public static final UUID UUID_CHARACTERISTIC_SHUNT_VOL_D       = UUID.fromString(GattAttributes.CHARACTERISTIC_SHUNT_VOL_D ) ;
 
+    //______________________________Time Channel ________________________________
+    public static final UUID UUID_CHARACTERISTIC_TIME = UUID.fromString(GattAttributes.CHARACTERISTIC_TIME) ;
 
     // _______________________________________ Our service _________________________
 
