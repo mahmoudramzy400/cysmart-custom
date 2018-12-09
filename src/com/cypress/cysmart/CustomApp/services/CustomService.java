@@ -75,17 +75,17 @@ public class CustomService extends Service {
 
             for (BluetoothGattCharacteristic gattCharacteristic : mCustomeService.getCharacteristics() ){
                 // ___________________Voltage characteristics_______________________
-                if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G1) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G1_INSTANCE ){
+                if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_BUS_VOL_G1) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G1_INSTANCE ){
                     mCharacteristicVoltageG1 =gattCharacteristic ;
                 }
 
-                if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G2) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G2_INSTANCE ){
+                if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_BUS_VOL_G2) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G2_INSTANCE ){
                     mCharacteristicVoltageG2 =gattCharacteristic ;
                 }
 
-                if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G3) &&
+                if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_BUS_VOL_D) &&
                         gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G3_INSTANCE ){
                     mCharacteristicVoltageG3 =gattCharacteristic ;
                 }
@@ -278,7 +278,7 @@ public class CustomService extends Service {
 
 
         //   int hexaValue = Utils.ByteArraytoHexInt( value );
-        mHexVoltageG1 =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG1) ;
+        mHexVoltageG1 =  Utils.getVoltageValue(mCharacteristicVoltageG1) ;
         prepareBroadcastDataRead(mCharacteristicTime);
 
         mCurrentChannel = 2 ;
@@ -288,7 +288,7 @@ public class CustomService extends Service {
     private void handleVoltageG2 (byte[] value){
 
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
-        mHexVoltageG2 =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG2) ;
+        mHexVoltageG2 =  Utils.getVoltageValue(mCharacteristicVoltageG2) ;
         prepareBroadcastDataRead(mCharacteristicTime);
 
         mCurrentChannel = 3 ;
@@ -300,7 +300,7 @@ public class CustomService extends Service {
     private void handleVoltageG3 (byte[] value){
 
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
-        mHexVoltageG3 =  Utils.getCustomCharacteristicValue(mCharacteristicVoltageG3) ;
+        mHexVoltageG3 =  Utils.getVoltageValue(mCharacteristicVoltageG3) ;
         prepareBroadcastDataRead(mCharacteristicTime);
 
         mCurrentChannel = 1 ;
@@ -316,7 +316,7 @@ public class CustomService extends Service {
 
 
         // mHexCurrentD = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentD= Utils.getCustomCharacteristicValue(mCharacteristicCurrentD) ;
+        mHexCurrentD= Utils.getCurrentValue(mCharacteristicCurrentD) ;
 
         switch (mCurrentChannel){
 
@@ -345,14 +345,14 @@ public class CustomService extends Service {
 
 
         // mHexCurrentG1 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG1= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG1) ;
+        mHexCurrentG1= Utils.getCurrentValue(mCharacteristicCurrentG1) ;
         prepareBroadcastDataRead(mCharacteristicVoltageG1);
     }
     private void handleCurrentOfG2 (byte [] array ){
 
 
         //  mHexCurrentG2 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG2= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG2) ;
+        mHexCurrentG2= Utils.getCurrentValue(mCharacteristicCurrentG2) ;
         prepareBroadcastDataRead(mCharacteristicVoltageG2);
     }
 
@@ -360,7 +360,7 @@ public class CustomService extends Service {
 
 
         // mHexCurrentG3 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG3= Utils.getCustomCharacteristicValue(mCharacteristicCurrentG3) ;
+        mHexCurrentG3= Utils.getCurrentValue(mCharacteristicCurrentG3) ;
 
         prepareBroadcastDataRead(mCharacteristicVoltageG3);
     }
@@ -369,7 +369,7 @@ public class CustomService extends Service {
     private void handleTime(byte [] array ) {
 
         // get time
-        mCurrentTime = Utils.getCustomCharacteristicValue(mCharacteristicTime ) ;
+        mCurrentTime = Utils.getTimeCharacteristicValue( mCharacteristicTime ) ;
 
         switch (mCurrentChannel){
             case 1 :
