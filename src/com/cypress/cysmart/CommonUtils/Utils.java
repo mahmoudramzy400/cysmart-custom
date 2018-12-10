@@ -739,19 +739,5 @@ public class Utils {
     }
 
 
-    public static int getVoltageValue(BluetoothGattCharacteristic characteristic) {
-        int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT16, 1);
-        return customeValue;
 
-    }
-    public static int getCurrentValue(BluetoothGattCharacteristic characteristic) {
-        int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 1);
-        return customeValue;
-
-    }
-    public static int getTimeCharacteristicValue(BluetoothGattCharacteristic characteristic) {
-        int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT32, 4);
-        return customeValue;
-
-    }
 }
