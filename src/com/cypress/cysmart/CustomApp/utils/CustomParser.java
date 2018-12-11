@@ -4,6 +4,14 @@ import android.bluetooth.BluetoothGattCharacteristic;
 
 public class CustomParser {
 
+    private static int uint8 = 0x04;
+
+    private static  int uint16 = 0x06;
+
+    private static int sint8  = 0x0C ;
+
+    private static int sint16 = 0x0E ;
+
     private CustomParser() {
 
     }
@@ -11,7 +19,8 @@ public class CustomParser {
     Get value of shunt voltage
      */
     public static int getShuntVoltage(BluetoothGattCharacteristic characteristic) {
-        int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 1);
+       // int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 1);
+        int customeValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_SINT16, 0);
         return customeValue ;
 
     }
@@ -19,7 +28,7 @@ public class CustomParser {
     Get value of current
      */
     public static int getCurrentValue(BluetoothGattCharacteristic characteristic) {
-        int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 1);
+        int customeValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_SINT16 , 0);
         return customeValue;
 
     }
@@ -28,7 +37,7 @@ public class CustomParser {
      */
     public static int getButVoltage (BluetoothGattCharacteristic characteristic ){
 
-        int customValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8 , 1) ;
+        int customValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_UINT16 , 0) ;
 
         return  customValue ;
     }
