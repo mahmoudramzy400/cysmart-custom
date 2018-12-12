@@ -48,6 +48,8 @@ public class CustomService extends Service {
 
     // current of D
     private BluetoothGattCharacteristic mCharacteristicCurrentD;
+    // bus of D
+    private BluetoothGattCharacteristic mCharacteristicBusD ;
 
     private BluetoothGattService mCustomeService;
 
@@ -67,6 +69,7 @@ public class CustomService extends Service {
     private int mHexBusG2 = 0;
     private int mHexBusG3 = 0;
     private long mCurrentTime = 0;
+    private long mHexBusD = 0;
     private int mCurrentChannelVoltageOn = -1;
 
     private Handler mHandler = new Handler();
@@ -145,6 +148,10 @@ public class CustomService extends Service {
                     mCharacteristicCurrentD = gattCharacteristic;
                 }
 
+                if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_BUS_VOL_D) &&
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_D_INSTANCE) {
+                    mCharacteristicBusD = gattCharacteristic;
+                }
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_TIME) &&
                         gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_TIME_INSTANCE) {
                     mCharacteristicTime = gattCharacteristic;
@@ -305,6 +312,13 @@ public class CustomService extends Service {
                             handleBusG3(array);
 
                         }
+
+                        if (receivedCharacteristicUUID.equals(mCharacteristicBusD.getUuid().toString()) &&
+                                receivedCharacteristicInstanceId == mCharacteristicBusD.getInstanceId()) {
+                            // this bus of D
+                            handleBusD(array);
+
+                        }
                         //________________________Handle Time __________________________________
                         if (receivedCharacteristicUUID.equals(mCharacteristicTime.getUuid().toString()) &&
                                 receivedCharacteristicInstanceId == mCharacteristicTime.getInstanceId()) {
@@ -438,8 +452,15 @@ public class CustomService extends Service {
 
         // mHexCurrentD = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentD = CustomParser.getCurrentValue(mCharacteristicCurrentD);
-        prepareBroadcastDataRead(mCharacteristicTime);
+        prepareBroadcastDataRead(mCharacteristicBusD);
 
+
+    }
+    // ____________________________ Handle bus of D ______________________________
+    private void handleBusD(byte [] array ){
+
+        mHexBusD = CustomParser.getButVoltage(mCharacteristicBusD ) ;
+        prepareBroadcastDataRead(mCharacteristicTime);
 
     }
 
@@ -450,15 +471,30 @@ public class CustomService extends Service {
 
         switch (mCurrentChannelVoltageOn) {
             case 1:
-                Log.i(TAG, "time :" + mCurrentTime + " | Current of D :" + mHexCurrentD + " | current of G1 : " + mHexCurrentG1 + " |Voltage of G1: " + mHexVoltageG1 + " | Bus: "+mHexBusG1);
+                Log.i(TAG, "time :"      + mCurrentTime  +
+                        " | Current of D :"   + mHexCurrentD  +
+                        " | current of G1 :" + mHexCurrentG1 +
+                        " | Voltage of G1: "  + mHexVoltageG1 +
+                        " | Bus: "            + mHexBusG1     +
+                        " | Bus of D :"       + mHexBusD      );
                 break;
 
             case 2:
-                Log.i(TAG, "time :" + mCurrentTime + " | Current of D :" + mHexCurrentD + " | current of G2 : " + mHexCurrentG2 + " |Voltage of G2: " + mHexVoltageG2 +" | Bus :" + mHexBusG2);
+                Log.i(TAG, " time :"             + mCurrentTime  +
+                                " | Current of D :"   + mHexCurrentD  +
+                                " | current of G2 : " + mHexCurrentG2 +
+                                " | Voltage of G2: "  + mHexVoltageG2 +
+                                " | Bus :"            + mHexBusG2     +
+                                " | Bus of D :"       +mHexBusD        );
                 break;
 
             case 3:
-                Log.i(TAG, "time :" + mCurrentTime + " | Current of D :" + mHexCurrentD + " | current of G3 : " + mHexCurrentG3 + " |Voltage of G3: " + mHexVoltageG3 +" | Bus :" + mHexBusG3);
+                Log.i(TAG, "time :"                + mCurrentTime  +
+                                " | Current of D :"     + mHexCurrentD  +
+                                " | current of G3 :"    + mHexCurrentG3 +
+                                " | Voltage of G3: "    + mHexVoltageG3 +
+                                " | Bus :"              + mHexBusG3     +
+                                " |Bus of D :"          + mHexBusD     );
                 break;
         }
 
