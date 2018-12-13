@@ -49,7 +49,7 @@ public class CustomService extends Service {
     // current of D
     private BluetoothGattCharacteristic mCharacteristicCurrentD;
     // bus of D
-    private BluetoothGattCharacteristic mCharacteristicBusD ;
+    private BluetoothGattCharacteristic mCharacteristicBusD;
 
     private BluetoothGattService mCustomService;
 
@@ -59,34 +59,34 @@ public class CustomService extends Service {
 
 
     //___________ hex  values of characteristic
-    private String mHexCurrentG1   ;
-    private String mHexCurrentG2   ;
-    private String mHexCurrentG3   ;
-    private String mHexCurrentD    ;
-    private String mHexVoltageG1   ;
-    private String mHexVoltageG2   ;
-    private String mHexVoltageG3   ;
-    private String mHexBusG1       ;
-    private String mHexBusG2       ;
-    private String mHexBusG3       ;
-    private String mHexCurrentTime ;
-    private String mHexBusD        ;
+    private String mHexCurrentG1 = "";
+    private String mHexCurrentG2 = "";
+    private String mHexCurrentG3 = "";
+    private String mHexCurrentD = "";
+    private String mHexVoltageG1 = "";
+    private String mHexVoltageG2 = "";
+    private String mHexVoltageG3 = "";
+    private String mHexBusG1 = "";
+    private String mHexBusG2 = "";
+    private String mHexBusG3 = "";
+    private String mHexCurrentTime = "";
+    private String mHexBusD = "";
 
     //___________ Integer values of characteristic
 
 
-    private int mCurrentG1      = 0;
-    private int mCurrentG2      = 0;
-    private int mCurrentG3      = 0;
-    private int mCurrentD       = 0;
-    private int mVoltageG1      = 0;
-    private int mVoltageG2      = 0;
-    private int mVoltageG3      = 0;
-    private int mBusG1          = 0;
-    private int mBusG2          = 0;
-    private int mBusG3          = 0;
-    private long mCurrentTime   = 0;
-    private long mBusD          = 0;
+    private int mCurrentG1 = 0;
+    private int mCurrentG2 = 0;
+    private int mCurrentG3 = 0;
+    private int mCurrentD = 0;
+    private int mVoltageG1 = 0;
+    private int mVoltageG2 = 0;
+    private int mVoltageG3 = 0;
+    private int mBusG1 = 0;
+    private int mBusG2 = 0;
+    private int mBusG3 = 0;
+    private long mCurrentTime = 0;
+    private long mBusD = 0;
 
 
     private int mCurrentChannelVoltageOn = -1;
@@ -359,7 +359,7 @@ public class CustomService extends Service {
 
         //   int hexValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG1 = CustomParser.byteArraytoHex(value);
-        mVoltageG1 = CustomParser.hexToInteger( mHexVoltageG1 ) ;
+        mVoltageG1 = CustomParser.hexToInteger(mHexVoltageG1);
         prepareBroadcastDataRead(mCharacteristicVoltageG2);
     }
 
@@ -368,7 +368,7 @@ public class CustomService extends Service {
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG2 = CustomParser.byteArraytoHex(value);
 
-        mVoltageG2  = CustomParser.hexToInteger (mHexVoltageG2) ;
+        mVoltageG2 = CustomParser.hexToInteger(mHexVoltageG2);
         prepareBroadcastDataRead(mCharacteristicVoltageG3);
 
 
@@ -379,8 +379,7 @@ public class CustomService extends Service {
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG3 = CustomParser.byteArraytoHex(value);
 
-        mVoltageG3 = CustomParser.hexToInteger (mHexVoltageG3) ;
-
+        mVoltageG3 = CustomParser.hexToInteger(mHexVoltageG3);
         checkCurrentVoltages();
     }
 
@@ -422,25 +421,23 @@ public class CustomService extends Service {
 
     private void handleBusG1(byte[] value) {
 
-
         mHexBusG1 = CustomParser.byteArraytoHex(value);
-        mBusG1     =CustomParser.hexToInteger(mHexBusG1 ) ;
-
+        mBusG1 = CustomParser.hexToInteger(mHexBusG1);
         prepareBroadcastDataRead(mCharacteristicCurrentG1);
     }
 
     private void handleBusG2(byte[] value) {
-       // int customeValue = CustomParser.getButVoltage(mCharacteristicBusVG2) ;
+        // int customeValue = CustomParser.getButVoltage(mCharacteristicBusVG2) ;
         mHexBusG2 = CustomParser.byteArraytoHex(value);
-        mBusG2 = CustomParser.hexToInteger (mHexBusG2) ;
+        mBusG2 = CustomParser.hexToInteger(mHexBusG2);
         prepareBroadcastDataRead(mCharacteristicCurrentG2);
     }
 
     private void handleBusG3(byte[] value) {
 
-      // int customeValue = CustomParser.getButVoltage(mCharacteristicBusVG3) ;
+        // int customeValue = CustomParser.getButVoltage(mCharacteristicBusVG3) ;
         mHexBusG3 = CustomParser.byteArraytoHex(value);
-        mBusG3    =CustomParser.hexToInteger (mHexBusG3) ;
+        mBusG3 = CustomParser.hexToInteger(mHexBusG3);
         prepareBroadcastDataRead(mCharacteristicCurrentG3);
     }
 
@@ -449,8 +446,8 @@ public class CustomService extends Service {
 
 
         // mHexCurrentG1 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG1 =CustomParser.byteArraytoHex( array );
-        mCurrentG1   = CustomParser.hexToInteger (mHexCurrentG1 ) ;
+        mHexCurrentG1 = CustomParser.byteArraytoHex(array);
+        mCurrentG1 = CustomParser.hexToInteger(mHexCurrentG1);
         prepareBroadcastDataRead(mCharacteristicCurrentD);
     }
 
@@ -458,8 +455,8 @@ public class CustomService extends Service {
 
 
         //  mHexCurrentG2 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG2 = CustomParser.byteArraytoHex( array ) ;
-        mCurrentG2    = CustomParser.hexToInteger (mHexCurrentG2) ;
+        mHexCurrentG2 = CustomParser.byteArraytoHex(array);
+        mCurrentG2 = CustomParser.hexToInteger(mHexCurrentG2);
 
         prepareBroadcastDataRead(mCharacteristicCurrentD);
     }
@@ -468,9 +465,8 @@ public class CustomService extends Service {
 
 
         // mHexCurrentG3 = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentG3 = CustomParser.byteArraytoHex( array );
-
-        mCurrentG3    = CustomParser.hexToInteger (mHexCurrentG3) ;
+        mHexCurrentG3 = CustomParser.byteArraytoHex(array);
+        mCurrentG3 = CustomParser.hexToInteger(mHexCurrentG3);
 
         prepareBroadcastDataRead(mCharacteristicCurrentD);
     }
@@ -481,17 +477,19 @@ public class CustomService extends Service {
 
 
         // mHexCurrentD = Utils.ByteArraytoHexInt( array ) ;
-        mHexCurrentD = CustomParser.byteArraytoHex( array ) ;
-        mCurrentD    = CustomParser.hexToInteger ( mHexCurrentD ) ;
+        mHexCurrentD = CustomParser.byteArraytoHex(array);
+        mCurrentD = CustomParser.hexToInteger(mHexCurrentD);
         prepareBroadcastDataRead(mCharacteristicBusD);
 
 
     }
-    // ____________________________ Handle bus of D ______________________________
-    private void handleBusD(byte [] array ){
 
-        mHexBusD =  CustomParser.byteArraytoHex( array ) ;
-        mBusD    = CustomParser.hexToInteger (mHexBusD) ;
+    // ____________________________ Handle bus of D ______________________________
+    private void handleBusD(byte[] array) {
+
+        mHexBusD = CustomParser.byteArraytoHex(array);
+        mBusD = CustomParser.hexToInteger(mHexBusD);
+
         prepareBroadcastDataRead(mCharacteristicTime);
 
     }
@@ -499,66 +497,66 @@ public class CustomService extends Service {
     private void handleTime(byte[] array) {
 
         // get time
-        mHexCurrentTime =CustomParser.byteArraytoHex( array ) ;
+        mHexCurrentTime = CustomParser.byteArraytoHex(array);
 
 
         // Print hex Values
         switch (mCurrentChannelVoltageOn) {
             case 1:
-                Log.i(TAG, "time :"      + mHexCurrentTime +
-                        " | Current of D :"   + mHexCurrentD  +
-                        " | current of G1 :"  + mHexCurrentG1 +
-                        " | Voltage of G1: "  + mHexVoltageG1 +
-                        " | Bus: "            + mHexBusG1     +
-                        " | Bus of D :"       + mHexBusD      );
+                Log.i(TAG, "time :" + mHexCurrentTime +
+                        " | Current of D :" + mHexCurrentD +
+                        " | current of G1 :" + mHexCurrentG1 +
+                        " | Voltage of G1: " + mHexVoltageG1 +
+                        " | Bus: " + mHexBusG1 +
+                        " | Bus of D :" + mHexBusD);
                 break;
 
             case 2:
-                Log.i(TAG, " time :"             + mHexCurrentTime +
-                                " | Current of D :"   + mHexCurrentD  +
-                                " | current of G2 : " + mHexCurrentG2 +
-                                " | Voltage of G2: "  + mHexVoltageG2 +
-                                " | Bus :"            + mHexBusG2     +
-                                " | Bus of D :"       + mHexBusD        );
+                Log.i(TAG, " time :" + mHexCurrentTime +
+                        " | Current of D :" + mHexCurrentD +
+                        " | current of G2 : " + mHexCurrentG2 +
+                        " | Voltage of G2: " + mHexVoltageG2 +
+                        " | Bus :" + mHexBusG2 +
+                        " | Bus of D :" + mHexBusD);
                 break;
 
             case 3:
-                Log.i(TAG, "time :"                + mHexCurrentTime +
-                                " | Current of D :"     + mHexCurrentD  +
-                                " | current of G3 :"    + mHexCurrentG3 +
-                                " | Voltage of G3: "    + mHexVoltageG3 +
-                                " | Bus :"              + mHexBusG3     +
-                                " |Bus of D :"          + mHexBusD     );
+                Log.i(TAG, "time :" + mHexCurrentTime +
+                        " | Current of D :" + mHexCurrentD +
+                        " | current of G3 :" + mHexCurrentG3 +
+                        " | Voltage of G3: " + mHexVoltageG3 +
+                        " | Bus :" + mHexBusG3 +
+                        " |Bus of D :" + mHexBusD);
                 break;
         }
 
         // Print Integer values
         switch (mCurrentChannelVoltageOn) {
             case 1:
-                Log.v(TAG, "time :"      + mHexCurrentTime +
-                        " | Current of D :"   + mCurrentD  +
-                        " | current of G1 :"  + mCurrentG1 +
-                        " | Voltage of G1: "  + mVoltageG1 +
-                        " | Bus: "            + mBusG1     +
-                        " | Bus of D :"       + mBusD      );
+                Log.v(TAG, "time :" + mHexCurrentTime +
+                        " | Current of D :" + mCurrentD +
+                        " | current of G1 :" + mCurrentG1 +
+                        " | Voltage of G1: " + mVoltageG1 +
+                        " | Bus: " + mBusG1 +
+                        " | Bus of D :" + mBusD);
                 break;
 
             case 2:
-                Log.v(TAG, " time :"             + mHexCurrentTime +
-                        " | Current of D :"   + mCurrentD  +
+                Log.v(TAG, " time :" + mHexCurrentTime +
+                        " | Current of D :" + mCurrentD +
                         " | current of G2 : " + mCurrentG2 +
-                        " | Voltage of G2: "  + mVoltageG2 +
-                        " | Bus :"            + mBusG2     +
-                        " | Bus of D :"       + mBusD        );
+                        " | Voltage of G2: " + mVoltageG2 +
+                        " | Bus :" + mBusG2 +
+                        " | Bus of D :" + mBusD);
                 break;
 
             case 3:
-                Log.v(TAG, "time :"                + mHexCurrentTime +
-                        " | Current of D :"     + mCurrentD  +
-                        " | current of G3 :"    + mCurrentG3 +
-                        " | Voltage of G3: "    + mVoltageG3 +
-                        " | Bus :"              + mBusG3     +
-                        " |Bus of D :"          + mBusD     );
+                Log.v(TAG, "time :" + mHexCurrentTime +
+                        " | Current of D :" + mCurrentD +
+                        " | current of G3 :" + mCurrentG3 +
+                        " | Voltage of G3: " + mVoltageG3 +
+                        " | Bus :" + mBusG3 +
+                        " |Bus of D :" + mBusD);
                 break;
         }
 

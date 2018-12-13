@@ -2,6 +2,8 @@ package com.cypress.cysmart.CustomApp.utils;
 
 import android.bluetooth.BluetoothGattCharacteristic;
 
+import java.math.BigInteger;
+
 public class CustomParser {
 
     private static int uint8 = 0x04;
@@ -20,7 +22,7 @@ public class CustomParser {
      */
     public static int getShuntVoltage(BluetoothGattCharacteristic characteristic) {
        // int customeValue = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8, 1);
-        int customeValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_SINT16, 0);
+        int customeValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_SINT8, 1);
         return customeValue ;
 
     }
@@ -28,7 +30,7 @@ public class CustomParser {
     Get value of current
      */
     public static int getCurrentValue(BluetoothGattCharacteristic characteristic) {
-        int customeValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_SINT16 , 0);
+        int customeValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_SINT8 , 1);
         return customeValue;
 
     }
@@ -37,7 +39,7 @@ public class CustomParser {
      */
     public static int getButVoltage (BluetoothGattCharacteristic characteristic ){
 
-        int customValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_UINT16 , 0) ;
+        int customValue = characteristic.getIntValue( BluetoothGattCharacteristic.FORMAT_UINT8 , 1) ;
 
         return  customValue ;
     }
@@ -67,13 +69,26 @@ public class CustomParser {
      */
     public static int hexToInteger (String hex ){
 
-        int decimal = Integer.parseInt(hex, 16);
+        Integer decimal = Integer.parseInt(hex , 16);
 
-        return decimal ;
+        return decimal  ;
     }
 
 
+
+
+
+
     public static String byteArraytoHex(byte[] bytes) {
+        BigInteger bi = new BigInteger(1, bytes);
+        return String.format("%0" + (bytes.length << 1) + "X", bi);
+    }
+
+
+
+
+     /*
+      public static String byteArraytoHex(byte[] bytes) {
         if(bytes!=null){
             StringBuilder sb = new StringBuilder();
             for (byte b : bytes) {
@@ -85,4 +100,5 @@ public class CustomParser {
         return "";
     }
 
+      */
 }

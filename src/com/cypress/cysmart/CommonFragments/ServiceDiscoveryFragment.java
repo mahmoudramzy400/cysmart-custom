@@ -79,7 +79,7 @@ public class ServiceDiscoveryFragment extends Fragment {
                 prepareGattServices(BluetoothLeService.getSupportedGattServices());
 
                 // start our custom service
-               startCustomService();
+                startCustomService();
                 /*
                 / Changes the MTU size to 512 in case LOLLIPOP and above devices
                 */
