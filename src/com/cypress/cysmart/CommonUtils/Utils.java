@@ -226,6 +226,7 @@ public class Utils {
                 sb.append(String.format("%02X ", b));
             }
             return sb.toString();
+
         }
         return "";
     }

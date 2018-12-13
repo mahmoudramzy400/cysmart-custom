@@ -745,13 +745,13 @@ public class BluetoothLeService extends Service {
                 || characteristic.getUuid().equals(UUIDDatabase.UUID_GLUCOSE_MEASUREMENT_CONTEXT)) {
             mBundle.putSparseParcelableArray(Constants.EXTRA_GLUCOSE_MEASUREMENT,
                     GlucoseParser.getGlucoseMeasurement(characteristic));
-            //Logger.e("ON glucose Measurement received..." + Utils.ByteArraytoHex(characteristic.getValue()));
+            //Logger.e("ON glucose Measurement received..." + Utils.byteArraytoHex(characteristic.getValue()));
         }
 //        // Glucose Measurement Context value
 //        else if (characteristic.getUuid().equals(UUIDDatabase.UUID_GLUCOSE_MEASUREMENT_CONTEXT)) {
 //            mBundle.putSparseParcelableArray(Constants.EXTRA_GLUCOSE_MEASUREMENT_CONTEXT,
 //                    GlucoseParser.getGlucoseMeasurement(characteristic));
-//            Logger.e("ON glucose Measurement context received..." + Utils.ByteArraytoHex(characteristic.getValue()));
+//            Logger.e("ON glucose Measurement context received..." + Utils.byteArraytoHex(characteristic.getValue()));
 //        }
         // Glucose RACP
         else if (characteristic.getUuid().equals(UUIDDatabase.UUID_RECORD_ACCESS_CONTROL_POINT)) {

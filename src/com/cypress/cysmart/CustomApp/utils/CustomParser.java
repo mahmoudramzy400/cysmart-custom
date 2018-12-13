@@ -61,4 +61,28 @@ public class CustomParser {
         return  false ;
     }
 
+    /*
+    Convert from hex to integer
+
+     */
+    public static int hexToInteger (String hex ){
+
+        int decimal = Integer.parseInt(hex, 16);
+
+        return decimal ;
+    }
+
+
+    public static String byteArraytoHex(byte[] bytes) {
+        if(bytes!=null){
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bytes) {
+                sb.append(String.format("%02X ", b));
+            }
+            return sb.toString();
+
+        }
+        return "";
+    }
+
 }
