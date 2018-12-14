@@ -359,7 +359,7 @@ public class CustomService extends Service {
 
         //   int hexValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG1 = CustomParser.byteArraytoHex(value);
-        mVoltageG1 = CustomParser.hexToInteger(mHexVoltageG1);
+        mVoltageG1 = CustomParser.bytesToInteger(value );
         prepareBroadcastDataRead(mCharacteristicVoltageG2);
     }
 
@@ -368,8 +368,9 @@ public class CustomService extends Service {
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG2 = CustomParser.byteArraytoHex(value);
 
-        mVoltageG2 = CustomParser.hexToInteger(mHexVoltageG2);
+        mVoltageG2 = CustomParser.bytesToInteger(value );
         prepareBroadcastDataRead(mCharacteristicVoltageG3);
+
 
 
     }
@@ -379,7 +380,7 @@ public class CustomService extends Service {
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG3 = CustomParser.byteArraytoHex(value);
 
-        mVoltageG3 = CustomParser.hexToInteger(mHexVoltageG3);
+        mVoltageG3 = CustomParser.bytesToInteger(value );
         checkCurrentVoltages();
     }
 
@@ -422,14 +423,14 @@ public class CustomService extends Service {
     private void handleBusG1(byte[] value) {
 
         mHexBusG1 = CustomParser.byteArraytoHex(value);
-        mBusG1 = CustomParser.hexToInteger(mHexBusG1);
+        mBusG1 = CustomParser.bytesToInteger(value );
         prepareBroadcastDataRead(mCharacteristicCurrentG1);
     }
 
     private void handleBusG2(byte[] value) {
         // int customeValue = CustomParser.getButVoltage(mCharacteristicBusVG2) ;
         mHexBusG2 = CustomParser.byteArraytoHex(value);
-        mBusG2 = CustomParser.hexToInteger(mHexBusG2);
+        mBusG2 = CustomParser.bytesToInteger(value );
         prepareBroadcastDataRead(mCharacteristicCurrentG2);
     }
 
@@ -437,7 +438,7 @@ public class CustomService extends Service {
 
         // int customeValue = CustomParser.getButVoltage(mCharacteristicBusVG3) ;
         mHexBusG3 = CustomParser.byteArraytoHex(value);
-        mBusG3 = CustomParser.hexToInteger(mHexBusG3);
+        mBusG3 = CustomParser.bytesToInteger(value );
         prepareBroadcastDataRead(mCharacteristicCurrentG3);
     }
 
@@ -447,7 +448,7 @@ public class CustomService extends Service {
 
         // mHexCurrentG1 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG1 = CustomParser.byteArraytoHex(array);
-        mCurrentG1 = CustomParser.hexToInteger(mHexCurrentG1);
+        mCurrentG1 = CustomParser.bytesToInteger(array );
         prepareBroadcastDataRead(mCharacteristicCurrentD);
     }
 
@@ -456,7 +457,7 @@ public class CustomService extends Service {
 
         //  mHexCurrentG2 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG2 = CustomParser.byteArraytoHex(array);
-        mCurrentG2 = CustomParser.hexToInteger(mHexCurrentG2);
+        mCurrentG2 = CustomParser.bytesToInteger(array );
 
         prepareBroadcastDataRead(mCharacteristicCurrentD);
     }
@@ -466,7 +467,7 @@ public class CustomService extends Service {
 
         // mHexCurrentG3 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG3 = CustomParser.byteArraytoHex(array);
-        mCurrentG3 = CustomParser.hexToInteger(mHexCurrentG3);
+        mCurrentG3 = CustomParser.bytesToInteger(array );
 
         prepareBroadcastDataRead(mCharacteristicCurrentD);
     }
@@ -478,7 +479,7 @@ public class CustomService extends Service {
 
         // mHexCurrentD = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentD = CustomParser.byteArraytoHex(array);
-        mCurrentD = CustomParser.hexToInteger(mHexCurrentD);
+        mCurrentD = CustomParser.bytesToInteger(array );
         prepareBroadcastDataRead(mCharacteristicBusD);
 
 
@@ -488,7 +489,7 @@ public class CustomService extends Service {
     private void handleBusD(byte[] array) {
 
         mHexBusD = CustomParser.byteArraytoHex(array);
-        mBusD = CustomParser.hexToInteger(mHexBusD);
+        mBusD = CustomParser.bytesToInteger(array );
 
         prepareBroadcastDataRead(mCharacteristicTime);
 

@@ -87,6 +87,11 @@ public class CustomParser {
 
 
 
+
+    public static int bytesToInteger(byte [] bytes ){
+        return  new BigInteger(bytes).intValue() ;
+    }
+
      /*
       public static String byteArraytoHex(byte[] bytes) {
         if(bytes!=null){
