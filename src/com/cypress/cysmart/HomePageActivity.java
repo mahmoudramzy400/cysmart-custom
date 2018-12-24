@@ -85,6 +85,7 @@ import com.cypress.cysmart.CommonFragments.ServiceDiscoveryFragment;
 import com.cypress.cysmart.CommonUtils.Constants;
 import com.cypress.cysmart.CommonUtils.Logger;
 import com.cypress.cysmart.CommonUtils.Utils;
+import com.cypress.cysmart.CustomApp.ui.channelsdata.ChannelsDataActivity;
 import com.cypress.cysmart.DataLoggerFragments.DataLoggerFragment;
 import com.cypress.cysmart.GATTDBFragments.GattDescriptorFragment;
 import com.cypress.cysmart.GATTDBFragments.GattServicesFragment;
@@ -877,6 +878,10 @@ public class HomePageActivity extends FragmentActivity implements
                     Utils.setBooleanSharedPreference(this, Constants.PREF_PAIR_CACHE_STATUS, true);
                     Toast.makeText(this, getString(R.string.cache) + " enabled", Toast.LENGTH_SHORT).show();
                 }
+
+            case R.id.ic_channels :
+                startActivity(new Intent(this, ChannelsDataActivity.class));
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }

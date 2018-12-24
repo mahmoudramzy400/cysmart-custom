@@ -28,4 +28,10 @@
     <color name="file_read_progress">#751abb00</color>
     <color name="grey">#EFEFF4</color>
     <color name="green">#701ABB00</color>
+
+
+    // custom colors
+    <color name="colorPrimary">#009688</color>
+    <color name="colorPrimaryDark">#00796B</color>
+    <color name="colorAccent">#880E4F</color>
 </resources>

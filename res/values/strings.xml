@@ -444,7 +444,7 @@
     <string name="convert">CONVERT</string>
     <string name="play_back">PLAY BACK</string>
     <string name="change_api">CHANGE API KEY</string>
-     <string name="apikey_requirement_text">Please enter your developer API Key
+    <string name="apikey_requirement_text">Please enter your developer API Key
         for voice to text conversion</string>
     <string name="volume_up">Volume Up</string>
     <string name="volume_down">Volume Down</string>
@@ -541,5 +541,18 @@
     <string name="title_character_instance_id">Characteristic InstanceId</string>
     <string name="title_service_uuid">Service UUID</string>
     <string name="title_service_instance">Service InstanceID</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_time_in_seconds">Time (S)</string>
+    <string name="title_activate_channel">Active Channel</string>
+    <string name="title_time">Time</string>
+    <string name="title_m1a_values">M1a Values</string>
+    <string name="title_m2a_values">M2a Values</string>
+    <string name="title_m3a_values">M3a Values</string>
+    <string name="title_m1b_values">M1b Values</string>
+    <string name="title_m2b_values">M2b Values</string>
+    <string name="title_m3b_values">M3b Values</string>
+    <string name="title_ic_channels">Custom Channels</string>
 
 </resources>

@@ -36,6 +36,8 @@ import android.app.Application;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
+import android.content.Context;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -123,4 +125,8 @@ public class CySmartApplication extends Application {
 
     }
 
+    @Override
+    protected void attachBaseContext(Context base) {
+        super.attachBaseContext(base);
+    }
 }

@@ -1,10 +1,44 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-125:12
-INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-125:12
-INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-125:12
-INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-125:12
-INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-125:12
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-141:12
+INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-141:12
+INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-141:12
+MERGED from [com.android.support:design:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\4f47a7b3dc9b96534f77dd00c224ceba\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\b157dc41a2424bfd7d923aea7af24435\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\a9152b5b9b7bf5e0d17cbfbab0691473\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0-alpha] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\MPAndroidChart-v3.1.0-alpha.aar\a97c7ace28cd36494931efb9640cafaa\AndroidManifest.xml:2:1-20:12
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\c9a82d3f3042cdd396bb30bce51fae97\AndroidManifest.xml:2:1-11:12
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\b17a1e61ab5f7002943c715c44f46021\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\684d3b288acec2e0a50c3b7252999316\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\34aff72bdc58fcc2daf793888cb7273e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\934f63d38b29c1c5b9dda8cf258d5f10\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\89ed4be7042ac4a41539c259a40fe626\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a3b4897569598e1ac0858788912096a9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\ae3ce7d520fe044302b20593961916d9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\7913e1142e5457c5863a50f9be07b44b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\4ddf5c54b5616fd029e223bd5c23c93f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\b59e17058a4445918e96e4d1d9b244c1\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\f6801aad1b2ff37e425bec4b3fc00bbc\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\7f5849fab81c351563f462d3f0feab9f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\8685c76318aaa0dd849ca7f66e622383\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\45d4e24910e0d021731020041810888e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\c52e5c2a7eef0481459918b40a731367\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\b6464e2b60c9a45c1ff8a939cce56ad9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\6c1a6e1ef80a8c5e102b4a0f6693809e\AndroidManifest.xml:17:1-24:12
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\2773d06b41a3769fd14fd7594b37080a\AndroidManifest.xml:17:1-25:12
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\3556efacd9da4e9aa80ed1427f484a29\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\0b603f85c58d8a41c762f6156b4a2d8a\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\b6ea79e19f6abf1bd38fd64c6f32a3ec\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\c36fd1aeb7adc12c9fc414e6b725895f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\7ea087f352d71f3f0b70f6c48e2e67ef\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:print:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\ccf35062f95353fc4cbcae3abb74ec85\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\d90e43a18771c1b66951fdc627f86f7e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\3101e31ebecaac065b8c6cab104ba30e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\5832715dd1aed71bb53961562d25c9f9\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\d7f26ae34d17e89db6fd5d8072f44eb1\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\d7b634e2161f854a072df32927ba1ddb\AndroidManifest.xml:17:1-22:12
+INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-141:12
+INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:2:1-141:12
 	package
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:3:5-34
 	android:versionName
@@ -48,7 +82,17 @@ ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src
 	android:name
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:22:22-76
 application
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:24:5-123:19
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:24:5-139:19
+MERGED from [com.android.support:design:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\4f47a7b3dc9b96534f77dd00c224ceba\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:design:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\4f47a7b3dc9b96534f77dd00c224ceba\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\c9a82d3f3042cdd396bb30bce51fae97\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\c9a82d3f3042cdd396bb30bce51fae97\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\6c1a6e1ef80a8c5e102b4a0f6693809e\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\6c1a6e1ef80a8c5e102b4a0f6693809e\AndroidManifest.xml:22:5-94
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\2773d06b41a3769fd14fd7594b37080a\AndroidManifest.xml:22:5-23:19
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\2773d06b41a3769fd14fd7594b37080a\AndroidManifest.xml:22:5-23:19
+	android:appComponentFactory
+		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\6c1a6e1ef80a8c5e102b4a0f6693809e\AndroidManifest.xml:22:18-91
 	android:supportsRtl
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:29:9-35
 	android:label
@@ -60,85 +104,85 @@ ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src
 	android:theme
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:30:9-45
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:25:9-62
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:25:9-43
 service#com.cypress.cysmart.BLEConnectionServices.BluetoothLeService
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:32:9-34:38
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:31:9-33:38
 	android:enabled
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:34:13-35
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:33:13-35
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:33:13-88
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:32:13-69
 receiver#com.cypress.cysmart.OTAFirmwareUpdate.OTAResponseReceiver
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:36:9-40:20
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:35:9-39:20
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:36:19-72
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:35:19-72
 intent-filter#action:name:com.cysmart.bluetooth.le.ACTION_OTA_DATA_AVAILABLE
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:37:13-39:29
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:36:13-38:29
 action#com.cysmart.bluetooth.le.ACTION_OTA_DATA_AVAILABLE
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:38:17-93
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:37:17-93
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:38:25-90
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:37:25-90
 receiver#com.cypress.cysmart.BLEStatusReceiver
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:41:9-45:20
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:40:9-44:20
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:41:19-52
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:40:19-52
 intent-filter#action:name:com.example.bluetooth.le.ACTION_GATT_DISCONNECTED
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:42:13-44:29
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:41:13-43:29
 action#com.example.bluetooth.le.ACTION_GATT_DISCONNECTED
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:43:17-92
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:42:17-92
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:43:25-89
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:42:25-89
 activity#com.cypress.cysmart.SplashPageActivity
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:47:9-58:20
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:46:9-56:20
 	android:label
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:50:13-45
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:49:13-45
 	android:configChanges
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:49:13-59
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:48:13-59
 	android:theme
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:51:13-75
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:50:13-75
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:48:13-66
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:47:13-47
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:52:13-57:29
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:51:13-55:29
 action#android.intent.action.MAIN
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:53:17-69
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:52:17-69
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:53:25-66
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:52:25-66
 category#android.intent.category.LAUNCHER
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:55:17-77
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:54:17-77
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:55:27-74
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:54:27-74
 activity#com.cypress.cysmart.HomePageActivity
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:59:9-101:20
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:57:9-104:20
 	android:launchMode
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:62:13-44
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:60:13-44
 	android:windowSoftInputMode
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:64:13-52
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:62:13-52
 	android:configChanges
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:61:13-59
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:59:13-59
 	android:theme
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:63:13-49
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:61:13-49
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:60:13-64
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:58:13-45
 meta-data#android.app.searchable
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:65:13-67:64
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:63:13-65:54
 	android:resource
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:67:17-51
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:65:17-51
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:66:17-54
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:64:17-54
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:mimeType:application/octet-stream+data:pathPattern:.*\\.cyacd+data:scheme:content
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:71:13-78:29
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:69:13-78:29
 action#android.intent.action.VIEW
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:72:17-69
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:70:17-69
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:72:25-66
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:70:25-66
 category#android.intent.category.DEFAULT
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:73:17-76
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:72:17-76
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:73:27-73
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:72:27-73
 data
 ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:74:17-77:48
 	android:host
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:85:21-37
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:87:21-37
 	android:scheme
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:77:21-45
 	android:pathPattern
@@ -146,25 +190,25 @@ ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src
 	android:mimeType
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:75:21-64
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.DEFAULT+data:host:*+data:mimeType:*/*+data:pathPattern:.*\\.cyacd+data:scheme:file
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:81:13-89:29
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:81:13-91:29
 intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:host:*+data:pathPattern:.*\\.cyacd+data:scheme:http
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:92:13-99:29
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:94:13-103:29
 category#android.intent.category.BROWSABLE
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:94:17-78
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:97:17-78
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:94:27-75
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:97:27-75
 activity#com.cypress.cysmart.OTAFirmwareUpdate.OTAFilesListingActivity
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:103:9-109:20
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:105:9-109:55
 	android:windowSoftInputMode
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:107:13-52
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:109:13-52
 	android:configChanges
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:105:13-59
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:107:13-59
 	android:theme
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:106:13-88
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:108:13-88
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:104:13-70
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:106:13-70
 activity#com.cypress.cysmart.DataLoggerFragments.DataLoggerHistoryList
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:110:9-116:20
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:110:9-114:55
 	android:windowSoftInputMode
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:114:13-52
 	android:configChanges
@@ -173,14 +217,100 @@ ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:113:13-88
 	android:name
 		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:111:13-70
-service#com.cypress.cysmart.CustomApp.services.CustomService
-ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:120:9-122:19
+activity#com.cypress.cysmart.CustomApp.ui.channelsdata.ChannelsDataActivity
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:118:9-121:15
+	android:theme
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:120:13-57
 	android:name
-		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:120:18-66
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:119:13-75
+activity#com.cypress.cysmart.CustomApp.ui.maactivitychart.MaActivityChart
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:125:9-127:47
+	android:theme
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:127:13-45
+	android:name
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:126:13-73
+activity#com.cypress.cysmart.CustomApp.ui.mbactivitychart.MbActivityChart
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:131:9-132:47
+	android:theme
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:132:13-45
+	android:name
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:131:19-79
+service#com.cypress.cysmart.CustomApp.services.CustomService
+ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:136:9-69
+	android:name
+		ADDED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml:136:18-66
 uses-sdk
 INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml
 INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml
+MERGED from [com.android.support:design:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\4f47a7b3dc9b96534f77dd00c224ceba\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:design:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\design-28.0.0.aar\4f47a7b3dc9b96534f77dd00c224ceba\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\b157dc41a2424bfd7d923aea7af24435\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\appcompat-v7-28.0.0.aar\b157dc41a2424bfd7d923aea7af24435\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\a9152b5b9b7bf5e0d17cbfbab0691473\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-v4-28.0.0.aar\a9152b5b9b7bf5e0d17cbfbab0691473\AndroidManifest.xml:20:5-44
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0-alpha] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\MPAndroidChart-v3.1.0-alpha.aar\a97c7ace28cd36494931efb9640cafaa\AndroidManifest.xml:16:5-18:41
+MERGED from [com.github.PhilJay:MPAndroidChart:v3.1.0-alpha] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\MPAndroidChart-v3.1.0-alpha.aar\a97c7ace28cd36494931efb9640cafaa\AndroidManifest.xml:16:5-18:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\c9a82d3f3042cdd396bb30bce51fae97\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support.constraint:constraint-layout:1.1.3] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\constraint-layout-1.1.3.aar\c9a82d3f3042cdd396bb30bce51fae97\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\b17a1e61ab5f7002943c715c44f46021\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-fragment-28.0.0.aar\b17a1e61ab5f7002943c715c44f46021\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\684d3b288acec2e0a50c3b7252999316\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-28.0.0.aar\684d3b288acec2e0a50c3b7252999316\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\34aff72bdc58fcc2daf793888cb7273e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:recyclerview-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\recyclerview-v7-28.0.0.aar\34aff72bdc58fcc2daf793888cb7273e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\934f63d38b29c1c5b9dda8cf258d5f10\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-core-ui-28.0.0.aar\934f63d38b29c1c5b9dda8cf258d5f10\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\89ed4be7042ac4a41539c259a40fe626\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-core-utils-28.0.0.aar\89ed4be7042ac4a41539c259a40fe626\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a3b4897569598e1ac0858788912096a9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-28.0.0.aar\a3b4897569598e1ac0858788912096a9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\ae3ce7d520fe044302b20593961916d9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-media-compat-28.0.0.aar\ae3ce7d520fe044302b20593961916d9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\7913e1142e5457c5863a50f9be07b44b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:transition:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\transition-28.0.0.aar\7913e1142e5457c5863a50f9be07b44b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\4ddf5c54b5616fd029e223bd5c23c93f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:loader:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\loader-28.0.0.aar\4ddf5c54b5616fd029e223bd5c23c93f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\b59e17058a4445918e96e4d1d9b244c1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:viewpager:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\viewpager-28.0.0.aar\b59e17058a4445918e96e4d1d9b244c1\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\f6801aad1b2ff37e425bec4b3fc00bbc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:coordinatorlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-28.0.0.aar\f6801aad1b2ff37e425bec4b3fc00bbc\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\7f5849fab81c351563f462d3f0feab9f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:drawerlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\drawerlayout-28.0.0.aar\7f5849fab81c351563f462d3f0feab9f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\8685c76318aaa0dd849ca7f66e622383\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:slidingpanelayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-28.0.0.aar\8685c76318aaa0dd849ca7f66e622383\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\45d4e24910e0d021731020041810888e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:customview:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\customview-28.0.0.aar\45d4e24910e0d021731020041810888e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\c52e5c2a7eef0481459918b40a731367\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:swiperefreshlayout:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-28.0.0.aar\c52e5c2a7eef0481459918b40a731367\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\b6464e2b60c9a45c1ff8a939cce56ad9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:asynclayoutinflater:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-28.0.0.aar\b6464e2b60c9a45c1ff8a939cce56ad9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\6c1a6e1ef80a8c5e102b4a0f6693809e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\support-compat-28.0.0.aar\6c1a6e1ef80a8c5e102b4a0f6693809e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\2773d06b41a3769fd14fd7594b37080a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\versionedparcelable-28.0.0.aar\2773d06b41a3769fd14fd7594b37080a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\3556efacd9da4e9aa80ed1427f484a29\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cursoradapter:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\cursoradapter-28.0.0.aar\3556efacd9da4e9aa80ed1427f484a29\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\0b603f85c58d8a41c762f6156b4a2d8a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:cardview-v7:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\cardview-v7-28.0.0.aar\0b603f85c58d8a41c762f6156b4a2d8a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\b6ea79e19f6abf1bd38fd64c6f32a3ec\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\b6ea79e19f6abf1bd38fd64c6f32a3ec\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\c36fd1aeb7adc12c9fc414e6b725895f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:documentfile:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\documentfile-28.0.0.aar\c36fd1aeb7adc12c9fc414e6b725895f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\7ea087f352d71f3f0b70f6c48e2e67ef\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:localbroadcastmanager:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-28.0.0.aar\7ea087f352d71f3f0b70f6c48e2e67ef\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\ccf35062f95353fc4cbcae3abb74ec85\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:print:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\print-28.0.0.aar\ccf35062f95353fc4cbcae3abb74ec85\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\d90e43a18771c1b66951fdc627f86f7e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.1.aar\d90e43a18771c1b66951fdc627f86f7e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\3101e31ebecaac065b8c6cab104ba30e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:interpolator:28.0.0] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\interpolator-28.0.0.aar\3101e31ebecaac065b8c6cab104ba30e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\5832715dd1aed71bb53961562d25c9f9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\livedata-1.1.1.aar\5832715dd1aed71bb53961562d25c9f9\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\d7f26ae34d17e89db6fd5d8072f44eb1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.1.aar\d7f26ae34d17e89db6fd5d8072f44eb1\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\d7b634e2161f854a072df32927ba1ddb\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\Mahmoud Ramzy\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\d7b634e2161f854a072df32927ba1ddb\AndroidManifest.xml:20:5-44
 INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml
 INJECTED from E:\Software Engineering\android development\AndroidStudioProjects\src\AndroidManifest.xml
 	android:targetSdkVersion

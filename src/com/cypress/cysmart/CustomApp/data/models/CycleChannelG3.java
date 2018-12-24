@@ -1,29 +1,33 @@
 package com.cypress.cysmart.CustomApp.data.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CycleChannelG3 {
+public class CycleChannelG3 implements Serializable {
+
+    private int lds ; // last value of D when VG =ON
+    private int lds0 ; // Last value of D when Vg = OFF
+    private boolean isLdsSetted = false ;
+    private boolean isLds0Setted = false ;
+
+    private int maxVoltage =0 ;
+
+    private int lgs ; // Last value of shunt of G3  when VG = ON
+    private int lgs0 ; //Last value Of shunt of G3 when VG = OFF
+    private boolean isLgsSetted = false ;
+    private boolean isLgs0Setted = false ;
+
+    private float M3a =lds0==0? 0 : (lds - lds0) / lds0 ;
+    private float M3b = (lgs - lgs0) ;
 
 
-    private int lds ;
-    private boolean isLdsSeted =false ;
-    private int lds0 ;
+    ArrayList<ArrayList<Integer>> timeAndCurrentDList = new ArrayList<>() ;
 
-    private int maxVoltage =0  ;
-
-
-    private int lgs ;
-    private boolean isLgsSeted =false ;
-    private int lgs0 ;
-
-    private int M1a =lds0==0 ? 0 : (lds - lds0) / lds0 ;
-    private int M1b = (lgs - lgs0) ;
 
 
     public int getLds() {
         return lds;
     }
-
     public void setLds(int lds) {
         this.lds = lds;
     }
@@ -52,7 +56,6 @@ public class CycleChannelG3 {
         this.lgs0 = lgs0;
     }
 
-
     public int getMaxVoltage() {
         return maxVoltage;
     }
@@ -61,19 +64,52 @@ public class CycleChannelG3 {
         this.maxVoltage = maxVoltage;
     }
 
-    public boolean isLdsSeted() {
-        return isLdsSeted;
+    public boolean isLdsSetted() {
+        return isLdsSetted;
     }
 
-    public void setLdsSeted(boolean ldsSeted) {
-        isLdsSeted = ldsSeted;
+    public void setLdsSetted(boolean ldsSetted) {
+        isLdsSetted = ldsSetted;
     }
 
-    public boolean isLgsSeted() {
-        return isLgsSeted;
+    public boolean isLgsSetted() {
+        return isLgsSetted;
     }
 
-    public void setLgsSeted(boolean lgsSeted) {
-        isLgsSeted = lgsSeted;
+    public void setLgsSetted(boolean lgsSetted) {
+        isLgsSetted = lgsSetted;
+    }
+
+    public ArrayList<ArrayList<Integer>> getTimeAndCurrentDList() {
+        return timeAndCurrentDList;
+    }
+
+    public void setTimeAndCurrentDList(ArrayList<ArrayList<Integer>> timeAndCurrentDList) {
+        this.timeAndCurrentDList = timeAndCurrentDList;
+    }
+
+    public boolean isLds0Setted() {
+        return isLds0Setted;
+    }
+
+    public void setLds0Setted(boolean lds0Setted) {
+        isLds0Setted = lds0Setted;
+    }
+
+    public boolean isLgs0Setted() {
+        return isLgs0Setted;
+    }
+
+    public void setLgs0Setted(boolean lgs0Setted) {
+        isLgs0Setted = lgs0Setted;
+    }
+
+
+    public float getM3a() {
+        return M3a;
+    }
+
+    public float getM3b() {
+        return M3b;
     }
 }
