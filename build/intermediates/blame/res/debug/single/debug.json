@@ -4,20 +4,20 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable\\rdk_record_selector.xml"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_rgb_led.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\rgb_led.png"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\drawable-hdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_graph_right.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\graph_right.png"
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_rgb_led.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\rgb_led.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\animator-v21_design_appbar_state_list_animator.xml.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\animator-v21\\design_appbar_state_list_animator.xml"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_graph_right.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\graph_right.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -68,12 +68,12 @@
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\layout\\abc_list_menu_item_radio.xml"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\ae3ce7d520fe044302b20593961916d9\\res\\layout\\notification_media_action.xml"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_graph.png.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\graph.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\ae3ce7d520fe044302b20593961916d9\\res\\layout\\notification_media_action.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_design_bottom_sheet_dialog.xml.flat",
@@ -168,28 +168,28 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xxhdpi\\ic_more_vert_white_24dp.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6c1a6e1ef80a8c5e102b4a0f6693809e\\res\\layout-v21\\notification_template_icon_group.xml"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6c1a6e1ef80a8c5e102b4a0f6693809e\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_snackbar_include.xml.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\layout\\design_layout_snackbar_include.xml"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_layout_menu_paircache.xml.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\layout\\layout_menu_paircache.xml"
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_item_header.xml.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\layout\\design_navigation_item_header.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_design_layout_tab_icon.xml.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\layout\\design_layout_tab_icon.xml"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_design_navigation_item_header.xml.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\layout\\design_navigation_item_header.xml"
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_layout_menu_paircache.xml.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\layout\\layout_menu_paircache.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_abc_dialog_title_material.xml.flat",
@@ -212,12 +212,12 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\layout\\fragment_channel1.xml"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_list_bg.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xxhdpi\\list_bg.png"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_graph_right.png.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\graph_right.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_list_bg.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xxhdpi\\list_bg.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\color_abc_background_cache_hint_selector_material_light.xml.flat",
@@ -244,12 +244,12 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\hand_icon.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_show_motion_spec.xml.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\animator\\mtrl_fab_show_motion_spec.xml"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\drawable-xxhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\animator_mtrl_fab_show_motion_spec.xml.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\animator\\mtrl_fab_show_motion_spec.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",
@@ -264,12 +264,12 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\back_btn_active.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_proximity_bar.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\proximity_bar.png"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_capsense_proimity.png.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\capsense_proimity.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_proximity_bar.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\proximity_bar.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_proximity_bar.png.flat",
@@ -384,12 +384,12 @@
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6c1a6e1ef80a8c5e102b4a0f6693809e\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_themometer.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\themometer.png"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_mtrl_layout_snackbar.xml.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\layout\\mtrl_layout_snackbar.xml"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_themometer.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\themometer.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_gray_transparent.png.flat",
@@ -416,20 +416,20 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-sw720dp\\rgb_led.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\color-v23_design_tint_password_toggle.xml.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\color-v23\\design_tint_password_toggle.xml"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_find_me_blue_circle.png.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\find_me_blue_circle.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_sensor_hub.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\sensor_hub.png"
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\color-v23_design_tint_password_toggle.xml.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\color-v23\\design_tint_password_toggle.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_pressure.png.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-hdpi\\pressure.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_sensor_hub.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\sensor_hub.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_info_icon.png.flat",
@@ -440,12 +440,12 @@
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\drawable-xxhdpi-v4\\abc_text_select_handle_left_mtrl_light.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\anim_slide_left.xml.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\anim\\slide_left.xml"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp_rgb_view_portrait.xml.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\layout-sw600dp\\rgb_view_portrait.xml"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\anim_slide_left.xml.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\anim\\slide_left.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\menu_global.xml.flat",
@@ -568,16 +568,16 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-hdpi\\sensor_hub.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6c1a6e1ef80a8c5e102b4a0f6693809e\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_minus_active.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\minus_active.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\drawable-mdpi-v4\\abc_btn_radio_to_on_mtrl_000.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_minus_active.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\minus_active.png"
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6c1a6e1ef80a8c5e102b4a0f6693809e\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_minus_normal.png.flat",
@@ -608,12 +608,12 @@
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\layout\\abc_search_view.xml"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6c1a6e1ef80a8c5e102b4a0f6693809e\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\drawable-xhdpi-v4\\abc_menu_hardkey_panel_mtrl_mult.9.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\6c1a6e1ef80a8c5e102b4a0f6693809e\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_view_trackpad_active.png.flat",
@@ -712,28 +712,28 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\share.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\color_mtrl_tabs_icon_color_selector.xml.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\color\\mtrl_tabs_icon_color_selector.xml"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\color_abc_btn_colored_borderless_text_material.xml.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\color_mtrl_tabs_icon_color_selector.xml.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\4f47a7b3dc9b96534f77dd00c224ceba\\res\\color\\mtrl_tabs_icon_color_selector.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-sw720dp_find_me.png.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-sw720dp\\find_me.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_banner_logo.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\banner_logo.png"
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_hand_normal.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\hand_normal.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_white_circle2.png.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-hdpi\\white_circle2.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_hand_normal.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\hand_normal.png"
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_banner_logo.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\banner_logo.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_hand_icon.png.flat",
@@ -808,12 +808,12 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\layout\\fragment_drawer_list_item.xml"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_qube.png.flat",
-        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-hdpi\\qube.png"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_plus_normal.png.flat",
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-mdpi\\plus_normal.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_qube.png.flat",
+        "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-hdpi\\qube.png"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\anim_abc_tooltip_enter.xml.flat",
@@ -908,12 +908,12 @@
         "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\drawable-xhdpi\\brightness_icon.png"
     },
     {
-        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_select_dialog_singlechoice_material.xml.flat",
-        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\layout\\select_dialog_singlechoice_material.xml"
-    },
-    {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\drawable-xxhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\layout_select_dialog_singlechoice_material.xml.flat",
+        "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\layout\\select_dialog_singlechoice_material.xml"
     },
     {
         "merged": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_delete_normal.png.flat",
