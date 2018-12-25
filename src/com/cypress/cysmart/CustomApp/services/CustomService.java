@@ -60,9 +60,9 @@ public class CustomService extends Service {
 
     private BluetoothGattService mCustomService;
 
-    private CycleChannelG1 mCurrentCycleG1;
-    private CycleChannelG2 mCurrentCycleG2;
-    private CycleChannelG3 mCurrentCycleG3;
+    private CycleChannelG1 mCurrentCycleG1  ;
+    private CycleChannelG2 mCurrentCycleG2  ;
+    private CycleChannelG3 mCurrentCycleG3  ;
 
 
     //___________ hex  values of characteristic
@@ -426,8 +426,15 @@ public class CustomService extends Service {
 
         if (CustomParser.isVoltageOn(mCharacteristicVoltageG1)) { // Voltage ON in G1
 
+            if (mCurrentCycleG1 == null)
+                mCurrentCycleG1 = new CycleChannelG1() ;
+
+            if (mCurrentChannelVoltageOn != 1)
+                mCurrentChannelVoltageOn= 1 ;
+
+            Log.i(TAG , "Char 1 is on ") ;
             // get last current value of D and G  in channel G3
-            if (mCurrentCycleG3 != null && !mCurrentCycleG3.isLds0Setted() && mCurrentCycleG3.isLgs0Setted()) {
+            if (mCurrentCycleG3 != null && !mCurrentCycleG3.isLds0Setted() && !mCurrentCycleG3.isLgs0Setted()) {
                 // the channel G3 is ended
                 mTimeInSeconds = 0;
 
@@ -443,10 +450,6 @@ public class CustomService extends Service {
                 BroadCastHandler.broadcastSessionG3(this , sessionG3 );
                 BroadCastHandler.broadcastCyclG3(this , mCurrentCycleG3 );
 
-
-
-                mCurrentCycleG1 = new CycleChannelG1();
-                mCurrentChannelVoltageOn = 1;
                 BroadCastHandler.broadCastActiviteChannel(this , mCurrentChannelVoltageOn );
 
                 mCurrentCycleG2 = null;
@@ -459,6 +462,12 @@ public class CustomService extends Service {
 
         } else if (CustomParser.isVoltageOn(mCharacteristicVoltageG2)) { // Voltage ON in G2
 
+            if (mCurrentCycleG2 == null)
+                mCurrentCycleG2 = new CycleChannelG2() ;
+
+            if(mCurrentChannelVoltageOn != 2 )
+                mCurrentChannelVoltageOn= 2 ;
+            Log.i(TAG , "Char 2 is on ") ;
             // get last current value of D and G  in channel G1
             if (mCurrentCycleG1 != null && !mCurrentCycleG1.isLds0Setted() && !mCurrentCycleG1.isLgs0Setted()) {
                // the channel G1 is ended
@@ -478,11 +487,6 @@ public class CustomService extends Service {
                 BroadCastHandler.broadcastCyclG1(this , mCurrentCycleG1 );
 
 
-
-
-
-                mCurrentCycleG2 = new CycleChannelG2();
-                mCurrentChannelVoltageOn = 2;
                 BroadCastHandler.broadCastActiviteChannel(this , mCurrentChannelVoltageOn);
                 mCurrentCycleG1 = null;
                 mCurrentCycleG3 = null;
@@ -494,8 +498,15 @@ public class CustomService extends Service {
 
         } else if (CustomParser.isVoltageOn(mCharacteristicVoltageG3)) { // Voltage ON in G3
 
+            if (mCurrentCycleG3 == null)
+                mCurrentCycleG3 = new CycleChannelG3() ;
+
+            if (mCurrentChannelVoltageOn!= 3 )
+                mCurrentChannelVoltageOn =3 ;
+
+            Log.i(TAG , "Char 3 is on") ;
             // get last current value of D and G  in channel G2
-            if (mCurrentCycleG2 != null && !mCurrentCycleG2.isLgs0Setted() && !mCurrentCycleG2.isLgs0Setted()) {
+            if (mCurrentCycleG2 != null && !mCurrentCycleG2.isLds0Setted() && !mCurrentCycleG2.isLgs0Setted()) {
 
                 // the channel G2 is ended
                 mTimeInSeconds = 0;
@@ -513,8 +524,7 @@ public class CustomService extends Service {
                 BroadCastHandler.broadcastSessionG2(this , sessionG2);
                 BroadCastHandler.broadcastCyclG2(this , mCurrentCycleG2);
 
-                mCurrentCycleG3 = new CycleChannelG3();
-                mCurrentChannelVoltageOn = 3;
+
 
                 BroadCastHandler.broadCastActiviteChannel(this , mCurrentChannelVoltageOn);
                 mCurrentCycleG1 = null;
@@ -534,6 +544,7 @@ public class CustomService extends Service {
 
 
     private void handleVoltageOFF() {
+
 
         if (mCurrentChannelVoltageOn == 1) {
 

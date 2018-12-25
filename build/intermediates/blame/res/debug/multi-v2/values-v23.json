@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0.aar\\0b603f85c58d8a41c762f6156b4a2d8a\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\cardview-v7-28.0.0.aar\\93b9e8e88e42a23b1650f08c6852802e\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",

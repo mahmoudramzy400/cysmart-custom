@@ -6,13 +6,7 @@ import java.math.BigInteger;
 
 public class CustomParser {
 
-    private static int uint8 = 0x04;
 
-    private static  int uint16 = 0x06;
-
-    private static int sint8  = 0x0C ;
-
-    private static int sint16 = 0x0E ;
 
     private CustomParser() {
 

@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +32,7 @@ import java.util.ArrayList;
  */
 public class Channel1Fragment extends Fragment {
 
-    public static final String TITLE = "Channel 1";
+    public static final String TITLE = "Channel G1";
 
     private SessionG1 sessionG1;
     private CycleChannelG1 cycleChannelG1;
@@ -114,10 +115,12 @@ public class Channel1Fragment extends Fragment {
         @Override
         public void onReceive(Context context, Intent intent) {
 
+
             String action = intent.getAction();
 
-            if (action.equals(BroadCastHandler.ACTION_ACTIVE_CHANNEL_CHANGED)) {
 
+            if (action.equals(BroadCastHandler.ACTION_ACTIVE_CHANNEL_CHANGED)) {
+                Log.i(TITLE , " onReceive :"+ action) ;
                 mCurrentActiveChannel = intent.getIntExtra(BroadCastHandler.EXTRA_ACTIVATE_CHANNEL, 0);
 
                 if (mCurrentActiveChannel ==1) {
@@ -128,14 +131,15 @@ public class Channel1Fragment extends Fragment {
 
             }
 
-            if (action.equals(BroadCastHandler.EXTRA_CYCLE_CHANG1)) {
-
+            if (action.equals(BroadCastHandler.ACTION_CYCLECHANG1)) {
+                Log.i(TITLE , " onReceive :"+ action) ;
                 cycleChannelG1 = (CycleChannelG1) intent.getSerializableExtra(BroadCastHandler.EXTRA_CYCLE_CHANG1);
                 drawCycle1Chart() ;
 
             }
 
-            if (action.equals(BroadCastHandler.EXTRA_SESSIONG1)) {
+            if (action.equals(BroadCastHandler.ACTION_SESSION1_CHANGED)) {
+                Log.i(TITLE , " onReceive :"+ action) ;
                 sessionG1 = (SessionG1) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG1);
             }
         }
@@ -144,18 +148,23 @@ public class Channel1Fragment extends Fragment {
 
     private void drawCycle1Chart (){
 
+        Log.i(TITLE , "drawCycle1Chart") ;
         ArrayList<Entry> entries = new ArrayList<>();
 
         if (cycleChannelG1 != null && cycleChannelG1.getTimeAndCurrentDList() != null){
+
 
 
             for (ArrayList<Integer> timeAndCurrentList : cycleChannelG1.getTimeAndCurrentDList()){
 
                 int time       = timeAndCurrentList.get(0) ;
                 int currentOfD = timeAndCurrentList.get(1 );
+                Log.i(TITLE , "time:" + time + " currentOfD :"+currentOfD);
 
                 entries.add(new Entry(time,currentOfD ));
             }
+        }else{
+            Log.i(TITLE ,"Time and current is null ") ;
         }
 
         LineDataSet lineDataSet = new LineDataSet(entries , getString(R.string.title_time_in_seconds)) ;
@@ -163,11 +172,14 @@ public class Channel1Fragment extends Fragment {
         lineDataSet.setFillColor(getResources().getColor(R.color.colorAccent));
 
         XAxis xAxis = mCycle1Chart.getXAxis() ;
-        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM );
+      //  xAxis.setPosition(XAxis.XAxisPosition.BOTTOM );
         // disable right y axis
         mCycle1Chart.getAxisRight().setEnabled(false);
 
         LineData lineData = new LineData(lineDataSet ) ;
+
+        mCycle1Chart.getAxisLeft().setAxisMinimum(lineDataSet.getYMin());
+        mCycle1Chart.getAxisRight().setAxisMinimum(lineDataSet.getXMin() );
         // set data to chart
         mCycle1Chart.setData(lineData);
         // animate the chart
