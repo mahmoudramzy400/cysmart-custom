@@ -114,6 +114,10 @@ public class Channel3Fragment extends Fragment {
             if (mCustomService.getSessionG3() != null){
                 sessionG3 = mCustomService.getSessionG3() ;
             }
+            if (mCustomService.getmCurrentChannelVoltageOn() == 3)
+                mActiveTextView.setVisibility(View.VISIBLE);
+            else
+                mActiveTextView.setVisibility(View.INVISIBLE);
         }
 
         return rootView ;
@@ -194,12 +198,14 @@ public class Channel3Fragment extends Fragment {
 
         XAxis xAxis = mCycle1Chart.getXAxis() ;
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM );
+        xAxis.setGranularity(1);
 
         LineData lineData = new LineData(lineDataSet ) ;
         // disable right y axis
         mCycle1Chart.getAxisRight().setEnabled(false);
         mCycle1Chart.getAxisLeft().setAxisMinimum(lineDataSet.getYMin());
         mCycle1Chart.getAxisRight().setAxisMinimum(lineDataSet.getXMin() );
+        mCycle1Chart.getAxisLeft().setGranularity(1);
         // set data to chart
         mCycle1Chart.setData(lineData);
         // animate the chart

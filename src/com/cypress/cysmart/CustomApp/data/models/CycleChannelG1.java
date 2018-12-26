@@ -17,8 +17,8 @@ public class CycleChannelG1 implements Serializable {
     private boolean isLgsSetted = false ;
     private boolean isLgs0Setted = false ;
 
-    private float M1a =lds0==0? 0 : (lds - lds0) / lds0 ;
-    private float M1b = (lgs - lgs0) ;
+    private float M1a ;
+    private float M1b  ;
 
 
 
@@ -109,10 +109,12 @@ public class CycleChannelG1 implements Serializable {
 
 
     public float getM1a() {
-        return M1a;
+        M1a  =lds0==0? 0 : (lds - lds0) / lds0;
+        return M1a ;
     }
 
     public Float getM1b() {
+        M1b = (lgs - lgs0) ;
         return M1b;
     }
 }

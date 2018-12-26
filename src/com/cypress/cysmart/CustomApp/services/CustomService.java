@@ -734,4 +734,8 @@ public class CustomService extends Service {
     public SessionG3 getSessionG3() {
         return sessionG3;
     }
+
+    public int getmCurrentChannelVoltageOn (){
+        return mCurrentChannelVoltageOn ;
+    }
 }

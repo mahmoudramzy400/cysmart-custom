@@ -3,6 +3,7 @@ package com.cypress.cysmart.CustomApp.ui.mbactivitychart;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.cypress.cysmart.CustomApp.data.models.SessionG1;
 import com.cypress.cysmart.CustomApp.data.models.SessionG2;
@@ -11,17 +12,21 @@ import com.cypress.cysmart.CustomApp.utils.BroadCastHandler;
 import com.cypress.cysmart.CustomApp.utils.DateTime;
 import com.cypress.cysmart.R;
 import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
 import com.github.mikephil.charting.components.Description;
 import com.github.mikephil.charting.components.XAxis;
 import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class MbActivityChart extends AppCompatActivity {
+
+    private static final String TAG = "MbActivity" ;
 
     private LineChart mLineChartLayout ;
     private int mActiveChannelNumber ;
@@ -33,6 +38,7 @@ public class MbActivityChart extends AppCompatActivity {
 
 
     private ArrayList<String> mLables;
+    private int indexLabel= -1 ;
     private ArrayList<Entry> mEntries ;
 
     @Override
@@ -90,6 +96,8 @@ public class MbActivityChart extends AppCompatActivity {
 
                     // get hour in float
                     float floatHour = DateTime.getFloatHour(time );
+                    Log.i(TAG ,"time :" + floatHour + " m1b :"+m1b) ;
+
                     // entry of time and ma for chart
                     Entry entry1 = new Entry(floatHour , m1b) ;
                     entries.add(entry1 );
@@ -116,6 +124,7 @@ public class MbActivityChart extends AppCompatActivity {
                     float floatHour = DateTime.getFloatHour(time );
                     // entry of time and ma for chart
                     Entry entry1 = new Entry(floatHour , m2b) ;
+                    Log.i(TAG ,"time :" + floatHour + " m2b:"+m2b) ;
                     entries.add(entry1 );
                     // use human format of time as label for every value
                     String labelForxAxis = DateTime.getTime(time );
@@ -139,6 +148,7 @@ public class MbActivityChart extends AppCompatActivity {
 
                     // get hour in float
                     float floatHour = DateTime.getFloatHour(time );
+                    Log.i(TAG ,"time :" + floatHour + " m3b :"+m3b) ;
                     // entry of time and ma for chart
                     Entry entry1 = new Entry(floatHour , m3b) ;
                     entries.add(entry1 );
@@ -165,10 +175,19 @@ public class MbActivityChart extends AppCompatActivity {
             lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
             XAxis xAxis = mLineChartLayout.getXAxis() ;
-
-
-
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+
+            xAxis.setValueFormatter(new IAxisValueFormatter() {
+                @Override
+                public String getFormattedValue(float value, AxisBase axis) {
+                    indexLabel ++ ;
+                    if (indexLabel < mLables.size()){
+                        return mLables.get(indexLabel) ;
+                    }
+
+                    return  value +"";
+                }
+            });
 
             mLineChartLayout.getAxisRight().setEnabled(false );
 

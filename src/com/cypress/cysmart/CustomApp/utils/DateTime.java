@@ -31,11 +31,12 @@ public class DateTime {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(timeInMillis);
 
-        int hourPerDay = calendar.get(Calendar.YEAR);
+        int hourPerDay = calendar.get(Calendar.HOUR_OF_DAY);
 
         int minutes = calendar.get(Calendar.MINUTE);
 
-        float floatHour = hourPerDay + (float) (minutes / 60);
+        float mintesRate =  minutes/60 ;
+        float floatHour = hourPerDay +mintesRate  ;
 
         return floatHour;
 

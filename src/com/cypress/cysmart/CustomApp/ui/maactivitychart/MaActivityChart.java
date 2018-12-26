@@ -3,6 +3,7 @@ package com.cypress.cysmart.CustomApp.ui.maactivitychart;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
 import com.cypress.cysmart.CustomApp.data.models.SessionG1;
 import com.cypress.cysmart.CustomApp.data.models.SessionG2;
@@ -26,6 +27,7 @@ import java.util.Map;
 public class MaActivityChart extends AppCompatActivity {
 
 
+    private static final String TAG = "MaActivityChart" ;
     private LineChart mLineChartLayout ;
     private int mActiveChannelNumber ;
 
@@ -36,6 +38,7 @@ public class MaActivityChart extends AppCompatActivity {
 
 
     private ArrayList<String> mLables;
+    private int indexLabel = -1 ;
     private ArrayList<Entry> mEntries ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -91,6 +94,7 @@ public class MaActivityChart extends AppCompatActivity {
 
                    // get hour in float
                    float floatHour = DateTime.getFloatHour(time );
+                   Log.i(TAG ,"time :" + floatHour +  " m1a :"+m1a) ;
                    // entry of time and ma for chart
                    Entry entry1 = new Entry(floatHour , m1a) ;
                    entries.add(entry1 );
@@ -115,6 +119,7 @@ public class MaActivityChart extends AppCompatActivity {
 
                     // get hour in float
                     float floatHour = DateTime.getFloatHour(time );
+                    Log.i(TAG ,"time :" + floatHour + " m2a :"+m2a) ;
                     // entry of time and ma for chart
                     Entry entry1 = new Entry(floatHour , m2a) ;
                     entries.add(entry1 );
@@ -140,6 +145,7 @@ public class MaActivityChart extends AppCompatActivity {
 
                     // get hour in float
                     float floatHour = DateTime.getFloatHour(time );
+                    Log.i(TAG ,"time :" + floatHour + " m3a :"+m3a) ;
                     // entry of time and ma for chart
                     Entry entry1 = new Entry(floatHour , m3a) ;
                     entries.add(entry1 );
@@ -166,10 +172,18 @@ public class MaActivityChart extends AppCompatActivity {
             lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
             XAxis xAxis = mLineChartLayout.getXAxis() ;
-
-
-
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+            xAxis.setValueFormatter(new IAxisValueFormatter() {
+                @Override
+                public String getFormattedValue(float value, AxisBase axis) {
+                    indexLabel ++ ;
+                    if (indexLabel < mLables.size()){
+                        return mLables.get(indexLabel) ;
+                    }
+
+                    return  value+"";
+                }
+            });
 
             mLineChartLayout.getAxisRight().setEnabled(false );
 

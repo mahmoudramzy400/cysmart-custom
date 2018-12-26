@@ -112,6 +112,10 @@ public class Channel2Fragment extends Fragment {
             if (mCustomService.getSessionG2() != null){
                 sessionG2 = mCustomService.getSessionG2() ;
             }
+            if (mCustomService.getmCurrentChannelVoltageOn() == 2)
+                mActiveTextView.setVisibility(View.VISIBLE);
+            else
+                mActiveTextView.setVisibility(View.INVISIBLE);
         }
 
         return  rootView  ;
@@ -149,7 +153,7 @@ public class Channel2Fragment extends Fragment {
 
             }
 
-            if (action.equals(BroadCastHandler.ACTION_CYCLECHANG1)) {
+            if (action.equals(BroadCastHandler.ACTION_CYCLECHANG2)) {
                 Log.i(TITLE , " onReceive :"+ action) ;
                 cycleChannelG2 = (CycleChannelG2) intent.getSerializableExtra(BroadCastHandler.EXTRA_CYCLE_CHANG2);
                 drawCycle1Chart() ;
@@ -190,12 +194,14 @@ public class Channel2Fragment extends Fragment {
 
         XAxis xAxis = mCycle1Chart.getXAxis() ;
         xAxis.setPosition(XAxis.XAxisPosition.BOTTOM );
+        xAxis.setGranularity(1);
 
         LineData lineData = new LineData(lineDataSet ) ;
         // disable right y axis
         mCycle1Chart.getAxisRight().setEnabled(false);
         mCycle1Chart.getAxisLeft().setAxisMinimum(lineDataSet.getYMin());
         mCycle1Chart.getAxisRight().setAxisMinimum(lineDataSet.getXMin() );
+        mCycle1Chart.getAxisLeft().setGranularity(1);
         // set data to chart
         mCycle1Chart.setData(lineData);
         // animate the chart

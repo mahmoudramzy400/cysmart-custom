@@ -18,8 +18,8 @@ public class CycleChannelG2 implements Serializable {
     private boolean isLgs0Setted = false ;
 
 
-    private float M2a =lds0==0? 0 : (lds - lds0) / lds0 ;
-    private float M2b = (lgs - lgs0) ;
+    private float M2a;
+    private float M2b ;
 
     ArrayList<ArrayList<Integer>> timeAndCurrentDList = new ArrayList<>() ;
 
@@ -107,10 +107,12 @@ public class CycleChannelG2 implements Serializable {
 
 
     public float getM2a() {
+         M2a =lds0==0? 0 : (lds - lds0) / lds0 ;
         return M2a;
     }
 
     public float getM2b() {
+        M2b = (lgs - lgs0) ;
         return M2b;
     }
 }
