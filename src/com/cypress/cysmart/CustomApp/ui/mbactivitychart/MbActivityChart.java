@@ -189,10 +189,10 @@ public class MbActivityChart extends AppCompatActivity {
 
             mLineChartLayout.setDescription(description);
             mLineChartLayout.setData(lineData );
-
+            mLineChartLayout.getAxisLeft().setAxisMinimum(lineDataSet.getYMin());
+            mLineChartLayout.getAxisRight().setAxisMinimum(lineDataSet.getXMin() );
             mLineChartLayout.animateX(2000);
             //refresh
-
             mLineChartLayout.invalidate();
         }
 

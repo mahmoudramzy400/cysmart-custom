@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.cypress.cysmart.CustomApp.data.models.CycleChannelG1;
 import com.cypress.cysmart.CustomApp.data.models.SessionG1;
+import com.cypress.cysmart.CustomApp.services.CustomService;
 import com.cypress.cysmart.CustomApp.ui.maactivitychart.MaActivityChart;
 import com.cypress.cysmart.CustomApp.ui.mbactivitychart.MbActivityChart;
 import com.cypress.cysmart.CustomApp.utils.BroadCastHandler;
@@ -42,6 +43,8 @@ public class Channel1Fragment extends Fragment {
     private Button mM1bButton ;
     private LineChart mCycle1Chart ;
     private TextView mActiveTextView ;
+    private ChannelsDataActivity mActivity;
+    private CustomService mCustomService ;
 
 
 
@@ -49,6 +52,16 @@ public class Channel1Fragment extends Fragment {
     public static Fragment newInstance() {
         return new Channel1Fragment();
     }
+
+
+    @Override
+    public void onAttach(Context context) {
+        if (context instanceof  ChannelsDataActivity ){
+            mActivity = (ChannelsDataActivity) context;
+        }
+        super.onAttach(context);
+    }
+
 
 
     @Override
@@ -91,6 +104,19 @@ public class Channel1Fragment extends Fragment {
             }
         });
 
+        if (mActivity != null && mActivity.getCustomService() != null ){
+
+            mCustomService = mActivity.getCustomService() ;
+
+            if (mCustomService.getmLastCycleG1() != null ){
+                cycleChannelG1 = mCustomService.getmLastCycleG1() ;
+                drawCycle1Chart();
+            }
+
+            if (mCustomService.getSessionG1() != null){
+                sessionG1 = mCustomService.getSessionG1() ;
+            }
+        }
 
         return rootView;
     }
@@ -153,8 +179,6 @@ public class Channel1Fragment extends Fragment {
 
         if (cycleChannelG1 != null && cycleChannelG1.getTimeAndCurrentDList() != null){
 
-
-
             for (ArrayList<Integer> timeAndCurrentList : cycleChannelG1.getTimeAndCurrentDList()){
 
                 int time       = timeAndCurrentList.get(0) ;
@@ -167,17 +191,17 @@ public class Channel1Fragment extends Fragment {
             Log.i(TITLE ,"Time and current is null ") ;
         }
 
-        LineDataSet lineDataSet = new LineDataSet(entries , getString(R.string.title_time_in_seconds)) ;
+        LineDataSet lineDataSet = new LineDataSet(entries , TITLE) ;
         lineDataSet.setDrawFilled(true);
         lineDataSet.setFillColor(getResources().getColor(R.color.colorAccent));
+        lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
         XAxis xAxis = mCycle1Chart.getXAxis() ;
-      //  xAxis.setPosition(XAxis.XAxisPosition.BOTTOM );
-        // disable right y axis
-        mCycle1Chart.getAxisRight().setEnabled(false);
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM );
 
         LineData lineData = new LineData(lineDataSet ) ;
-
+        // disable right y axis
+        mCycle1Chart.getAxisRight().setEnabled(false);
         mCycle1Chart.getAxisLeft().setAxisMinimum(lineDataSet.getYMin());
         mCycle1Chart.getAxisRight().setAxisMinimum(lineDataSet.getXMin() );
         // set data to chart

@@ -6,6 +6,7 @@ import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Binder;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
@@ -64,6 +65,11 @@ public class CustomService extends Service {
     private CycleChannelG2 mCurrentCycleG2  ;
     private CycleChannelG3 mCurrentCycleG3  ;
 
+    private CycleChannelG1 mLastCycleG1 ;
+    private CycleChannelG2 mLastCycleG2 ;
+    private CycleChannelG3 mLastCycleG3 ;
+
+
 
     //___________ hex  values of characteristic
     private String mHexCurrentG1 = "";
@@ -112,10 +118,12 @@ public class CustomService extends Service {
     private SessionG2 sessionG2 ;
     private SessionG3 sessionG3 ;
 
+    private CustomBinder mCustomBinder = new CustomBinder();
+
     @Nullable
     @Override
     public IBinder onBind(Intent intent) {
-        return null;
+        return mCustomBinder ;
     }
 
 
@@ -129,9 +137,7 @@ public class CustomService extends Service {
 
         if (mCustomService != null) {
 
-            sessionG1 = new SessionG1() ;
-            sessionG2 = new SessionG2() ;
-            sessionG3 = new SessionG3() ;
+
 
             for (BluetoothGattCharacteristic gattCharacteristic : mCustomService.getCharacteristics()) {
                 // ___________________Voltage characteristics_______________________
@@ -423,16 +429,15 @@ public class CustomService extends Service {
     }
 
     private void checkCurrentVoltages() {
-
         if (CustomParser.isVoltageOn(mCharacteristicVoltageG1)) { // Voltage ON in G1
+            Log.i(TAG , "Channel G1 is ON ") ;
 
             if (mCurrentCycleG1 == null)
                 mCurrentCycleG1 = new CycleChannelG1() ;
 
             if (mCurrentChannelVoltageOn != 1)
-                mCurrentChannelVoltageOn= 1 ;
+                mCurrentChannelVoltageOn = 1 ;
 
-            Log.i(TAG , "Char 1 is on ") ;
             // get last current value of D and G  in channel G3
             if (mCurrentCycleG3 != null && !mCurrentCycleG3.isLds0Setted() && !mCurrentCycleG3.isLgs0Setted()) {
                 // the channel G3 is ended
@@ -441,15 +446,19 @@ public class CustomService extends Service {
                 mCurrentCycleG3.setLds0(mCurrentD);
                 mCurrentCycleG3.setLgs0(mCurrentG3);
                 // save value of M3a and value of M3b and time
+                if (sessionG3 == null )
+                    sessionG3 = new SessionG3() ;
+
                 sessionG3.getM3aValuesAndTime().put(System.currentTimeMillis() , mCurrentCycleG3.getM3a()) ;
                 sessionG3.getM3bValuesAndTime().put( System.currentTimeMillis() ,mCurrentCycleG3.getM3b());
 
                 mCurrentCycleG3.setLds0Setted(true);
                 mCurrentCycleG3.setLgs0Setted(true);
+                mLastCycleG3 = mCurrentCycleG3 ;
+
                 // send broadcast to the register context
                 BroadCastHandler.broadcastSessionG3(this , sessionG3 );
                 BroadCastHandler.broadcastCyclG3(this , mCurrentCycleG3 );
-
                 BroadCastHandler.broadCastActiviteChannel(this , mCurrentChannelVoltageOn );
 
                 mCurrentCycleG2 = null;
@@ -461,33 +470,36 @@ public class CustomService extends Service {
             prepareBroadcastDataRead(mCharacteristicBusVG1);
 
         } else if (CustomParser.isVoltageOn(mCharacteristicVoltageG2)) { // Voltage ON in G2
-
+            Log.i(TAG , "Channel G2 is ON ") ;
             if (mCurrentCycleG2 == null)
                 mCurrentCycleG2 = new CycleChannelG2() ;
 
-            if(mCurrentChannelVoltageOn != 2 )
-                mCurrentChannelVoltageOn= 2 ;
-            Log.i(TAG , "Char 2 is on ") ;
+            if (mCurrentChannelVoltageOn !=  2 )
+                mCurrentChannelVoltageOn = 2 ;
+
             // get last current value of D and G  in channel G1
             if (mCurrentCycleG1 != null && !mCurrentCycleG1.isLds0Setted() && !mCurrentCycleG1.isLgs0Setted()) {
-               // the channel G1 is ended
+                // the channel G1 is ended
                 mTimeInSeconds = 0;
 
                 mCurrentCycleG1.setLds0(mCurrentD);
                 mCurrentCycleG1.setLgs0(mCurrentG1);
 
                 // save value of M1a and value of M1b and time
+                if (sessionG1 == null )
+                    sessionG1 = new SessionG1() ;
                 sessionG1.getM1aValuesAndTime().put( System.currentTimeMillis() ,mCurrentCycleG1.getM1a()) ;
                 sessionG1.getM1bValuesAndTime().put(System.currentTimeMillis()  ,mCurrentCycleG1.getM1b()   );
 
                 mCurrentCycleG1.setLgs0Setted(true);
                 mCurrentCycleG1.setLds0Setted(true);
+                mLastCycleG1 = mCurrentCycleG1 ;
                 // send broadcast to the register context
                 BroadCastHandler.broadcastSessionG1(this , sessionG1 );
                 BroadCastHandler.broadcastCyclG1(this , mCurrentCycleG1 );
-
-
                 BroadCastHandler.broadCastActiviteChannel(this , mCurrentChannelVoltageOn);
+
+
                 mCurrentCycleG1 = null;
                 mCurrentCycleG3 = null;
             }
@@ -497,14 +509,14 @@ public class CustomService extends Service {
 
 
         } else if (CustomParser.isVoltageOn(mCharacteristicVoltageG3)) { // Voltage ON in G3
+            Log.i(TAG , "Channel G3 is ON ") ;
 
             if (mCurrentCycleG3 == null)
                 mCurrentCycleG3 = new CycleChannelG3() ;
 
-            if (mCurrentChannelVoltageOn!= 3 )
-                mCurrentChannelVoltageOn =3 ;
+            if (mCurrentChannelVoltageOn != 3 )
+                mCurrentChannelVoltageOn = 3 ;
 
-            Log.i(TAG , "Char 3 is on") ;
             // get last current value of D and G  in channel G2
             if (mCurrentCycleG2 != null && !mCurrentCycleG2.isLds0Setted() && !mCurrentCycleG2.isLgs0Setted()) {
 
@@ -515,18 +527,20 @@ public class CustomService extends Service {
                 mCurrentCycleG2.setLgs0(mCurrentG2);
 
                 // save value of M2a and value of M2b and time
+                if(sessionG2 == null )
+                    sessionG2 = new SessionG2() ;
                 sessionG2.getM2aValuesAndTime().put( System.currentTimeMillis(), mCurrentCycleG2.getM2a()  ) ;
                 sessionG2.getM2bValuesAndTime().put( System.currentTimeMillis() , mCurrentCycleG2.getM2b() );
 
                 mCurrentCycleG2.setLds0Setted(true);
                 mCurrentCycleG2.setLgs0Setted(true);
+                mLastCycleG2 = mCurrentCycleG2 ;
+
                 //send Broadcast to the register context
                 BroadCastHandler.broadcastSessionG2(this , sessionG2);
                 BroadCastHandler.broadcastCyclG2(this , mCurrentCycleG2);
-
-
-
                 BroadCastHandler.broadCastActiviteChannel(this , mCurrentChannelVoltageOn);
+
                 mCurrentCycleG1 = null;
                 mCurrentCycleG2 = null;
             }
@@ -545,7 +559,7 @@ public class CustomService extends Service {
 
     private void handleVoltageOFF() {
 
-
+        Log.i(TAG , "handleVoltageOff") ;
         if (mCurrentChannelVoltageOn == 1) {
 
             if (mCurrentCycleG1 != null &&  !mCurrentCycleG1.isLdsSetted() && !mCurrentCycleG1.isLgsSetted()) {
@@ -689,5 +703,35 @@ public class CustomService extends Service {
     }
 
 
+    public class CustomBinder extends Binder {
 
+        public CustomService getService (){
+            return CustomService.this ;
+        }
+    }
+
+
+    public CycleChannelG1 getmLastCycleG1() {
+        return mLastCycleG1;
+    }
+
+    public CycleChannelG2 getmLastCycleG2() {
+        return mLastCycleG2;
+    }
+
+    public CycleChannelG3 getmLastCycleG3() {
+        return mLastCycleG3;
+    }
+
+    public SessionG1 getSessionG1() {
+        return sessionG1;
+    }
+
+    public SessionG2 getSessionG2() {
+        return sessionG2;
+    }
+
+    public SessionG3 getSessionG3() {
+        return sessionG3;
+    }
 }

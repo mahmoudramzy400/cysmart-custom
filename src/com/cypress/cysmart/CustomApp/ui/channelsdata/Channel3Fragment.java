@@ -18,6 +18,7 @@ import com.cypress.cysmart.CustomApp.data.models.CycleChannelG1;
 import com.cypress.cysmart.CustomApp.data.models.CycleChannelG3;
 import com.cypress.cysmart.CustomApp.data.models.SessionG1;
 import com.cypress.cysmart.CustomApp.data.models.SessionG3;
+import com.cypress.cysmart.CustomApp.services.CustomService;
 import com.cypress.cysmart.CustomApp.ui.maactivitychart.MaActivityChart;
 import com.cypress.cysmart.CustomApp.ui.mbactivitychart.MbActivityChart;
 import com.cypress.cysmart.CustomApp.utils.BroadCastHandler;
@@ -48,11 +49,20 @@ public class Channel3Fragment extends Fragment {
     private Button mM3bButton ;
     private LineChart mCycle1Chart ;
     private TextView mActiveTextView ;
+    private ChannelsDataActivity mActivity;
+    private CustomService mCustomService ;
 
     public static Fragment newInstance(){
         return  new Channel3Fragment () ;
     }
 
+    @Override
+    public void onAttach(Context context) {
+        if (context instanceof  ChannelsDataActivity ){
+            mActivity = (ChannelsDataActivity) context;
+        }
+        super.onAttach(context);
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -92,7 +102,19 @@ public class Channel3Fragment extends Fragment {
                 }
             }
         });
+        if (mActivity != null && mActivity.getCustomService() != null ){
 
+            mCustomService = mActivity.getCustomService() ;
+
+            if (mCustomService.getmLastCycleG3() != null ){
+                cycleChannelG3 = mCustomService.getmLastCycleG3() ;
+                drawCycle1Chart();
+            }
+
+            if (mCustomService.getSessionG3() != null){
+                sessionG3 = mCustomService.getSessionG3() ;
+            }
+        }
 
         return rootView ;
     }
@@ -124,7 +146,7 @@ public class Channel3Fragment extends Fragment {
 
                 mCurrentActiveChannel = intent.getIntExtra(BroadCastHandler.EXTRA_ACTIVATE_CHANNEL, 0);
 
-                if (mCurrentActiveChannel ==1) {
+                if (mCurrentActiveChannel ==3) {
                     mActiveTextView.setVisibility(View.VISIBLE );
                 }else{
                     mActiveTextView.setVisibility(View.INVISIBLE );
@@ -147,34 +169,37 @@ public class Channel3Fragment extends Fragment {
 
 
     private void drawCycle1Chart (){
-        Log.i(TITLE , "drawCycle3Chart") ;
+
+        Log.i(TITLE , "drawCycle1Chart") ;
         ArrayList<Entry> entries = new ArrayList<>();
 
         if (cycleChannelG3 != null && cycleChannelG3.getTimeAndCurrentDList() != null){
-
 
             for (ArrayList<Integer> timeAndCurrentList : cycleChannelG3.getTimeAndCurrentDList()){
 
                 int time       = timeAndCurrentList.get(0) ;
                 int currentOfD = timeAndCurrentList.get(1 );
                 Log.i(TITLE , "time:" + time + " currentOfD :"+currentOfD);
+
                 entries.add(new Entry(time,currentOfD ));
             }
         }else{
             Log.i(TITLE ,"Time and current is null ") ;
         }
-        LineDataSet lineDataSet = new LineDataSet(entries , getString(R.string.title_time_in_seconds)) ;
+
+        LineDataSet lineDataSet = new LineDataSet(entries , TITLE) ;
         lineDataSet.setDrawFilled(true);
         lineDataSet.setFillColor(getResources().getColor(R.color.colorAccent));
+        lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
         XAxis xAxis = mCycle1Chart.getXAxis() ;
-       // xAxis.setPosition(XAxis.XAxisPosition.BOTTOM );
+        xAxis.setPosition(XAxis.XAxisPosition.BOTTOM );
+
+        LineData lineData = new LineData(lineDataSet ) ;
         // disable right y axis
         mCycle1Chart.getAxisRight().setEnabled(false);
-
         mCycle1Chart.getAxisLeft().setAxisMinimum(lineDataSet.getYMin());
         mCycle1Chart.getAxisRight().setAxisMinimum(lineDataSet.getXMin() );
-        LineData lineData = new LineData(lineDataSet ) ;
         // set data to chart
         mCycle1Chart.setData(lineData);
         // animate the chart
