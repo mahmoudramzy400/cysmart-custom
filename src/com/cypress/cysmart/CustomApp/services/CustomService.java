@@ -429,6 +429,8 @@ public class CustomService extends Service {
     }
 
     private void checkCurrentVoltages() {
+
+
         if (CustomParser.isVoltageOn(mCharacteristicVoltageG1)) { // Voltage ON in G1
             Log.i(TAG , "Channel G1 is ON ") ;
 
@@ -669,6 +671,8 @@ public class CustomService extends Service {
 
         timeAndCurrentOfD.add(mTimeInSeconds) ;
         timeAndCurrentOfD.add(mCurrentD)    ;
+        Log.i(TAG , "Current time :" + mTimeInSeconds ) ;
+        Log.i(TAG , "Current of D : " + mCurrentD) ;
 
 
         switch (mCurrentChannelVoltageOn){

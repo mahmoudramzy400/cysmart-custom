@@ -18,7 +18,7 @@ public class CycleChannelG3 implements Serializable {
     private boolean isLgs0Setted = false ;
 
     private float M3a  ;
-    private float M3b = (lgs - lgs0) ;
+    private float M3b  ;
 
 
     ArrayList<ArrayList<Integer>> timeAndCurrentDList = new ArrayList<>() ;
@@ -106,12 +106,18 @@ public class CycleChannelG3 implements Serializable {
 
 
     public float getM3a() {
-        M3a =lds0==0? 0 : (lds - lds0) / lds0 ;
+        if (lds0 == 0 ){
+            return  0 ;
+         }else {
+            float x = (lds - lds0) ;
+
+            M3a = (float) x/lds0 ;
+        }
         return M3a;
     }
 
     public float getM3b() {
-       M3b=lds0==0? 0 : (lds - lds0) / lds0 ;
+       M3b= lgs - lgs0 ;
         return M3b;
     }
 }

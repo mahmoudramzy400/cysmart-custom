@@ -35,6 +35,7 @@ import java.util.ArrayList;
  */
 public class Channel2Fragment extends Fragment {
 
+    private static final String TAG = "Channel2Fragment" ;
     public static final String TITLE = "Channel G2" ;
 
 
@@ -157,6 +158,14 @@ public class Channel2Fragment extends Fragment {
                 Log.i(TITLE , " onReceive :"+ action) ;
                 cycleChannelG2 = (CycleChannelG2) intent.getSerializableExtra(BroadCastHandler.EXTRA_CYCLE_CHANG2);
                 drawCycle1Chart() ;
+
+                Log.i(TAG , "cycle 2 added") ;
+                Log.i(TAG  , "cycle 2 lds :"+cycleChannelG2.getLds()) ;
+                Log.i(TAG , "cycle 2 lds0 :"+ cycleChannelG2.getLds0()) ;
+                Log.i(TAG , "cycle 2 lgs :"+cycleChannelG2.getLgs() );
+                Log.i(TAG , "cycle 2 lgs0 : "+ cycleChannelG2.getLgs0() ) ;
+                Log.i(TAG , "cycle 2 ma : "+ cycleChannelG2.getM2a() ) ;
+                Log.i(TAG , "cycle 2 mb : "+ cycleChannelG2.getM2b() ) ;
 
             }
 

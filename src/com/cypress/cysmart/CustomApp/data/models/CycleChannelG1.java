@@ -109,8 +109,14 @@ public class CycleChannelG1 implements Serializable {
 
 
     public float getM1a() {
-        M1a  =lds0==0? 0 : (lds - lds0) / lds0;
-        return M1a ;
+        if (lds0 == 0 ){
+            return  0 ;
+        }else {
+
+            float x =   lds-lds0 ;
+            M1a = (float)  x/lds0 ;
+        }
+        return M1a;
     }
 
     public Float getM1b() {

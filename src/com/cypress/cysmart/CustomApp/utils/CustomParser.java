@@ -1,11 +1,13 @@
 package com.cypress.cysmart.CustomApp.utils;
 
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.util.Log;
 
 import java.math.BigInteger;
 
 public class CustomParser {
 
+    private static final String TAG = "CustomParser" ;
 
 
     private CustomParser() {
@@ -51,12 +53,29 @@ public class CustomParser {
 
         int value = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8 , 0 ) ;
 
-        if (value == 1){
+
+        if (value > 0){
             return true ;
+        }else{
+            return  false ;
         }
-        return  false ;
     }
 
+    /*
+   Check  wether the shunt voltage is on in this channel or not
+    */
+    public static boolean isVoltageOnString (BluetoothGattCharacteristic characteristic ,int channleNumber ){
+
+        int value = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_SINT8 , 0 ) ;
+
+        Log.i(TAG , "channel"+channleNumber + "value is : " + value ) ;
+        if (value > 0){
+            return true ;
+        }else{
+            return  false ;
+        }
+
+    }
     /*
     Convert from hex to integer
 

@@ -37,7 +37,7 @@
         android:layout_gravity="center"
         android:gravity="center"
         android:background ="@drawable/mb_bt_background"
-        android:text="M3a"
+        android:text="M3b"
         android:layout_margin="16dp"
         android:textColor="@color/white"
         android:id="@+id/btn_m3b"

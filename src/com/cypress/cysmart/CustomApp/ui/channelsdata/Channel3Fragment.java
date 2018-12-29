@@ -38,7 +38,7 @@ public class Channel3Fragment extends Fragment {
 
 
     public static final String TITLE  = "Channel G3";
-
+    private static final String TAG  = "Channel3Fragment" ;
 
 
     private SessionG3 sessionG3;
@@ -163,10 +163,21 @@ public class Channel3Fragment extends Fragment {
                 cycleChannelG3 = (CycleChannelG3) intent.getSerializableExtra(BroadCastHandler.EXTRA_CYCLE_CHANG3);
                 drawCycle1Chart() ;
 
+                Log.i(TAG , "cycle 3 added") ;
+                Log.i(TAG  , "cycle 3 lds :"+cycleChannelG3.getLds()) ;
+                Log.i(TAG , "cycle 3 lds0 :"+ cycleChannelG3.getLds0()) ;
+                Log.i(TAG , "cycle 3 lgs :"+cycleChannelG3.getLgs() );
+                Log.i(TAG , "cycle 3 lgs0 : "+ cycleChannelG3.getLgs0() ) ;
+                Log.i(TAG , "cycle 3 ma : "+ cycleChannelG3.getM3a() ) ;
+                Log.i(TAG , "cycle 3 mb : "+ cycleChannelG3.getM3b() ) ;
+
+
             }
 
             if (action.equals(BroadCastHandler.ACTION_SESSION3_CHANGED)) {
                 sessionG3 = (SessionG3) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG3);
+
+
             }
         }
     };

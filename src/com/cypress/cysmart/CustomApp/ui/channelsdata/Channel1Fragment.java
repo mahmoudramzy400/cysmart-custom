@@ -33,6 +33,7 @@ import java.util.ArrayList;
  */
 public class Channel1Fragment extends Fragment {
 
+    private static final String TAG = "Channel1Fragment" ;
     public static final String TITLE = "Channel G1";
 
     private SessionG1 sessionG1;
@@ -67,6 +68,8 @@ public class Channel1Fragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         View rootView = inflater.inflate(R.layout.fragment_channel1, container, false);
 
@@ -166,6 +169,15 @@ public class Channel1Fragment extends Fragment {
                 Log.i(TITLE , " onReceive :"+ action) ;
                 cycleChannelG1 = (CycleChannelG1) intent.getSerializableExtra(BroadCastHandler.EXTRA_CYCLE_CHANG1);
                 drawCycle1Chart() ;
+
+                Log.i(TAG , "cycle 1 added") ;
+                Log.i(TAG  , "cycle 1 lds :"+cycleChannelG1.getLds()) ;
+                Log.i(TAG , "cycle 1 lds0 :"+ cycleChannelG1.getLds0()) ;
+                Log.i(TAG , "cycle 1 lgs :"+cycleChannelG1.getLgs() );
+                Log.i(TAG , "cycle 1 lgs0 : "+ cycleChannelG1.getLgs0() ) ;
+                Log.i(TAG , "cycle 1 ma : "+ cycleChannelG1.getM1a() ) ;
+                Log.i(TAG , "cycle 1 mb : "+ cycleChannelG1.getM1b() ) ;
+
 
             }
 
