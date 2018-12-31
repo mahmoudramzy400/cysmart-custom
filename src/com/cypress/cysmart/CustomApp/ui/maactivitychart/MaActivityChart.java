@@ -173,6 +173,7 @@ public class MaActivityChart extends AppCompatActivity {
 
             XAxis xAxis = mLineChartLayout.getXAxis() ;
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
+           /*
             xAxis.setValueFormatter(new IAxisValueFormatter() {
                 @Override
                 public String getFormattedValue(float value, AxisBase axis) {
@@ -185,6 +186,7 @@ public class MaActivityChart extends AppCompatActivity {
                 }
             });
 
+            */
             mLineChartLayout.getAxisRight().setEnabled(false );
 
 

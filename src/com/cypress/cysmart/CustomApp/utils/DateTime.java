@@ -35,7 +35,7 @@ public class DateTime {
 
         int minutes = calendar.get(Calendar.MINUTE);
 
-        float mintesRate =  minutes/60 ;
+        float mintesRate = (float) minutes/60 ;
         float floatHour = hourPerDay +mintesRate  ;
 
         return floatHour;

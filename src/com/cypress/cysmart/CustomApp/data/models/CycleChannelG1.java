@@ -5,15 +5,15 @@ import java.util.ArrayList;
 
 public class CycleChannelG1 implements Serializable {
 
-    private int lds ; // last value of D when VG =ON
-    private int lds0 ; // Last value of D when Vg = OFF
+    private float lds ; // last value of D when VG =ON
+    private float lds0 ; // Last value of D when Vg = OFF
     private boolean isLdsSetted = false ;
     private boolean isLds0Setted = false ;
 
     private int maxVoltage =0 ;
 
-    private int lgs ; // Last value of shunt of G1  when VG = ON
-    private int lgs0 ; //Last value Of shunt of G1 when VG = OFF
+    private float lgs ; // Last value of shunt of G1  when VG = ON
+    private float lgs0 ; //Last value Of shunt of G1 when VG = OFF
     private boolean isLgsSetted = false ;
     private boolean isLgs0Setted = false ;
 
@@ -25,37 +25,41 @@ public class CycleChannelG1 implements Serializable {
     ArrayList<ArrayList<Integer>> timeAndCurrentDList = new ArrayList<>() ;
 
 
-    public int getLds() {
+    public float getLds() {
         return lds;
 
 
     }
 
     public void setLds(int lds) {
-        this.lds = lds;
+        this.lds = lds/1000;
     }
 
-    public int getLds0() {
+
+    public float getLds0() {
         return lds0;
     }
 
     public void setLds0(int lds0) {
-        this.lds0 = lds0;
+        this.lds0 = lds0/1000;
     }
 
-    public int getLgs() {
+    public float getLgs() {
         return lgs;
     }
 
-    public void setLgs(int lgs) {
+    public void setLgs(float lgs) {
+        lgs= Math.abs(lgs)/100 ;
         this.lgs = lgs;
     }
 
-    public int getLgs0() {
+    public float getLgs0() {
         return lgs0;
     }
 
-    public void setLgs0(int lgs0) {
+    public void setLgs0(float lgs0) {
+        lgs0 = Math.abs(lgs0)/100 ;
+
         this.lgs0 = lgs0;
     }
 
@@ -120,7 +124,7 @@ public class CycleChannelG1 implements Serializable {
     }
 
     public Float getM1b() {
-        M1b = (lgs - lgs0) ;
+        M1b = (lgs - lgs0)-3 ;
         return M1b;
     }
 }

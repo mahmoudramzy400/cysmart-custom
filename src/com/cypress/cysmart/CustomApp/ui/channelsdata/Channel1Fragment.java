@@ -208,7 +208,7 @@ public class Channel1Fragment extends Fragment {
             Log.i(TITLE ,"Time and current is null ") ;
         }
 
-        LineDataSet lineDataSet = new LineDataSet(entries , TITLE) ;
+        LineDataSet lineDataSet = new LineDataSet(entries , getString(R.string.title_last_cycle1)) ;
         lineDataSet.setDrawFilled(true);
         lineDataSet.setFillColor(getResources().getColor(R.color.colorAccent));
         lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);

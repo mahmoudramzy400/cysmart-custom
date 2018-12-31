@@ -153,6 +153,7 @@ public class CarouselFragment extends Fragment {
         if (mName.equalsIgnoreCase(getResources().getString(
                 R.string.profile_control_unknown_service))) {
             mService = mBleHashMap.get(mUuid);
+            if(mService != null)
             mCurrentUUID = mService.getUuid();
 
             TextView mTvUUID = (TextView) rootView.findViewById(R.id.text_uuid);

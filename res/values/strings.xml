@@ -554,5 +554,6 @@
     <string name="title_m2b_values">M2b Values</string>
     <string name="title_m3b_values">M3b Values</string>
     <string name="title_ic_channels">Custom Channels</string>
+    <string name="title_last_cycle1">Last cycle of G1</string>
 
 </resources>

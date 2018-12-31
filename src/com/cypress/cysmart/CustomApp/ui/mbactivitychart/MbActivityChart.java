@@ -177,18 +177,17 @@ public class MbActivityChart extends AppCompatActivity {
             XAxis xAxis = mLineChartLayout.getXAxis() ;
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
 
+           /*
             xAxis.setValueFormatter(new IAxisValueFormatter() {
                 @Override
                 public String getFormattedValue(float value, AxisBase axis) {
-                    indexLabel ++ ;
-                    if (indexLabel < mLables.size()){
-                        return mLables.get(indexLabel) ;
-                    }
+
 
                     return  value +"";
                 }
             });
 
+            */
             mLineChartLayout.getAxisRight().setEnabled(false );
 
 
