@@ -1047,7 +1047,6 @@ drawable abc_textfield_search_material
 drawable abc_vector_test
 drawable about
 drawable accelometer
-drawable appicon
 drawable arrow_bw
 drawable avd_hide_password
 drawable avd_show_password
@@ -1105,6 +1104,7 @@ drawable device_info
 drawable document_icon
 drawable drawer_shadow
 drawable emulator
+drawable et_background
 drawable exit_active
 drawable exit_normal
 drawable find_me
@@ -1124,6 +1124,9 @@ drawable hand_normal
 drawable heart
 drawable heart_rate
 drawable home
+drawable ic_app_icon
+drawable ic_cloud_done_red_500_24dp
+drawable ic_done
 drawable ic_launcher
 drawable ic_more_vert_white_24dp
 drawable ic_mtrl_chip_checked_black
@@ -1280,6 +1283,8 @@ id btn_m2a
 id btn_m2b
 id btn_m3a
 id btn_m3b
+id btn_ma_done
+id btn_mb_done
 id btn_pair
 id btn_read
 id btn_scroll_down
@@ -1386,6 +1391,8 @@ id end
 id end_padder
 id enterAlways
 id enterAlwaysCollapsed
+id et_max_ma_value
+id et_max_mb_value
 id exitUntilCollapsed
 id exit_btn
 id expand_activities_button
@@ -2232,6 +2239,8 @@ string heart_rate
 string hello_blank_fragment
 string hex
 string hide_bottom_view_on_scroll_behavior
+string hint_max_ma_value
+string hint_max_mb_value
 string hrm_CHEST
 string hrm_EAR_LOBE
 string hrm_FINGER
@@ -2407,11 +2416,13 @@ string speech_text
 string status_bar_notification_info_overflow
 string title_about
 string title_activate_channel
+string title_alert
 string title_character_instance_id
 string title_contact
 string title_devices
 string title_gate_descriptor_uuid
 string title_ic_channels
+string title_last_cycle1
 string title_m1a_values
 string title_m1b_values
 string title_m2a_values

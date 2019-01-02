@@ -1,16 +1,24 @@
 package com.cypress.cysmart.CustomApp.services;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.media.RingtoneManager;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
+import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.cypress.cysmart.BLEConnectionServices.BluetoothLeService;
@@ -23,10 +31,14 @@ import com.cypress.cysmart.CustomApp.data.models.CycleChannelG3;
 import com.cypress.cysmart.CustomApp.data.models.SessionG1;
 import com.cypress.cysmart.CustomApp.data.models.SessionG2;
 import com.cypress.cysmart.CustomApp.data.models.SessionG3;
+import com.cypress.cysmart.CustomApp.ui.channelsdata.ChannelsDataActivity;
 import com.cypress.cysmart.CustomApp.utils.BroadCastHandler;
 import com.cypress.cysmart.CustomApp.utils.CustomParser;
+import com.cypress.cysmart.CustomApp.utils.DateTime;
+import com.cypress.cysmart.CustomApp.utils.FilesManager;
 import com.cypress.cysmart.CustomApp.utils.GattAttributes;
 import com.cypress.cysmart.CustomApp.utils.UUIDDatabase;
+import com.cypress.cysmart.R;
 import com.cypress.cysmart.SplashPageActivity;
 
 import java.util.ArrayList;
@@ -69,7 +81,8 @@ public class CustomService extends Service {
     private CycleChannelG2 mLastCycleG2 ;
     private CycleChannelG3 mLastCycleG3 ;
 
-
+    private NotificationCompat.Builder mBuilder ;
+    private NotificationManager mMananger ;
 
     //___________ hex  values of characteristic
     private String mHexCurrentG1 = "";
@@ -112,6 +125,7 @@ public class CustomService extends Service {
     private Handler mHandler = new Handler();
 
 
+    private String fileBody ;
 
 
     private SessionG1 sessionG1 ;
@@ -210,6 +224,7 @@ public class CustomService extends Service {
 
             registerReceiver(mGattUpdateReceiver, Utils.makeGattUpdateIntentFilter());
 
+            fileBody += DateTime.getDateAndTime() +"\n" ;
             mHandler.post(readVoltageRunnable);
 
         } else {
@@ -394,8 +409,10 @@ public class CustomService extends Service {
     private void disconnected(){
 
         mHandler.removeCallbacks(readVoltageRunnable);
+        FilesManager.closeWriter();
         stopSelf();
         startActivity(new Intent(this , SplashPageActivity.class));
+
     }
     /*
      ________________________________ Handle Voltage of Channels ___________________________________
@@ -403,9 +420,12 @@ public class CustomService extends Service {
     private void handleVoltageG1(byte[] value) {
 
 
+
         //   int hexValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG1 = CustomParser.byteArraytoHex(value);
         mVoltageG1 = CustomParser.bytesToInteger(value);
+
+
         prepareBroadcastDataRead(mCharacteristicVoltageG2);
     }
 
@@ -414,6 +434,7 @@ public class CustomService extends Service {
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG2 = CustomParser.byteArraytoHex(value);
         mVoltageG2 = CustomParser.bytesToInteger(value);
+
         prepareBroadcastDataRead(mCharacteristicVoltageG3);
 
 
@@ -423,7 +444,6 @@ public class CustomService extends Service {
 
         //  int hexaValue = Utils.ByteArraytoHexInt( value );
         mHexVoltageG3 = CustomParser.byteArraytoHex(value);
-
         mVoltageG3 = CustomParser.bytesToInteger(value);
         checkCurrentVoltages();
     }
@@ -453,6 +473,7 @@ public class CustomService extends Service {
 
                 sessionG3.getM3aValuesAndTime().put(System.currentTimeMillis() , mCurrentCycleG3.getM3a()) ;
                 sessionG3.getM3bValuesAndTime().put( System.currentTimeMillis() ,mCurrentCycleG3.getM3b());
+                checkMa3andMb3( mCurrentCycleG3.getM3a(), mCurrentCycleG3.getM3b() );
 
                 mCurrentCycleG3.setLds0Setted(true);
                 mCurrentCycleG3.setLgs0Setted(true);
@@ -492,6 +513,7 @@ public class CustomService extends Service {
                     sessionG1 = new SessionG1() ;
                 sessionG1.getM1aValuesAndTime().put( System.currentTimeMillis() ,mCurrentCycleG1.getM1a()) ;
                 sessionG1.getM1bValuesAndTime().put(System.currentTimeMillis()  ,mCurrentCycleG1.getM1b()   );
+                checkma1Andmb1( mCurrentCycleG1.getM1a() , mCurrentCycleG1.getM1b() );
 
                 mCurrentCycleG1.setLgs0Setted(true);
                 mCurrentCycleG1.setLds0Setted(true);
@@ -533,6 +555,8 @@ public class CustomService extends Service {
                     sessionG2 = new SessionG2() ;
                 sessionG2.getM2aValuesAndTime().put( System.currentTimeMillis(), mCurrentCycleG2.getM2a()  ) ;
                 sessionG2.getM2bValuesAndTime().put( System.currentTimeMillis() , mCurrentCycleG2.getM2b() );
+                // alert for high value
+                checkMa2AndMb2( mCurrentCycleG2.getM2a() ,mCurrentCycleG2.getM2b() );
 
                 mCurrentCycleG2.setLds0Setted(true);
                 mCurrentCycleG2.setLgs0Setted(true);
@@ -611,12 +635,15 @@ public class CustomService extends Service {
         mHexBusG1 = CustomParser.byteArraytoHex(value);
         mBusG1 = CustomParser.bytesToInteger(value);
         prepareBroadcastDataRead(mCharacteristicCurrentG1);
+
+
     }
 
     private void handleBusG2(byte[] value) {
         // int customeValue = CustomParser.getButVoltage(mCharacteristicBusVG2) ;
         mHexBusG2 = CustomParser.byteArraytoHex(value);
         mBusG2 = CustomParser.bytesToInteger(value);
+
         prepareBroadcastDataRead(mCharacteristicCurrentG2);
     }
 
@@ -625,6 +652,7 @@ public class CustomService extends Service {
         // int customeValue = CustomParser.getButVoltage(mCharacteristicBusVG3) ;
         mHexBusG3 = CustomParser.byteArraytoHex(value);
         mBusG3 = CustomParser.bytesToInteger(value);
+
         prepareBroadcastDataRead(mCharacteristicCurrentG3);
     }
 
@@ -635,6 +663,7 @@ public class CustomService extends Service {
         // mHexCurrentG1 = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentG1 = CustomParser.byteArraytoHex(array);
         mCurrentG1 = CustomParser.bytesToInteger(array);
+
         prepareBroadcastDataRead(mCharacteristicCurrentD);
     }
 
@@ -666,6 +695,7 @@ public class CustomService extends Service {
         // mHexCurrentD = Utils.ByteArraytoHexInt( array ) ;
         mHexCurrentD = CustomParser.byteArraytoHex(array);
         mCurrentD = CustomParser.bytesToInteger(array);
+
         //list for add time and current of D
         ArrayList<Integer> timeAndCurrentOfD = new ArrayList<>();
 
@@ -704,6 +734,49 @@ public class CustomService extends Service {
         mBusD = CustomParser.bytesToInteger(array);
 
 
+
+        fileBody += "SHUNT"+ "\n" +"G1:" + mVoltageG1 ;
+        fileBody = " G2:" + mVoltageG2 ;
+        fileBody = " G3:" + mVoltageG3 ;
+
+
+
+        switch (mCurrentChannelVoltageOn ){
+            case 1 :
+                fileBody += "Bus" + "\n" + "G1:" + mBusG1  ;
+                fileBody += "D:" + mBusD ;
+
+                fileBody += "Current" + "\n" + "G1:" + mCurrentG1  ;
+                fileBody +=   " D:" + mCurrentD  ;
+                break;
+
+            case 2 :
+                fileBody += "Bus" + "\n" + "G2:" + mBusG2  ;
+                fileBody += "D:" + mBusD ;
+
+                fileBody += "Current" + "\n" + "G2:" + mCurrentG2  ;
+                fileBody +=   " D:" + mCurrentD  ;
+                break;
+
+            case 3 :
+                fileBody += "Bus" + "\n" + " G3:" + mBusG3  ;
+                fileBody += "D:" + mBusD ;
+
+                fileBody += "Current" + "\n" + "G3:" + mCurrentG3  ;
+                fileBody +=   " D:" + mCurrentD  ;
+                break;
+        }
+
+
+
+
+
+        FilesManager.saveChannelsData(this , fileBody);
+        this.fileBody = "\n" ;
+
+
+
+
     }
 
 
@@ -715,6 +788,63 @@ public class CustomService extends Service {
     }
 
 
+    private void checkma1Andmb1(float ma, float mb){
+
+        if ( sessionG1.getMaxMavalue() !=  0 && sessionG1.getMaxMbValue() != 0 ){
+
+            if (ma > sessionG1.getMaxMavalue() && mb > sessionG1.getMaxMbValue() ){
+
+                showNotification(1 , getString(R.string.msg_high_dehydration));
+            }
+
+
+            if (ma > sessionG1.getMaxMbValue() && mb <sessionG1.getMaxMbValue() ){
+
+
+                showNotification(1 ,getString(R.string.msg_high_saline));
+            }
+        }
+
+
+    }
+
+
+    private void checkMa2AndMb2(float ma, float mb){
+
+        if ( sessionG2.getMaxMavalue() !=  0 && sessionG2.getMaxMbValue() != 0 ){
+
+            if (ma > sessionG2.getMaxMavalue() && mb > sessionG2.getMaxMbValue() ){
+
+                showNotification(2 , getString(R.string.msg_high_dehydration));
+            }
+
+
+            if (ma > sessionG2.getMaxMbValue() && mb <sessionG2.getMaxMbValue() ){
+
+
+                showNotification(2 ,getString(R.string.msg_high_saline));
+            }
+        }
+
+    }
+
+    private void checkMa3andMb3(float ma, float mb){
+
+        if ( sessionG3.getMaxMavalue() !=  0 && sessionG3.getMaxMbValue() != 0 ){
+
+            if (ma > sessionG3.getMaxMavalue() && mb > sessionG3.getMaxMbValue() ){
+
+                showNotification(3 , getString(R.string.msg_high_dehydration));
+            }
+
+
+            if (ma > sessionG3.getMaxMbValue() && mb <sessionG3.getMaxMbValue() ){
+
+
+                showNotification(3 ,getString(R.string.msg_high_saline));
+            }
+        }
+    }
     public CycleChannelG1 getmLastCycleG1() {
         return mLastCycleG1;
     }
@@ -741,5 +871,49 @@ public class CustomService extends Service {
 
     public int getmCurrentChannelVoltageOn (){
         return mCurrentChannelVoltageOn ;
+    }
+
+    private void showNotification (int channelNumber , String message  ){
+
+        Intent intent = new Intent(this,ChannelsDataActivity.class) ;
+        PendingIntent pendingIntent =  PendingIntent.getActivity(this ,
+                0  ,intent ,PendingIntent.FLAG_UPDATE_CURRENT) ;
+
+
+        mBuilder  = new NotificationCompat.Builder(this ,createChannelId() );
+        mBuilder.setSmallIcon(R.drawable.ic_app_icon)
+                .setContentTitle( getString(R.string.title_alert ) + channelNumber )
+                .setContentText(message )
+                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION))
+                .setContentIntent(pendingIntent ) ;
+
+        mMananger.notify(100 , mBuilder.build()  );
+
+    }
+
+
+    private String createChannelId(){
+
+        // if android sdk > 26 we must create NotificationChannel  and return the id of this channel
+        // else we must return nul
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            String channelId = "my_custom_service" ;
+            String channelName = "custom_service" ;
+            NotificationChannel channel  =  new NotificationChannel(channelId ,
+                    channelName ,
+                    NotificationManager.IMPORTANCE_NONE  ) ;
+
+            channel.setLightColor(Color.RED);
+            channel.setLockscreenVisibility(Notification.VISIBILITY_PRIVATE);
+            mMananger = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE );
+            mMananger.createNotificationChannel(channel  );
+
+            return  channelId ;
+        }else {
+            // the sdk < 26 return null for channel
+            return  null ;
+        }
+
     }
 }

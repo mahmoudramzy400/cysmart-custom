@@ -7,24 +7,7 @@ import java.util.Date;
 public class DateTime {
 
 
-    public static String getTimeHourMinutes() {
-        Calendar calendar = Calendar.getInstance();
 
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
-        String hourAndMinutes = simpleDateFormat.format(calendar.getTimeInMillis());
-        return hourAndMinutes;
-    }
-
-    // get Hour in 24 Format
-    public static int getHourPerday(Long timeInMillis) {
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(timeInMillis);
-        int hourPerDay = calendar.get(Calendar.HOUR_OF_DAY);
-
-        return hourPerDay;
-
-    }
 
     // if time is 13.15 will return 13.025
     public static float getFloatHour(Long timeInMillis) {
@@ -51,4 +34,22 @@ public class DateTime {
 
         return simpleDateFormat.format(calendar.getTime() );
     }
+
+
+    public static String getDateAndTime (){
+        Calendar calendar = Calendar.getInstance() ;
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("DD/MM/YYYY-HH:mm") ;
+        return  simpleDateFormat.format(calendar);
+    }
+
+
+    public static String getDate(){
+        Calendar calendar = Calendar.getInstance() ;
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("DD-MM-YYYY") ;
+        return  simpleDateFormat.format(calendar ) ;
+    }
+
+
 }

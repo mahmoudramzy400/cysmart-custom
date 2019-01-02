@@ -12,6 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.cypress.cysmart.CustomApp.data.models.CycleChannelG1;
@@ -49,6 +51,10 @@ public class Channel3Fragment extends Fragment {
     private Button mM3bButton ;
     private LineChart mCycle1Chart ;
     private TextView mActiveTextView ;
+    private EditText mMaxMaValue ;
+    private EditText mMaxMBVaue ;
+    private ImageButton mMbDone ;
+    private ImageButton mMADone ;
     private ChannelsDataActivity mActivity;
     private CustomService mCustomService ;
 
@@ -73,6 +79,38 @@ public class Channel3Fragment extends Fragment {
         mM3bButton  = rootView.findViewById(R.id.btn_m3b) ;
         mCycle1Chart= rootView.findViewById(R.id.chart_cycle3) ;
         mActiveTextView = rootView.findViewById(R.id.text_active_channel ) ;
+        mMaxMaValue = rootView.findViewById(R.id.et_max_ma_value);
+        mMaxMBVaue  =rootView.findViewById(R.id.et_max_mb_value) ;
+        mMADone  =rootView.findViewById(R.id.btn_ma_done);
+        mMbDone  =rootView.findViewById(R.id.btn_mb_done ) ;
+
+        mMADone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                if( mMaxMaValue != null  && mMaxMaValue.getText()!= null ) {
+                    int maMaxValue = Integer.valueOf(mMaxMaValue.getText().toString()) ;
+
+                    if ( mCustomService != null && mCustomService.getSessionG3() != null  ){
+                        mCustomService.getSessionG3().setMaxMavalue(maMaxValue );
+                    }
+                }
+            }
+        });
+
+
+        mMbDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mMaxMBVaue != null && mMaxMBVaue.getText() != null){
+                    int mbMaxValue = Integer.valueOf(mMaxMBVaue.getText().toString() )  ;
+
+                    if ( mCustomService != null && mCustomService.getSessionG3() != null  ){
+                        mCustomService.getSessionG3().setMaxMbValue(mbMaxValue );
+                    }
+                }
+            }
+        });
 
         mM3aButton.setOnClickListener(new View.OnClickListener() {
             @Override

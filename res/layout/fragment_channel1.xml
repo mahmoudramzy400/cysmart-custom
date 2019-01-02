@@ -9,50 +9,120 @@
 
 
     <TextView
+        android:id="@+id/text_active_channel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textColor="@color/colorPrimary"
-        android:text="@string/title_activate_channel"
+        android:layout_gravity="center"
         android:layout_margin="8dp"
-        android:layout_gravity="center"
-        android:visibility="invisible"
-        android:id="@+id/text_active_channel"
-        />
-    <Button
-        android:layout_width="180dp"
+        android:text="@string/title_activate_channel"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:visibility="invisible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:background ="@drawable/ma_btn_background"
-        android:text="M1a"
-        android:layout_margin="16dp"
-        android:textColor="@color/white"
-        android:id="@+id/btn_m1a"
+        android:orientation="horizontal">
 
-        />
+        <Button
+            android:id="@+id/btn_m1a"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/ma_btn_background"
+            android:gravity="center"
+            android:text="M1a Chart"
+            android:textColor="@color/white" />
 
-    <Button
-        android:layout_width="180dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_weight="1"
+            android:layout_gravity="center">
+
+            <EditText
+                android:id="@+id/et_max_ma_value"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/et_background"
+                android:hint="@string/hint_max_ma_value"
+                android:layout_marginRight="8dp"
+                android:inputType="text"
+                android:padding="8dp"
+                android:textColor="@color/black" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_ma_done"
+                android:src="@drawable/ic_done"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:background="@android:color/transparent"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:background ="@drawable/mb_bt_background"
-        android:text="M1b"
-        android:layout_margin="16dp"
-        android:textColor="@color/white"
-        android:id="@+id/btn_m1b"
+        android:orientation="horizontal">
 
-        />
+        <Button
+            android:id="@+id/btn_m1b"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/mb_bt_background"
+            android:gravity="center"
+            android:text="M1b Chart"
+            android:textColor="@color/white" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_weight="1">
+
+            <EditText
+                android:id="@+id/et_max_mb_value"
+                android:layout_width="150dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center"
+                android:background="@drawable/et_background"
+                android:hint="@string/hint_max_mb_value"
+                android:inputType="text"
+                android:padding="8dp"
+                android:layout_marginRight="8dp"
+                android:textColor="@color/black"
+             />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_mb_done"
+                android:src="@drawable/ic_done"
+                android:layout_gravity="center"
+                android:padding="16dp"
+                android:background="@android:color/transparent"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 
     <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart_cycle1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/chart_cycle1"
-        android:layout_marginBottom="48dp"
-        />
+        android:layout_marginBottom="48dp" />
 
 
 </LinearLayout>

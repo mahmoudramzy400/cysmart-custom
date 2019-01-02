@@ -24,7 +24,7 @@
     <application
         android:name=".CySmartApplication"
         android:allowBackup="true"
-        android:icon="@drawable/appicon"
+        android:icon="@drawable/ic_app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MyCustomTheme">

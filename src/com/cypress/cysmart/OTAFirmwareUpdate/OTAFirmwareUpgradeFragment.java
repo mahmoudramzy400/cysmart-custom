@@ -856,7 +856,7 @@ public class OTAFirmwareUpgradeFragment extends Fragment implements View.OnClick
         mBuilder.setContentTitle(getResources().getString(R.string.ota_notification_title))
                 .setAutoCancel(false)
                 .setContentText(getResources().getString(R.string.ota_notification_ongoing))
-                .setSmallIcon(R.drawable.appicon);
+                .setSmallIcon(R.drawable.ic_app_icon);
     }
 
     public void generatePendingNotification(Context mContext,

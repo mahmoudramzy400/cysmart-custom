@@ -9,6 +9,26 @@ public class SessionG3 implements Serializable {
 
     private HashMap<Long, Float> m3bValuesAndTime = new HashMap<Long, Float>();
 
+    private float maxMavalue  = 0 ;
+
+    private float maxMbValue  = 0 ;
+
+
+    public float getMaxMavalue() {
+        return maxMavalue;
+    }
+
+    public void setMaxMavalue(float maxMavalue) {
+        this.maxMavalue = maxMavalue;
+    }
+
+    public float getMaxMbValue() {
+        return maxMbValue;
+    }
+
+    public void setMaxMbValue(float maxMbValue) {
+        this.maxMbValue = maxMbValue;
+    }
 
     public HashMap<Long, Float> getM3aValuesAndTime() {
         return m3aValuesAndTime;
