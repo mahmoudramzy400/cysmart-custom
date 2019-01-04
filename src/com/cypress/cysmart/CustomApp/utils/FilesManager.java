@@ -34,7 +34,7 @@ public class FilesManager {
             try {
                 writer = new FileWriter(channelDataFile ,true );
                 writer.write(dataBody );
-              //  writer.close();
+                writer.close();
             } catch (IOException e) {
                 e.printStackTrace();
                 Log.i(TAG , "Error in write the file ") ;

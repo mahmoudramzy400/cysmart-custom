@@ -409,7 +409,7 @@ public class CustomService extends Service {
     private void disconnected(){
 
         mHandler.removeCallbacks(readVoltageRunnable);
-        FilesManager.closeWriter();
+       // FilesManager.closeWriter();
         stopSelf();
         startActivity(new Intent(this , SplashPageActivity.class));
 
