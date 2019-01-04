@@ -12,6 +12,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:contentDescription="@string/image_splash_logo"
-        android:src="@drawable/logo" /> 
+        android:src="@drawable/image_splash_logo" />
 
 </RelativeLayout>
