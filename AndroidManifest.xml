@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cypress.cysmart"
+    package="com.cypress.btion"
     android:versionCode="8"
     android:versionName="1.1.1.68">
 
@@ -16,35 +16,37 @@
 
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
-        android:name=".CySmartApplication"
+        android:name="com.cypress.btion.CySmartApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_app_icon"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MyCustomTheme">
         <service
-            android:name=".BLEConnectionServices.BluetoothLeService"
+            android:name="com.cypress.btion.BLEConnectionServices.BluetoothLeService"
             android:enabled="true" />
 
-        <receiver android:name=".OTAFirmwareUpdate.OTAResponseReceiver">
+        <receiver android:name="com.cypress.btion.OTAFirmwareUpdate.OTAResponseReceiver">
             <intent-filter>
                 <action android:name="com.cysmart.bluetooth.le.ACTION_OTA_DATA_AVAILABLE" />
             </intent-filter>
         </receiver>
-        <receiver android:name=".BLEStatusReceiver">
+        <receiver android:name="com.cypress.btion.BLEStatusReceiver">
             <intent-filter>
                 <action android:name="com.example.bluetooth.le.ACTION_GATT_DISCONNECTED" />
             </intent-filter>
         </receiver>
 
         <activity
-            android:name=".SplashPageActivity"
+            android:name="com.cypress.btion.SplashPageActivity"
             android:configChanges="orientation|screenSize"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.DeviceDefault.NoActionBar" >
@@ -55,7 +57,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".HomePageActivity"
+            android:name="com.cypress.btion.HomePageActivity"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
             android:theme="@style/MyCustomTheme"
@@ -103,12 +105,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".OTAFirmwareUpdate.OTAFilesListingActivity"
+            android:name="com.cypress.btion.OTAFirmwareUpdate.OTAFilesListingActivity"
             android:configChanges="orientation|screenSize"
             android:theme="@android:style/Theme.Holo.Light.DialogWhenLarge.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
         <activity
-            android:name=".DataLoggerFragments.DataLoggerHistoryList"
+            android:name="com.cypress.btion.DataLoggerFragments.DataLoggerHistoryList"
             android:configChanges="orientation|screenSize"
             android:theme="@android:style/Theme.Holo.Light.DialogWhenLarge.NoActionBar"
             android:windowSoftInputMode="adjustPan" />
@@ -116,24 +118,24 @@
 
         <!--  _____________________Activity of Channels _________ -->
         <activity
-            android:name=".CustomApp.ui.channelsdata.ChannelsDataActivity"
+            android:name="com.cypress.btion.CustomApp.ui.channelsdata.ChannelsDataActivity"
             android:theme="@style/AppTheme1.NoActionBar"
             />
 
 
         <!-- _______________Activity of chart for MA ________________ -->
         <activity
-            android:name=".CustomApp.ui.maactivitychart.MaActivityChart"
+            android:name="com.cypress.btion.CustomApp.ui.maactivitychart.MaActivityChart"
             android:theme="@style/AppTheme1"/>
 
 
         <!-- ________________Activity of chart for MB ___________________ -->
-        <activity android:name=".CustomApp.ui.mbactivitychart.MbActivityChart"
+        <activity android:name="com.cypress.btion.CustomApp.ui.mbactivitychart.MbActivityChart"
             android:theme="@style/AppTheme1"/>
 
 
         <!-- __________________ out custom service ____________ -->
-        <service android:name=".CustomApp.services.CustomService" />
+        <service android:name="com.cypress.btion.CustomApp.services.CustomService" />
 
 
     </application>

@@ -53,7 +53,7 @@
                 android:background="@drawable/et_background"
                 android:hint="@string/hint_max_ma_value"
                 android:layout_marginRight="8dp"
-                android:inputType="text"
+                android:inputType="numberDecimal|numberSigned"
                 android:padding="8dp"
                 android:textColor="@color/black" />
 
@@ -103,7 +103,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/et_background"
                 android:hint="@string/hint_max_mb_value"
-                android:inputType="text"
+                android:inputType="numberDecimal|numberSigned"
                 android:padding="8dp"
                 android:layout_marginRight="8dp"
                 android:textColor="@color/black"

@@ -101,7 +101,7 @@
                 android:gravity="center"
                 android:visibility="invisible">
 
-                <com.cypress.cysmart.CommonUtils.TextProgressBar
+                <com.cypress.btion.CommonUtils.TextProgressBar
                     android:id="@+id/upgrade_progress_bar_top"
                     style="@style/CustomProgressBar"
                     android:layout_width="match_parent"
@@ -133,7 +133,7 @@
                 android:layout_margin="5dp"
                 android:visibility="invisible">
 
-                <com.cypress.cysmart.CommonUtils.TextProgressBar
+                <com.cypress.btion.CommonUtils.TextProgressBar
                     android:id="@+id/upgrade_progress_bar_bottom"
                     style="@style/CustomProgressBar"
                     android:layout_width="match_parent"

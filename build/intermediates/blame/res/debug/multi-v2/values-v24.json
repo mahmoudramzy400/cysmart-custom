@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
+            "outputFile": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v24\\values-v24.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\ae3ce7d520fe044302b20593961916d9\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\5546fd033ab33e50abc98c9673055ead\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3,4,5",
                         "startColumns": "4,4,4,4",
@@ -21,7 +21,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\b157dc41a2424bfd7d923aea7af24435\\res\\values-v24\\values-v24.xml",
+                    "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\values-v24\\values-v24.xml",
                     "from": {
                         "startLines": "2,3",
                         "startColumns": "4,4",

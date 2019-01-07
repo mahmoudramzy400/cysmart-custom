@@ -1,4 +1,4 @@
-com.cypress.cysmart
+com.cypress.btion
 anim abc_fade_in
 anim abc_fade_out
 anim abc_grow_fade_in_from_bottom
@@ -1132,6 +1132,7 @@ drawable ic_more_vert_white_24dp
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable image_splash_logo
 drawable info_icon
 drawable left_menu_active
 drawable left_menu_normal
@@ -2301,6 +2302,8 @@ string motion_x
 string motion_y
 string motion_zwheel
 string mouth
+string msg_high_dehydration
+string msg_high_saline
 string mtrl_chip_close_icon_content_description
 string namespace
 string navigation_drawer_child_ble

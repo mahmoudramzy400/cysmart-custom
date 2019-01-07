@@ -2,7 +2,7 @@
 <resources>
 
     <!-- Application elements -->
-    <string name="app_name">CySmart</string>
+    <string name="app_name">BTION</string>
     <string name="loading">Loading</string>
 
     <!-- Navigation drawer elements -->
@@ -557,7 +557,7 @@
     <string name="title_last_cycle1">Last cycle of G1</string>
     <string name="hint_max_ma_value">Max Ma value</string>
     <string name="hint_max_mb_value">Max Mb value</string>
-    <string name="title_alert">Alert from ChannelG</string>
+    <string name="title_alert">Alert from Channel G</string>
     <string name="msg_high_dehydration">high dehydration, suggested water drinking</string>
     <string name="msg_high_saline">high saline loss, replace with saline drink”</string>
 

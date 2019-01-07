@@ -1,16 +1,16 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
+            "outputFile": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-w820dp-v13\\values-w820dp-v13.xml",
             "map": [
                 {
-                    "source": "E:\\Software Engineering\\android development\\AndroidStudioProjects\\src\\res\\values-w820dp\\dimens.xml",
+                    "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\values-w820dp\\dimens.xml",
                     "from": {
                         "startLines": "7",
                         "startColumns": "4",
-                        "startOffsets": "305",
+                        "startOffsets": "312",
                         "endColumns": "57",
-                        "endOffsets": "358"
+                        "endOffsets": "365"
                     },
                     "to": {
                         "startLines": "2",
