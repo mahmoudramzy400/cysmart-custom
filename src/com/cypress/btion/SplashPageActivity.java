@@ -60,6 +60,8 @@ public class SplashPageActivity extends Activity {
     /**
      * Flag to handle the handler
      */
+    private boolean isGetLocation ;
+    private boolean isGetStorage ;
     private boolean mHandlerFlag = true;
 
     private Handler mHandler = new Handler();
@@ -100,26 +102,8 @@ public class SplashPageActivity extends Activity {
          * Run the code inside the runnable after the display time is finished
          * using a handler
          */
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 
-            boolean isGetLocation = ContextCompat.checkSelfPermission(this ,Manifest.permission.ACCESS_FINE_LOCATION)    == PackageManager.PERMISSION_GRANTED ;
-            boolean isGetStorage  =  ContextCompat.checkSelfPermission(this ,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
-            if ( !isGetLocation ){
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION} ,100);
-            }
-            if (!isGetStorage ){
-                requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE} ,101);
-            }
-
-
-            if (isGetLocation && isGetStorage){
-                mHandler.postDelayed(mRun ,SPLASH_DISPLAY_LENGTH) ;
-            }
-
-        }else {
-            mHandler.postDelayed(mRun, SPLASH_DISPLAY_LENGTH);
-        }
-
+        checkPermission();
     }
 
     @Override
@@ -132,6 +116,37 @@ public class SplashPageActivity extends Activity {
         super.onBackPressed();
     }
 
+    private void checkPermission (){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+
+            isGetLocation = ContextCompat.checkSelfPermission(this ,Manifest.permission.ACCESS_FINE_LOCATION)    == PackageManager.PERMISSION_GRANTED ;
+            isGetStorage  =  ContextCompat.checkSelfPermission(this ,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+
+
+            if ( !isGetLocation ){
+                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION} ,100);
+            }else{
+
+                if (!isGetStorage ){
+                    requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE} ,101);
+                }else{
+                    // we have two permission
+                    mHandler.postDelayed(mRun, SPLASH_DISPLAY_LENGTH);
+
+                }
+            }
+
+
+
+
+
+
+
+        }else {
+            mHandler.postDelayed(mRun, SPLASH_DISPLAY_LENGTH);
+        }
+
+    }
     /**
      * Method to detect whether the device is phone or tablet
      */
@@ -143,21 +158,26 @@ public class SplashPageActivity extends Activity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        boolean isGetLocation = ContextCompat.checkSelfPermission(this ,Manifest.permission.ACCESS_FINE_LOCATION)    == PackageManager.PERMISSION_GRANTED ;
-        boolean isGetStorage  = ContextCompat.checkSelfPermission(this ,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+         isGetLocation = ContextCompat.checkSelfPermission(this ,Manifest.permission.ACCESS_FINE_LOCATION)    == PackageManager.PERMISSION_GRANTED ;
+         isGetStorage  = ContextCompat.checkSelfPermission(this ,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
+
         switch (requestCode){
             case 100 :
+                if (grantResults.length>0)
                isGetLocation= grantResults[0 ]== PackageManager.PERMISSION_GRANTED ;
                 break;
 
             case 101 :
-                isGetStorage = grantResults[0]==PackageManager.PERMISSION_GRANTED ;
+                if (grantResults.length>0)
+                    isGetStorage = grantResults[0]==PackageManager.PERMISSION_GRANTED ;
                 break ;
 
         }
 
         if (isGetLocation && isGetStorage){
             mHandler.postDelayed(mRun,SPLASH_DISPLAY_LENGTH) ;
+        }else{
+            checkPermission();
         }
     }
 }

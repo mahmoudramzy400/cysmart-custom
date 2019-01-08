@@ -24,7 +24,7 @@ public class FilesManager {
             File baseFile = context.getExternalFilesDir(baseFileName) ;
             if (!baseFile.exists())
                 baseFile.mkdir() ;
-            File channelDataFile = new File(baseFile, "channel_data_" +DateTime.getDate()+".txt") ;
+            File channelDataFile = new File(baseFile, "channel_data_" +DateTime.getDate()+".csv") ;
 
 
 

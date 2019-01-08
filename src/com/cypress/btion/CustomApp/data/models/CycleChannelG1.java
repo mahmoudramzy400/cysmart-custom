@@ -31,7 +31,7 @@ public class CycleChannelG1 implements Serializable {
 
     }
 
-    public void setLds(int lds) {
+    public void setLds(float lds) {
         this.lds = lds/1000;
     }
 
@@ -40,7 +40,7 @@ public class CycleChannelG1 implements Serializable {
         return lds0;
     }
 
-    public void setLds0(int lds0) {
+    public void setLds0(float lds0) {
         this.lds0 = lds0/1000;
     }
 

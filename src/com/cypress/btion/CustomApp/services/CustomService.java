@@ -244,9 +244,13 @@ public class CustomService extends Service {
         @Override
         public void run() {
             Log.i(TAG, "Run starting");
+            if (mCharacteristicVoltageG1 != null)
             prepareBroadcastDataRead(mCharacteristicVoltageG1);
+            else {
+                Log.i(TAG, "mCharacteristicVoltageG2 is null ") ;
+            }
             mTimeInSeconds++;
-           // mHandler.postDelayed(this, MINIMUM_DURATION_OF_READING_VOLTAGE);
+            mHandler.postDelayed(this, MINIMUM_DURATION_OF_READING_VOLTAGE);
         }
     };
 
@@ -513,6 +517,8 @@ public class CustomService extends Service {
                 mCurrentCycleG1.setLds0(mCurrentD);
                 mCurrentCycleG1.setLgs0(mCurrentG1);
 
+
+
                 // save value of M1a and value of M1b and time
                 if (sessionG1 == null )
                     sessionG1 = new SessionG1() ;
@@ -598,6 +604,7 @@ public class CustomService extends Service {
                 mCurrentCycleG1.setLds(mCurrentD);
                 mCurrentCycleG1.setLdsSetted(true);
 
+                Log.i(TAG+"--", "lds:"+mCurrentD);
                 // set last value of current G1
                 mCurrentCycleG1.setLgs(mCurrentG1);
                 mCurrentCycleG1.setLgsSetted(true);
@@ -739,17 +746,17 @@ public class CustomService extends Service {
         mBusD = CustomParser.bytesToInteger(array);
 
 
-        String g1 = "\n" + DateTime.getCompleteTime() +",G1 Bus:"+mBusG1 +" ,D Bus:"+mBusD +", G1 Current:"+mCurrentG1+" ,D current:"+
-                mCurrentD+ ", G1 Shunt:"+mVoltageG1;
+        String g1 = "\n" + DateTime.getCompleteTime() +",G1 Bus:,"+mBusG1 +" ,D Bus:,"+mBusD +", G1 Current:,"+mCurrentG1+" ,D current:,"+
+                mCurrentD+ ", G1 Shunt:,"+mVoltageG1;
 
 
 
-        String g2 = "\n" + DateTime.getCompleteTime() +",G2 Bus:"+mBusG2 +" ,D Bus:"+mBusD +", G2 Current:"+mCurrentG2+" ,D current:"+
-                mCurrentD+ ", G2 Shunt:"+mVoltageG2;
+        String g2 = "\n" + DateTime.getCompleteTime() +",G2 Bus:,"+mBusG2 +" ,D Bus:,"+mBusD +", G2 Current:,"+mCurrentG2+" ,D current:,"+
+                mCurrentD+ ", G2 Shunt:,"+mVoltageG2;
 
 
-        String g3 = "\n" + DateTime.getCompleteTime() +",G3 Bus:"+mBusG3 +" ,D Bus:"+mBusD +", G3 Current:"+mCurrentG3+" ,D current:"+
-                mCurrentD+ ", G3 Shunt:"+mVoltageG3 ;
+        String g3 = "\n" + DateTime.getCompleteTime() +",G3 Bus:,"+mBusG3 +" ,D Bus:,"+mBusD +", G3 Current:,"+mCurrentG3+" ,D current:,"+
+                mCurrentD+ ", G3 Shunt:,"+mVoltageG3 ;
 
         switch (mCurrentChannelVoltageOn ){
             case 1 :
@@ -775,7 +782,7 @@ public class CustomService extends Service {
        // mHandler = new Handler( );
       //  mHandler.post(readVoltageRunnable) ;
 
-        readVoltageRunnable.run();
+        //readVoltageRunnable.run();
 
 
 

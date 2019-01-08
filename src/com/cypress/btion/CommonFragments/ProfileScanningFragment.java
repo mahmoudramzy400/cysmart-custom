@@ -88,7 +88,7 @@ public class ProfileScanningFragment extends Fragment {
     private boolean mScanning;
 
     // Connection time out after 10 seconds.
-    private static final long CONNECTION_TIMEOUT = 10000;
+    private static final long CONNECTION_TIMEOUT = 50000;
     private Timer mConnectTimer;
     private boolean mConnectTimerON=false;
 
