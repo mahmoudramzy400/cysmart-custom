@@ -213,8 +213,10 @@ public class BluetoothLeService extends Service {
 
         @Override
         public void onServicesDiscovered(BluetoothGatt gatt, int status) {
+            Log.i("BluetoothLeService" ,"onServicesDiscovered") ;
             // GATT Services discovered
             if (status == BluetoothGatt.GATT_SUCCESS) {
+                Log.i("BluetoothLeService" ,"disconver Services success") ;
                 String dataLog2 = mContext.getResources().getString(R.string.dl_commaseparator)
                         + "[" + mBluetoothDeviceName + "|" + mBluetoothDeviceAddress + "] " +
                         mContext.getResources().getString(R.string.dl_service_discovery_status) +
@@ -224,9 +226,13 @@ public class BluetoothLeService extends Service {
 
             } else if (status == BluetoothGatt.GATT_INSUFFICIENT_AUTHENTICATION ||
                     status == BluetoothGatt.GATT_INSUFFICIENT_ENCRYPTION) {
+
+                Log.i("BluetoothLeService" ,"disconver Services GATT_INSUFFICIENT_ENCRYPTION") ;
                 bondDevice();
                 broadcastConnectionUpdate(ACTION_GATT_SERVICE_DISCOVERY_UNSUCCESSFUL);
             } else {
+                Log.i("BluetoothLeService" ,"disconver Services Failed") ;
+
                 String dataLog2 = mContext.getResources().getString(R.string.dl_commaseparator)
                         + "[" + mBluetoothDeviceName + "|" + mBluetoothDeviceAddress + "] " +
                         mContext.getResources().getString(R.string.dl_service_discovery_status) +
@@ -892,7 +898,7 @@ public class BluetoothLeService extends Service {
         // We want to directly connect to the device, so we are setting the
         // autoConnect
         // parameter to false.
-        mBluetoothGatt = device.connectGatt(context, false, mGattCallback);
+        mBluetoothGatt = device.connectGatt(context, true, mGattCallback);
         //Clearing Bluetooth cache before disconnecting to the device
         if (Utils.getBooleanSharedPreference(mContext, Constants.PREF_PAIR_CACHE_STATUS)) {
             //Logger.e(getActivity().getClass().getName() + "Cache cleared on disconnect!");

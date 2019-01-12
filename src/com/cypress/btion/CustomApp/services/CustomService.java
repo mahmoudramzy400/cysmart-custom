@@ -156,62 +156,73 @@ public class CustomService extends Service {
             for (BluetoothGattCharacteristic gattCharacteristic : mCustomService.getCharacteristics()) {
                 // ___________________Voltage characteristics_______________________
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G1) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G1_INSTANCE) {
+                        (       gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G1_INSTANCE ||
+                                gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G1_INSTANCE2) ) {
                     mCharacteristicVoltageG1 = gattCharacteristic;
                 }
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G2) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G2_INSTANCE) {
+                        (   gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G2_INSTANCE ||
+                            gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G2_INSTANCE2)) {
                     mCharacteristicVoltageG2 = gattCharacteristic;
                 }
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_SHUNT_VOL_G3) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G3_INSTANCE) {
+                        (  gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G3_INSTANCE ||
+                            gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_SHUNT_VOL_G3_INSTANCE2)) {
                     mCharacteristicVoltageG3 = gattCharacteristic;
                 }
 
                 // ___________________________Bus Voltage _________________________________________
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_BUS_VOL_G1) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G1_INSTANCE) {
+                        (  gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G1_INSTANCE ||
+                            gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G1_INSTANCE2)) {
                     mCharacteristicBusVG1 = gattCharacteristic;
                 }
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_BUS_VOL_G2) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G2_INSTANCE) {
+                        ( gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G2_INSTANCE ||
+                        gattCharacteristic.getInstanceId() ==GattAttributes.CHARACTERISTIC_BUS_VOL_G2_INSTANCE2)) {
                     mCharacteristicBusVG2 = gattCharacteristic;
                 }
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_BUS_VOL_G3) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G3_INSTANCE) {
+                        (  gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G3_INSTANCE ||
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_G3_INSTANCE2)) {
                     mCharacteristicBusVG3 = gattCharacteristic;
                 }
 
                 // ___________________________Current Characteristics _____________________________
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G1) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G1_INSTANCE) {
+                        (gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G1_INSTANCE ||
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G1_INSTANCE2)) {
                     mCharacteristicCurrentG1 = gattCharacteristic;
                 }
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G2) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G2_INSTANCE) {
+                        ( gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G2_INSTANCE ||
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G2_INSTANCE2)) {
                     mCharacteristicCurrentG2 = gattCharacteristic;
                 }
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_G3) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G3_INSTANCE) {
+                        (  gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G3_INSTANCE ||
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_G3_INSTANCE2)) {
                     mCharacteristicCurrentG3 = gattCharacteristic;
                 }
 
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_CURRENT_D) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_D_INSTANCE) {
+                        (  gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_D_INSTANCE ||
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_CURRENT_D_INSTANCE2)) {
                     mCharacteristicCurrentD = gattCharacteristic;
                 }
 
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_BUS_VOL_D) &&
-                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_D_INSTANCE) {
+                        (  gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_D_INSTANCE ||
+                        gattCharacteristic.getInstanceId() == GattAttributes.CHARACTERISTIC_BUS_VOL_D_INSTANCE2)) {
                     mCharacteristicBusD = gattCharacteristic;
                 }
                 if (gattCharacteristic.getUuid().equals(UUIDDatabase.UUID_CHARACTERISTIC_TIME) &&

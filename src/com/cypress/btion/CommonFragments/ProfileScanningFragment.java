@@ -50,6 +50,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -83,12 +84,12 @@ import java.util.TimerTask;
 public class ProfileScanningFragment extends Fragment {
 
     // Stops scanning after 2 seconds.
-    private static final long SCAN_PERIOD_TIMEOUT = 2000;
+    private static final long SCAN_PERIOD_TIMEOUT = 15000;
     private Timer mScanTimer;
     private boolean mScanning;
 
     // Connection time out after 10 seconds.
-    private static final long CONNECTION_TIMEOUT = 50000;
+    private static final long CONNECTION_TIMEOUT = 20000*60;
     private Timer mConnectTimer;
     private boolean mConnectTimerON=false;
 
@@ -132,6 +133,7 @@ public class ProfileScanningFragment extends Fragment {
 
         @Override
         public void onLeScan(final BluetoothDevice device, final int rssi, byte[] scanRecord) {
+            Log.i("ProfileScanningFragment" , "onLeScan");
             Activity mActivity = getActivity();
             if (mActivity != null) {
                 mActivity.runOnUiThread(new Runnable() {
@@ -324,6 +326,7 @@ public class ProfileScanningFragment extends Fragment {
         mDeviceName = device.getName();
         // Get the connection status of the device
         if (BluetoothLeService.getConnectionState() == BluetoothLeService.STATE_DISCONNECTED) {
+            Log.i("ProfileScanningFr" ,"disconnect State") ;
             Logger.v("BLE DISCONNECTED STATE");
             // Disconnected,so connect
             BluetoothLeService.connect(mDeviceAddress, mDeviceName, getActivity());
@@ -331,6 +334,7 @@ public class ProfileScanningFragment extends Fragment {
         }
         else {
             Logger.v("BLE OTHER STATE-->" + BluetoothLeService.getConnectionState());
+            Log.i("ProfileScanningFr","other state") ;
             // Connecting to some devices,so disconnect and then connect
             BluetoothLeService.disconnect();
             Handler delayHandler = new Handler();
@@ -420,6 +424,7 @@ public class ProfileScanningFragment extends Fragment {
 
     @Override
     public void onPause() {
+        Log.i("ProfileScanningFr","onPause") ;
         Logger.e("Scanning onPause");
         isInFragment = false;
         if (mProgressdialog != null && mProgressdialog.isShowing()) {
@@ -661,6 +666,7 @@ public class ProfileScanningFragment extends Fragment {
         mScanTimer.schedule(new TimerTask() {
             @Override
             public void run() {
+               if (getActivity() != null)
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
