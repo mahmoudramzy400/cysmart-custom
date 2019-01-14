@@ -202,7 +202,7 @@ public class Channel2Fragment extends Fragment {
                 setupTank();
             }
 
-            if (mCustomService.getmCurrentChannelVoltageOn() == 1)
+            if (mCustomService.getmCurrentChannelVoltageOn() == 2)
                 mActiveTextView.setVisibility(View.VISIBLE);
             else
                 mActiveTextView.setVisibility(View.INVISIBLE);
@@ -231,7 +231,13 @@ public class Channel2Fragment extends Fragment {
 
             float tankProgressPercent = tankProgress/200 ;
 
-            mProgressTankImageView.getLayoutParams().height =   mTankLayout.getHeight()* (int) tankProgressPercent  ;
+            Log.i(TAG ,"tankProgessPercent:" +(int) mTankLayout.getHeight()*  tankProgressPercent ) ;
+
+            tankProgressPercent = Math.abs(tankProgressPercent) ;
+            ViewGroup.LayoutParams layoutParams = mProgressTankImageView.getLayoutParams() ;
+
+            layoutParams.height =(int)( mTankLayout.getHeight()*  tankProgressPercent) ;
+            mProgressTankImageView.setLayoutParams(layoutParams);
         }
 
     }
@@ -274,6 +280,7 @@ public class Channel2Fragment extends Fragment {
             if (action.equals(BroadCastHandler.ACTION_SESSION2_CHANGED) && intent.hasExtra(BroadCastHandler.EXTRA_SESSIONG2)) {
                 Log.i(TAG  , " onReceive : Session 2 Changed ") ;
                 sessionG2 = (SessionG2) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG2);
+                setupTank();
             }
         }
     };

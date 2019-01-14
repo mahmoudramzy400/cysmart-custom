@@ -26,155 +26,217 @@ import java.util.Map;
 public class MaActivityChart extends AppCompatActivity {
 
 
-    private static final String TAG = "MaActivityChart" ;
-    private LineChart mLineChartLayout ;
-    private int mActiveChannelNumber ;
+    private static final String TAG = "MaActivityChart";
+    private LineChart mLineChartLayout;
+    private int mActiveChannelNumber;
 
 
-    private SessionG1 sessionG1  ;
-    private SessionG2 sessionG2  ;
-    private SessionG3 sessionG3  ;
+    private SessionG1 sessionG1;
+    private SessionG2 sessionG2;
+    private SessionG3 sessionG3;
 
 
     private ArrayList<String> mLables;
-    private int indexLabel = -1 ;
-    private ArrayList<Entry> mEntries ;
+    private int indexLabel = -1;
+    private ArrayList<Entry> mEntries;
+    private Entry maxEntry;
+    private Entry minEntry;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ma_chart);
-        mLineChartLayout =findViewById(R.id.chart) ;
+        mLineChartLayout = findViewById(R.id.chart);
 
         checkIntent();
 
-        mEntries = getEntries() ;
+        mEntries = getEntries();
 
         startDrawMa();
 
     }
-    private void checkIntent (){
-        Intent intent = getIntent() ;
 
-        if (intent != null  ){
+    private void checkIntent() {
+        Intent intent = getIntent();
 
-            mActiveChannelNumber =  intent.getIntExtra(BroadCastHandler.EXTRA_ACTIVATE_CHANNEL, 0) ;
+        if (intent != null) {
+
+            mActiveChannelNumber = intent.getIntExtra(BroadCastHandler.EXTRA_ACTIVATE_CHANNEL, 0);
         }
 
-        switch (mActiveChannelNumber ){
-            case 1 :
+        switch (mActiveChannelNumber) {
+            case 1:
                 sessionG1 = (SessionG1) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG1);
                 break;
 
-            case 2 :
-                sessionG2 = (SessionG2) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG2 );
+            case 2:
+                sessionG2 = (SessionG2) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG2);
                 break;
 
-            case 3 :
-                sessionG3 = (SessionG3) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG3 );
+            case 3:
+                sessionG3 = (SessionG3) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG3);
                 break;
         }
     }
 
-    private ArrayList<Entry> getEntries(){
-        ArrayList<Entry> entries = new ArrayList<>( ) ;
+    private ArrayList<Entry> getEntries() {
+        ArrayList<Entry> entries = new ArrayList<>();
 
-        mLables = new ArrayList<>( );
+        mLables = new ArrayList<>();
 
+        float  maxMA = 0;
+        float minMa = 0;
+        maxEntry =null;
+        minEntry = null;
         if (mActiveChannelNumber == 1) {
 
-           if ( sessionG1 != null ) {
+            if (sessionG1 != null) {
 
-               LinkedHashMap<Long, Float> hashMap =sessionG1.getM1aValuesAndTime();
+                LinkedHashMap<Long, Float> hashMap = sessionG1.getM1aValuesAndTime();
 
-               Iterator it= hashMap.entrySet().iterator() ;
-               while (it.hasNext()){
+                Iterator it = hashMap.entrySet().iterator();
+                while (it.hasNext()) {
 
-                   Map.Entry<Long,Float> entry = (Map.Entry<Long, Float>) it.next();
-                   Long  time = entry.getKey() ;
-                   Float m1a    =entry.getValue() ;
+                    Map.Entry<Long, Float> entry = (Map.Entry<Long, Float>) it.next();
+                    Long time = entry.getKey();
+                    Float m1a = entry.getValue();
 
-                   // get hour in float
-                   float floatHour = DateTime.getFloatHour(time );
-                   Log.i(TAG ,"time :" + floatHour +  " m1a :"+m1a) ;
-                   // entry of time and ma for chart
-                   Entry entry1 = new Entry(floatHour , m1a) ;
-                   entries.add(entry1 );
-                   // use human format of time as label for every value
-                   String labelForxAxis = DateTime.getTime(time );
-                   mLables.add(labelForxAxis ) ;
-               }
-
-           }
-        }else if (mActiveChannelNumber == 2 ){
-
-            if ( sessionG2 != null ) {
-
-                LinkedHashMap<Long, Float> hashMap =sessionG2.getM2aValuesAndTime();
-
-                Iterator it= hashMap.entrySet().iterator() ;
-                while (it.hasNext()){
-
-                    Map.Entry<Long,Float> entry = (Map.Entry<Long, Float>) it.next();
-                    Long  time = entry.getKey() ;
-                    Float m2a    =entry.getValue() ;
 
                     // get hour in float
-                    float floatHour = DateTime.getFloatHour(time );
-                    Log.i(TAG ,"time :" + floatHour + " m2a :"+m2a) ;
+                    float floatHour = DateTime.getFloatHour(time);
+                    Log.i(TAG, "time :" + floatHour + " m1a :" + m1a);
                     // entry of time and ma for chart
-                    Entry entry1 = new Entry(floatHour , m2a) ;
-                    entries.add(entry1 );
+                    Entry entry1 = new Entry(floatHour, m1a);
+
+                    if (maxMA == 0 &&  minMa == 0){
+                        maxMA =m1a ;
+                        minMa = m1a ;
+                    }
+                    if (m1a > maxMA) {
+
+                        maxEntry = entry1;
+                        maxMA = m1a ;
+                    }
+
+                    if (m1a < minMa) {
+
+                        minEntry = entry1;
+                        minMa = m1a ;
+                    }
+                    entries.add(entry1);
                     // use human format of time as label for every value
-                    String labelForxAxis = DateTime.getTime(time );
-                    mLables.add(labelForxAxis ) ;
+                    String labelForxAxis = DateTime.getTime(time);
+                    mLables.add(labelForxAxis);
+                }
+
+            }
+        } else if (mActiveChannelNumber == 2) {
+
+            if (sessionG2 != null) {
+
+                LinkedHashMap<Long, Float> hashMap = sessionG2.getM2aValuesAndTime();
+
+                Iterator it = hashMap.entrySet().iterator();
+                while (it.hasNext()) {
+
+                    Map.Entry<Long, Float> entry = (Map.Entry<Long, Float>) it.next();
+                    Long time = entry.getKey();
+                    Float m2a = entry.getValue();
+
+                    // get hour in float
+                    float floatHour = DateTime.getFloatHour(time);
+                    Log.i(TAG, "time :" + floatHour + " m2a :" + m2a);
+                    // entry of time and ma for chart
+                    Entry entry1 = new Entry(floatHour, m2a);
+                    if (maxMA == 0 &&  minMa == 0){
+                        maxMA =m2a ;
+                        minMa = m2a ;
+                    }
+                    if (m2a > maxMA) {
+
+                        maxEntry = entry1;
+                        maxMA = m2a ;
+                    }
+
+                    if (m2a < minMa) {
+                        minEntry = entry1;
+                        minMa = m2a ;
+                    }
+                    entries.add(entry1);
+                    // use human format of time as label for every value
+                    String labelForxAxis = DateTime.getTime(time);
+                    mLables.add(labelForxAxis);
                 }
 
 
             }
 
-        }else if(mActiveChannelNumber == 3 ){
+        } else if (mActiveChannelNumber == 3) {
 
-            if ( sessionG3 != null ) {
+            if (sessionG3 != null) {
 
-                LinkedHashMap<Long, Float> hashMap =sessionG3.getM3aValuesAndTime();
+                LinkedHashMap<Long, Float> hashMap = sessionG3.getM3aValuesAndTime();
 
-                Iterator it= hashMap.entrySet().iterator() ;
-                while (it.hasNext()){
+                Iterator it = hashMap.entrySet().iterator();
+                while (it.hasNext()) {
 
-                    Map.Entry<Long,Float> entry = (Map.Entry<Long, Float>) it.next();
-                    Long  time = entry.getKey() ;
-                    Float m3a    =entry.getValue() ;
+                    Map.Entry<Long, Float> entry = (Map.Entry<Long, Float>) it.next();
+                    Long time = entry.getKey();
+                    Float m3a = entry.getValue();
 
                     // get hour in float
-                    float floatHour = DateTime.getFloatHour(time );
-                    Log.i(TAG ,"time :" + floatHour + " m3a :"+m3a) ;
+                    float floatHour = DateTime.getFloatHour(time);
+                    Log.i(TAG, "time :" + floatHour + " m3a :" + m3a);
                     // entry of time and ma for chart
-                    Entry entry1 = new Entry(floatHour , m3a) ;
-                    entries.add(entry1 );
+                    Entry entry1 = new Entry(floatHour, m3a);
+                    if (maxMA == 0 &&  minMa == 0){
+                        maxMA =m3a ;
+                        minMa = m3a ;
+                    }
+                    if (m3a > maxMA) {
+
+                        maxEntry = entry1;
+                        maxMA = m3a ;
+                    }
+
+                    if (m3a < minMa) {
+                        minEntry = entry1;
+                        minMa = m3a ;
+                    }
+                    entries.add(entry1);
                     // use human format of time as label for every value
-                    String labelForxAxis = DateTime.getTime(time );
-                    mLables.add(labelForxAxis ) ;
+                    String labelForxAxis = DateTime.getTime(time);
+                    mLables.add(labelForxAxis);
                 }
 
 
             }
         }
 
-        return  entries ;
+        return entries;
     }
 
-    private void startDrawMa (){
+    private void startDrawMa() {
 
-        if (mEntries != null  && mEntries.size() > 0 ){
+        if (mEntries != null && mEntries.size() > 0) {
 
-            LineDataSet lineDataSet = new LineDataSet(mEntries , getString(R.string.title_time)) ;
-            lineDataSet.setDrawFilled(true );
+            if (maxEntry != null){
+                mEntries.get(mEntries.indexOf(maxEntry)) .setIcon(getResources().getDrawable(R.drawable.ic_plus));
+
+            }
+            if (minEntry != null){
+                mEntries.get(mEntries.indexOf(minEntry)).setIcon(getResources().getDrawable(R.drawable.ic_negative));
+            }
+
+
+            LineDataSet lineDataSet = new LineDataSet(mEntries, getString(R.string.title_time));
+            lineDataSet.setDrawFilled(true);
             lineDataSet.setFillColor(getResources().getColor(R.color.colorAccent));
             lineDataSet.setMode(LineDataSet.Mode.CUBIC_BEZIER);
 
-            XAxis xAxis = mLineChartLayout.getXAxis() ;
+            XAxis xAxis = mLineChartLayout.getXAxis();
             xAxis.setPosition(XAxis.XAxisPosition.BOTTOM);
-           // xAxis.setGranularity(1);
+            // xAxis.setGranularity(1);
             //            mLineChartLayout.getAxisLeft().setGranularity(1);
 
 
@@ -192,19 +254,19 @@ public class MaActivityChart extends AppCompatActivity {
             });
 
             */
-            mLineChartLayout.getAxisRight().setEnabled(false );
+            mLineChartLayout.getAxisRight().setEnabled(false);
 
 
-            LineData lineData  = new LineData( lineDataSet );
+            LineData lineData = new LineData(lineDataSet);
 
-            Description description = new Description() ;
-            if (mActiveChannelNumber == 1){
+            Description description = new Description();
+            if (mActiveChannelNumber == 1) {
                 description.setText(getString(R.string.title_m1a_values));
 
-            }else if (mActiveChannelNumber == 2) {
+            } else if (mActiveChannelNumber == 2) {
                 description.setText(getString(R.string.title_m2a_values));
 
-            }else if (mActiveChannelNumber == 3 ){
+            } else if (mActiveChannelNumber == 3) {
 
                 description.setText(getString(R.string.title_m3a_values));
             }
@@ -212,9 +274,9 @@ public class MaActivityChart extends AppCompatActivity {
             mLineChartLayout.setDescription(description);
 
             mLineChartLayout.getAxisLeft().setAxisMinimum(lineDataSet.getYMin());
-            mLineChartLayout.getAxisRight().setAxisMinimum(lineDataSet.getXMin() );
+            mLineChartLayout.getAxisRight().setAxisMinimum(lineDataSet.getXMin());
 
-            mLineChartLayout.setData(lineData );
+            mLineChartLayout.setData(lineData);
             mLineChartLayout.animateX(2000);
             mLineChartLayout.invalidate();
         }

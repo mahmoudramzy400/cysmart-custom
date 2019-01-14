@@ -1133,6 +1133,8 @@ drawable ic_more_vert_white_24dp
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_negative
+drawable ic_plus
 drawable image_splash_logo
 drawable info_icon
 drawable left_menu_active

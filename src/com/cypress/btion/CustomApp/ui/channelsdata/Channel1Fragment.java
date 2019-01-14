@@ -238,7 +238,13 @@ public class Channel1Fragment extends Fragment {
 
             float tankProgressPercent = tankProgress/200 ;
 
-            mProgressTankImageView.getLayoutParams().height =   mTankLayout.getHeight()* (int) tankProgressPercent  ;
+            Log.i(TAG ,"tankProgessPercent:" +(int) mTankLayout.getHeight()*  tankProgressPercent ) ;
+
+            tankProgressPercent = Math.abs(tankProgressPercent) ;
+            ViewGroup.LayoutParams layoutParams = mProgressTankImageView.getLayoutParams() ;
+
+            layoutParams.height =(int)( mTankLayout.getHeight()*  tankProgressPercent) ;
+            mProgressTankImageView.setLayoutParams(layoutParams);
         }
 
     }
@@ -284,6 +290,7 @@ public class Channel1Fragment extends Fragment {
             if (action.equals(BroadCastHandler.ACTION_SESSION1_CHANGED) && intent.hasExtra(BroadCastHandler.EXTRA_SESSIONG1)  ) {
                 Log.i(TAG  , " onReceive : Session 1 Changed") ;
                 sessionG1 = (SessionG1) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG1);
+                setupTank();
             }
         }
     };

@@ -127,7 +127,7 @@
         <com.github.mikephil.charting.charts.LineChart
             android:id="@+id/chart_cycle1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="450dp"
             android:layout_marginBottom="48dp"
             android:layout_marginTop="16dp"
 
@@ -137,7 +137,7 @@
 
         <RelativeLayout
             android:layout_width="50dp"
-            android:layout_height="200dp"
+            android:layout_height="150dp"
             android:id="@+id/layout_tank"
             android:background="@drawable/bg_ma_tank"
             android:orientation="vertical"

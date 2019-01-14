@@ -198,7 +198,7 @@ public class Channel3Fragment extends Fragment {
                 setupTank();
             }
 
-            if (mCustomService.getmCurrentChannelVoltageOn() == 1)
+            if (mCustomService.getmCurrentChannelVoltageOn() == 3)
                 mActiveTextView.setVisibility(View.VISIBLE);
             else
                 mActiveTextView.setVisibility(View.INVISIBLE);
@@ -227,7 +227,13 @@ public class Channel3Fragment extends Fragment {
 
             float tankProgressPercent = tankProgress/200 ;
 
-            mProgressTankImageView.getLayoutParams().height =   mTankLayout.getHeight()* (int) tankProgressPercent  ;
+            Log.i(TAG ,"tankProgessPercent:" +(int) mTankLayout.getHeight()*  tankProgressPercent ) ;
+
+            tankProgressPercent = Math.abs(tankProgressPercent) ;
+            ViewGroup.LayoutParams layoutParams = mProgressTankImageView.getLayoutParams() ;
+
+            layoutParams.height =(int)( mTankLayout.getHeight()*  tankProgressPercent) ;
+            mProgressTankImageView.setLayoutParams(layoutParams);
         }
 
     }
@@ -272,6 +278,7 @@ public class Channel3Fragment extends Fragment {
             if (action.equals(BroadCastHandler.ACTION_SESSION3_CHANGED) && intent.hasExtra(BroadCastHandler.EXTRA_SESSIONG3)) {
                 Log.i(TAG ,"onReceive : Session 3 Changed ") ;
                 sessionG3 = (SessionG3) intent.getSerializableExtra(BroadCastHandler.EXTRA_SESSIONG3);
+                setupTank();
 
 
             }
