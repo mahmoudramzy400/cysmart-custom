@@ -482,8 +482,7 @@ public class CustomService extends Service {
 
             // get last current value of D and G  in channel G3
             if (mCurrentCycleG3 != null && !mCurrentCycleG3.isLds0Setted() && !mCurrentCycleG3.isLgs0Setted()) {
-                // the channel G3 is ended
-                mTimeInSeconds = 0;
+
 
                 mCurrentCycleG3.setLds0(mCurrentD);
                 mCurrentCycleG3.setLgs0(mCurrentG3);
@@ -493,6 +492,10 @@ public class CustomService extends Service {
 
                 sessionG3.getM3aValuesAndTime().put(System.currentTimeMillis() , mCurrentCycleG3.getM3a()) ;
                 sessionG3.getM3bValuesAndTime().put( System.currentTimeMillis() ,mCurrentCycleG3.getM3b());
+                // ad ma values and time in seconds
+                sessionG3.getMaValuesAndSeconds().put(mTimeInSeconds , mCurrentCycleG3.getM3a()) ;
+                // the channel G3 is ended
+                mTimeInSeconds = 0;
                 checkMa3andMb3( mCurrentCycleG3.getM3a(), mCurrentCycleG3.getM3b() );
 
                 mCurrentCycleG3.setLds0Setted(true);
@@ -522,8 +525,7 @@ public class CustomService extends Service {
 
             // get last current value of D and G  in channel G1
             if (mCurrentCycleG1 != null && !mCurrentCycleG1.isLds0Setted() && !mCurrentCycleG1.isLgs0Setted()) {
-                // the channel G1 is ended
-                mTimeInSeconds = 0;
+
 
                 mCurrentCycleG1.setLds0(mCurrentD);
                 mCurrentCycleG1.setLgs0(mCurrentG1);
@@ -535,6 +537,9 @@ public class CustomService extends Service {
                     sessionG1 = new SessionG1() ;
                 sessionG1.getM1aValuesAndTime().put( System.currentTimeMillis() ,mCurrentCycleG1.getM1a()) ;
                 sessionG1.getM1bValuesAndTime().put(System.currentTimeMillis()  ,mCurrentCycleG1.getM1b()   );
+                sessionG1.getMaValuesAndSeconds().put(mTimeInSeconds, mCurrentCycleG1.getM1a());
+                // the channel G1 is ended
+                mTimeInSeconds = 0;
                 checkma1Andmb1( mCurrentCycleG1.getM1a() , mCurrentCycleG1.getM1b() );
 
                 mCurrentCycleG1.setLgs0Setted(true);
@@ -577,6 +582,10 @@ public class CustomService extends Service {
                     sessionG2 = new SessionG2() ;
                 sessionG2.getM2aValuesAndTime().put( System.currentTimeMillis(), mCurrentCycleG2.getM2a()  ) ;
                 sessionG2.getM2bValuesAndTime().put( System.currentTimeMillis() , mCurrentCycleG2.getM2b() );
+                sessionG2.getMaValuesAndSeconds().put(mTimeInSeconds , mCurrentCycleG2.getM2a() ) ;
+
+                // the channel G2 is ended
+                mTimeInSeconds = 0;
                 // alert for high value
                 checkMa2AndMb2( mCurrentCycleG2.getM2a() ,mCurrentCycleG2.getM2b() );
 

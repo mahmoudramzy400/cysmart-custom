@@ -1,128 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".CustomApp.ui.channelsdata.Channel1Fragment">
-
-
-    <TextView
-        android:id="@+id/text_active_channel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="8dp"
-        android:text="@string/title_activate_channel"
-        android:textColor="@color/colorPrimary"
-        android:textSize="16sp"
-        android:visibility="invisible" />
+    android:layout_height="match_parent" >
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_m1a"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/ma_btn_background"
-            android:gravity="center"
-            android:text="M1a Chart"
-            android:textColor="@color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_weight="1"
-            android:layout_gravity="center">
-
-            <EditText
-                android:id="@+id/et_max_ma_value"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:background="@drawable/et_background"
-                android:hint="@string/hint_max_ma_value"
-                android:layout_marginRight="8dp"
-                android:inputType="numberDecimal|numberSigned"
-                android:padding="8dp"
-                android:textColor="@color/black" />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_ma_done"
-                android:src="@drawable/ic_done"
-                android:layout_gravity="center"
-                android:padding="16dp"
-                android:background="@android:color/transparent"/>
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btn_m1b"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            android:background="@drawable/mb_bt_background"
-            android:gravity="center"
-            android:text="M1b Chart"
-            android:textColor="@color/white" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="center"
-            android:layout_weight="1">
-
-            <EditText
-                android:id="@+id/et_max_mb_value"
-                android:layout_width="150dp"
-                android:layout_height="48dp"
-                android:layout_gravity="center"
-                android:background="@drawable/et_background"
-                android:hint="@string/hint_max_mb_value"
-                android:inputType="numberDecimal|numberSigned"
-                android:padding="8dp"
-                android:layout_marginRight="8dp"
-                android:textColor="@color/black"
-             />
-
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_mb_done"
-                android:src="@drawable/ic_done"
-                android:layout_gravity="center"
-                android:padding="16dp"
-                android:background="@android:color/transparent"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
-
-
-    <com.github.mikephil.charting.charts.LineChart
-        android:id="@+id/chart_cycle1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="48dp" />
+        android:orientation="vertical"
+        tools:context=".CustomApp.ui.channelsdata.Channel1Fragment">
 
 
-</LinearLayout>
+
+        <TextView
+            android:id="@+id/text_active_channel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="8dp"
+            android:text="@string/title_activate_channel"
+            android:textColor="@color/colorPrimary"
+            android:textSize="16sp"
+            android:visibility="invisible" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_m1a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/ma_btn_background"
+                android:gravity="center"
+                android:text="M1a Chart"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:layout_gravity="center">
+
+                <EditText
+                    android:id="@+id/et_max_ma_value"
+                    android:layout_width="150dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/et_background"
+                    android:hint="@string/hint_max_ma_value"
+                    android:layout_marginRight="8dp"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:padding="8dp"
+                    android:textColor="@color/black" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_ma_done"
+                    android:src="@drawable/ic_done"
+                    android:layout_gravity="center"
+                    android:padding="16dp"
+                    android:background="@android:color/transparent"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_m1b"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/mb_bt_background"
+                android:gravity="center"
+                android:text="M1b Chart"
+                android:textColor="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_weight="1">
+
+                <EditText
+                    android:id="@+id/et_max_mb_value"
+                    android:layout_width="150dp"
+                    android:layout_height="48dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/et_background"
+                    android:hint="@string/hint_max_mb_value"
+                    android:inputType="numberDecimal|numberSigned"
+                    android:padding="8dp"
+                    android:layout_marginRight="8dp"
+                    android:textColor="@color/black"
+                    />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btn_mb_done"
+                    android:src="@drawable/ic_done"
+                    android:layout_gravity="center"
+                    android:padding="16dp"
+                    android:background="@android:color/transparent"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/chart_cycle1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="48dp"
+            android:layout_marginTop="16dp"
+
+            />
+
+
+
+        <RelativeLayout
+            android:layout_width="50dp"
+            android:layout_height="200dp"
+            android:id="@+id/layout_tank"
+            android:background="@drawable/bg_ma_tank"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            >
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#F9E79F"
+                android:layout_alignParentBottom="true"
+                android:id="@+id/image_tank_progress"/>
+
+
+        </RelativeLayout>
+    </LinearLayout>
+</ScrollView>

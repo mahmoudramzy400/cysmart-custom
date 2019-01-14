@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cypress.btion.CustomApp.data.models.CycleChannelG2;
@@ -29,6 +31,9 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +58,9 @@ public class Channel2Fragment extends Fragment {
     private ImageButton mMADone ;
     private ChannelsDataActivity mActivity;
     private CustomService mCustomService ;
+
+    private ImageView mProgressTankImageView ;
+    private RelativeLayout mTankLayout ;
     public static Fragment newInstance (){
         return  new Channel2Fragment() ;
     }
@@ -79,6 +87,9 @@ public class Channel2Fragment extends Fragment {
         mMaxMBVaueEditText =rootView.findViewById(R.id.et_max_mb_value) ;
         mMADone  =rootView.findViewById(R.id.btn_ma_done);
         mMbDone  =rootView.findViewById(R.id.btn_mb_done ) ;
+
+        mProgressTankImageView = rootView.findViewById(R.id.image_tank_progress) ;
+        mTankLayout =            rootView.findViewById(R.id.layout_tank);
 
         mMADone.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,12 +178,62 @@ public class Channel2Fragment extends Fragment {
     public void onResume() {
         super.onResume();
         getActivity().registerReceiver(mCustomServiceReceiver, BroadCastHandler.makeCustomIntentFilter());
+        checkCustomService();
     }
+
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         getActivity().unregisterReceiver(mCustomServiceReceiver);
+    }
+
+    private void checkCustomService (){
+        if (mActivity != null && mActivity.getCustomService() != null ){
+
+            mCustomService = mActivity.getCustomService() ;
+
+            if (mCustomService.getmLastCycleG2() != null ){
+                cycleChannelG2 = mCustomService.getmLastCycleG2() ;
+            }
+
+            if (mCustomService.getSessionG2() != null){
+                sessionG2 = mCustomService.getSessionG2() ;
+                setupTank();
+            }
+
+            if (mCustomService.getmCurrentChannelVoltageOn() == 1)
+                mActiveTextView.setVisibility(View.VISIBLE);
+            else
+                mActiveTextView.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void setupTank (){
+
+        float tankProgress = 0 ;
+        if (sessionG2 != null  && sessionG2.getMaValuesAndSeconds()!= null && sessionG2.getMaValuesAndSeconds().size() >0){
+
+
+            LinkedHashMap<Integer,Float> hashMap = sessionG2.getMaValuesAndSeconds() ;
+
+            Iterator iterator = hashMap.entrySet().iterator() ;
+
+            while (iterator.hasNext() ){
+
+                Map.Entry<Integer,Float> entry = (Map.Entry<Integer, Float>) iterator.next();
+
+                int time =entry.getKey() ;
+                float ma = entry.getValue() ;
+
+                tankProgress =+ (ma*time) ;
+            }
+
+            float tankProgressPercent = tankProgress/200 ;
+
+            mProgressTankImageView.getLayoutParams().height =   mTankLayout.getHeight()* (int) tankProgressPercent  ;
+        }
+
     }
     /**
      * BroadcastReceiver to receive broadcast from CustomService

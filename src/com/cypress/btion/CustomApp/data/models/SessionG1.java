@@ -5,7 +5,10 @@ import java.util.LinkedHashMap;
 
 public class SessionG1 implements Serializable {
 
+
     private LinkedHashMap<Long, Float> m1aValuesAndTime = new LinkedHashMap<>() ;
+
+    private LinkedHashMap<Integer,Float> maValuesAndSeconds = new LinkedHashMap<>() ;
 
     private LinkedHashMap<Long, Float> m1bValuesAndTime = new LinkedHashMap<Long, Float>();
 
@@ -44,5 +47,10 @@ public class SessionG1 implements Serializable {
 
     public void setM1bValuesAndTime(LinkedHashMap<Long, Float> m1bValuesAndTime) {
         this.m1bValuesAndTime = m1bValuesAndTime;
+    }
+
+
+    public LinkedHashMap<Integer, Float> getMaValuesAndSeconds() {
+        return maValuesAndSeconds;
     }
 }

@@ -1060,6 +1060,7 @@ drawable battery
 drawable battery_blank
 drawable battery_progress_bar
 drawable battery_small
+drawable bg_ma_tank
 drawable bg_shadow
 drawable bg_shadow_blue
 drawable bledevices
@@ -1460,6 +1461,7 @@ id icon_group
 id ifRoom
 id image
 id imageView1
+id image_tank_progress
 id imgback
 id imgcolorpicker
 id imgrgbcanvas
@@ -1480,6 +1482,7 @@ id layout_descriptor_uuid
 id layout_root
 id layout_service_instance_id
 id layout_service_uuid
+id layout_tank
 id lazyFooter
 id lbicon
 id lblListItem
