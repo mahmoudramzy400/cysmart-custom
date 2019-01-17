@@ -39,9 +39,11 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.support.v4.content.ContextCompat;
 
 import com.cypress.btion.CommonUtils.Logger;
@@ -72,6 +74,7 @@ public class SplashPageActivity extends Activity {
 
             if (mHandlerFlag) {
                 // Finish the current Activity and start HomePage Activity
+
                 Intent home = new Intent(SplashPageActivity.this, HomePageActivity.class);
                 startActivity(home);
                 SplashPageActivity.this.finish();
@@ -116,15 +119,16 @@ public class SplashPageActivity extends Activity {
         super.onBackPressed();
     }
 
+
     private void checkPermission (){
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
 
-            isGetLocation = ContextCompat.checkSelfPermission(this ,Manifest.permission.ACCESS_FINE_LOCATION)    == PackageManager.PERMISSION_GRANTED ;
+            isGetLocation = ContextCompat.checkSelfPermission(this ,Manifest.permission.ACCESS_COARSE_LOCATION)    == PackageManager.PERMISSION_GRANTED ;
             isGetStorage  =  ContextCompat.checkSelfPermission(this ,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
 
 
             if ( !isGetLocation ){
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION} ,100);
+                requestPermissions(new String[]{ Manifest.permission.ACCESS_COARSE_LOCATION} ,100);
             }else{
 
                 if (!isGetStorage ){
@@ -135,9 +139,6 @@ public class SplashPageActivity extends Activity {
 
                 }
             }
-
-
-
 
 
 
@@ -158,7 +159,7 @@ public class SplashPageActivity extends Activity {
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-         isGetLocation = ContextCompat.checkSelfPermission(this ,Manifest.permission.ACCESS_FINE_LOCATION)    == PackageManager.PERMISSION_GRANTED ;
+         isGetLocation = ContextCompat.checkSelfPermission(this ,Manifest.permission.ACCESS_COARSE_LOCATION)    == PackageManager.PERMISSION_GRANTED ;
          isGetStorage  = ContextCompat.checkSelfPermission(this ,Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED;
 
         switch (requestCode){

@@ -44,8 +44,8 @@ public class ServiceDiscoveryFragment extends Fragment {
     // UUID key
     private static final String LIST_UUID = "UUID";
     // Stops scanning after 2 seconds.
-    private static final long DELAY_PERIOD = 5000;
-    private static final long SERVICE_DISCOVERY_TIMEOUT = 10000 *60;
+    private static final long DELAY_PERIOD = 2000;
+    private static final long SERVICE_DISCOVERY_TIMEOUT = 60000 ;
     static ArrayList<HashMap<String, BluetoothGattService>> mGattServiceData =
             new ArrayList<HashMap<String, BluetoothGattService>>();
     static ArrayList<HashMap<String, BluetoothGattService>> mGattServiceFindMeData =

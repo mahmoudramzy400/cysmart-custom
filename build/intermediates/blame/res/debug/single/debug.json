@@ -28,12 +28,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xhdpi-v4\\abc_ic_menu_cut_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_right_menu_active.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-mdpi\\right_menu_active.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_list_bg_small.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xxhdpi\\list_bg_small.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_right_menu_active.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-mdpi\\right_menu_active.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_list_pressed_holo_dark.9.png.flat",
@@ -104,12 +104,12 @@
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-hdpi\\rgb_img.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_heart_rate.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\heart_rate.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_heart_rate.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xxhdpi\\heart_rate.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_heart_rate.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\heart_rate.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp_capsense_slider.xml.flat",
@@ -168,20 +168,20 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\8e1bec14e0a2a8cf6ec8caab47dfecfc\\res\\color\\mtrl_bottom_nav_item_tint.xml"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_thermometer_carousel.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-mdpi\\thermometer_carousel.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_proximity_bar.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-hdpi\\proximity_bar.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_thermometer_carousel.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-mdpi\\thermometer_carousel.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_delete_normal.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\delete_normal.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_capsense.png.flat",
@@ -252,12 +252,12 @@
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable\\bg_shadow_blue.xml"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_light.xml.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\color\\abc_hint_foreground_material_light.xml"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable_rdk_border.xml.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable\\rdk_border.xml"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\color_abc_hint_foreground_material_light.xml.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\color\\abc_hint_foreground_material_light.xml"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_capsense.png.flat",
@@ -300,12 +300,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_textfield_activated_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable_list_title_selector.xml.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable\\list_title_selector.xml"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp_hrm_measurement.xml.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\layout-sw600dp\\hrm_measurement.xml"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable_list_title_selector.xml.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable\\list_title_selector.xml"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_glucose_icon.png.flat",
@@ -348,12 +348,12 @@
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\back_btn_active.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-sw720dp_emulator.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-sw720dp\\emulator.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_focused_holo.9.png.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_arrow_bw.png.flat",
@@ -384,12 +384,12 @@
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xxhdpi\\gatt_db_dark_blue.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp_capsense_buttons.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-sw600dp\\capsense_buttons.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-hdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp_capsense_buttons.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-sw600dp\\capsense_buttons.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_record_down.png.flat",
@@ -452,12 +452,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_list_divider_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp_emulator.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-sw600dp\\emulator.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\anim_abc_fade_out.xml.flat",
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\anim\\abc_fade_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp_emulator.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-sw600dp\\emulator.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -540,12 +540,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_cab_background_top_mtrl_alpha.9.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_time.xml.flat",
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\58073f129920af5464d2a73df9ccccab\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_share_mtrl_alpha.png.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_exit_active.png.flat",
@@ -596,12 +596,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_ic_star_half_black_36dp.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_themometer.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-hdpi\\themometer.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_dark.xml.flat",
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_themometer.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-hdpi\\themometer.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -640,12 +640,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-mdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_scrubber_control_to_pressed_mtrl_000.png.flat",
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-ldrtl-mdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -668,12 +668,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\color-v23\\abc_tint_default.xml"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_emulator.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-hdpi\\emulator.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\anim_design_snackbar_out.xml.flat",
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\8e1bec14e0a2a8cf6ec8caab47dfecfc\\res\\anim\\design_snackbar_out.xml"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_emulator.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-hdpi\\emulator.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -684,12 +684,12 @@
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xxhdpi\\qube.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable_abc_vector_test.xml.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable\\abc_vector_test.xml"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_design_ic_visibility.png.flat",
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\8e1bec14e0a2a8cf6ec8caab47dfecfc\\res\\drawable-mdpi-v4\\design_ic_visibility.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable_abc_vector_test.xml.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable\\abc_vector_test.xml"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_minus_active.png.flat",
@@ -724,12 +724,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxxhdpi-v4\\abc_text_select_handle_right_mtrl_light.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_48dp.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_image_splash_logo.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\image_splash_logo.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_48dp.png.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-mdpi-v4\\abc_ic_star_half_black_48dp.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
@@ -740,12 +740,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-28.0.0.aar\\58073f129920af5464d2a73df9ccccab\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\interpolator_mtrl_linear_out_slow_in.xml.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\8e1bec14e0a2a8cf6ec8caab47dfecfc\\res\\interpolator\\mtrl_linear_out_slow_in.xml"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_record_normal.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\record_normal.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\interpolator_mtrl_linear_out_slow_in.xml.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\design-28.0.0.aar\\8e1bec14e0a2a8cf6ec8caab47dfecfc\\res\\interpolator\\mtrl_linear_out_slow_in.xml"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_cycle.png.flat",
@@ -856,16 +856,16 @@
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xxhdpi\\ic_done.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp_unknown.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-sw600dp\\unknown.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp_listitem_device.xml.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\layout-sw600dp\\listitem_device.xml"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-sw600dp_unknown.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-sw600dp\\unknown.png"
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\color-v21_abc_btn_colored_borderless_text_material.xml.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\color-v21\\abc_btn_colored_borderless_text_material.xml"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -1264,12 +1264,12 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xhdpi-v4\\abc_list_pressed_holo_dark.9.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_proximity_bar.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xxhdpi\\proximity_bar.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_ic_plus.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-mdpi\\ic_plus.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_proximity_bar.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xxhdpi\\proximity_bar.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\interpolator_mtrl_fast_out_slow_in.xml.flat",
@@ -1480,16 +1480,16 @@
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_plus.png.flat",
+        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\ic_plus.png"
+    },
+    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\layout_fragment_navigation_drawer.xml.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\layout\\fragment_navigation_drawer.xml"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_speed.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\speed.png"
-    },
-    {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_plus.png.flat",
-        "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\ic_plus.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi_off_btn.png.flat",
@@ -2076,12 +2076,12 @@
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_selector_disabled_holo_dark.9.png.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-28.0.0.aar\\5a513c61446af476a78009dae416eda6\\res\\drawable-xxhdpi-v4\\abc_list_selector_disabled_holo_dark.9.png"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_capsense_proimity.png.flat",
@@ -3408,12 +3408,12 @@
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\info_icon.png"
     },
     {
-        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
-        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\5546fd033ab33e50abc98c9673055ead\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_negative.png.flat",
         "source": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\res\\drawable-xhdpi\\ic_negative.png"
+    },
+    {
+        "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
+        "source": "C:\\Users\\utente\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-28.0.0.aar\\5546fd033ab33e50abc98c9673055ead\\res\\layout\\notification_template_media_custom.xml"
     },
     {
         "merged": "C:\\Users\\utente\\Desktop\\android studio\\bluetoochapp\\build\\intermediates\\res\\merged\\debug\\layout-sw600dp_blood_pressure_measurement.xml.flat",

@@ -84,12 +84,12 @@ import java.util.TimerTask;
 public class ProfileScanningFragment extends Fragment {
 
     // Stops scanning after 2 seconds.
-    private static final long SCAN_PERIOD_TIMEOUT = 15000;
+    private static final long SCAN_PERIOD_TIMEOUT = 3000;
     private Timer mScanTimer;
     private boolean mScanning;
 
     // Connection time out after 10 seconds.
-    private static final long CONNECTION_TIMEOUT = 20000*60;
+    private static final long CONNECTION_TIMEOUT = 30000;
     private Timer mConnectTimer;
     private boolean mConnectTimerON=false;
 
@@ -121,8 +121,8 @@ public class ProfileScanningFragment extends Fragment {
     private boolean mSearchEnabled = false;
     public static boolean isInFragment = false;
 
-    //Delay Time out
-    private static final long DELAY_PERIOD = 500;
+    //Delay Time out 500
+    private static final long DELAY_PERIOD = 3000;
 
 
     /**
@@ -165,6 +165,7 @@ public class ProfileScanningFragment extends Fragment {
             // Status received when connected to GATT Server
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
 
+                Log.i("ProfileSca" ,"Action connected ") ;
 
                 mProgressdialog.setMessage(getString(R.string.alert_message_bluetooth_connect));
                 if (mScanning) {
@@ -178,6 +179,7 @@ public class ProfileScanningFragment extends Fragment {
                 mConnectTimerON=false;
                 updateWithNewFragment();
             }else if(BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)){
+                Log.i("ProfileScan","action disconnected");
                 /**
                  * Disconnect event.When the connect timer is ON,Reconnect the device
                  * else show disconnect message
@@ -321,7 +323,8 @@ public class ProfileScanningFragment extends Fragment {
      * @param device
      */
 
-    private void connectDevice(BluetoothDevice device,boolean isFirstConnect) {
+    private void connectDevice(BluetoothDevice device, final boolean isFirstConnect) {
+
         mDeviceAddress = device.getAddress();
         mDeviceName = device.getName();
         // Get the connection status of the device
@@ -331,26 +334,42 @@ public class ProfileScanningFragment extends Fragment {
             // Disconnected,so connect
             BluetoothLeService.connect(mDeviceAddress, mDeviceName, getActivity());
             showConnectAlertMessage(mDeviceName, mDeviceAddress);
+
+            if(isFirstConnect){
+                startConnectTimer();
+                mConnectTimerON=true;
+            }
         }
         else {
             Logger.v("BLE OTHER STATE-->" + BluetoothLeService.getConnectionState());
             Log.i("ProfileScanningFr","other state") ;
             // Connecting to some devices,so disconnect and then connect
             BluetoothLeService.disconnect();
+            mConnectTimerON =false ;
+            if(mConnectTimer!=null)
+                mConnectTimer.cancel();
+
             Handler delayHandler = new Handler();
             delayHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     BluetoothLeService.connect(mDeviceAddress, mDeviceName, getActivity());
+                   getActivity().runOnUiThread(new Runnable() {
+                       @Override
+                       public void run() {
+                           if(isFirstConnect){
+                               startConnectTimer();
+                               mConnectTimerON=true;
+                           }
+                       }
+                   });
+
                     showConnectAlertMessage(mDeviceName, mDeviceAddress);
                 }
             }, DELAY_PERIOD);
 
         }
-        if(isFirstConnect){
-            startConnectTimer();
-            mConnectTimerON=true;
-        }
+
 
     }
 

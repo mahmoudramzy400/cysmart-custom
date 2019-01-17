@@ -206,6 +206,8 @@ public class Channel2Fragment extends Fragment {
                 mActiveTextView.setVisibility(View.VISIBLE);
             else
                 mActiveTextView.setVisibility(View.INVISIBLE);
+
+            setupTank();
         }
     }
 
@@ -226,16 +228,21 @@ public class Channel2Fragment extends Fragment {
                 int time =entry.getKey() ;
                 float ma = entry.getValue() ;
 
-                tankProgress =+ (ma*time) ;
+                Log.i(TAG ,"ma is : "+ma) ;
+                Log.i(TAG , "time is : "+time ) ;
+                float x = time *ma ;
+
+                tankProgress += x ;
             }
+            float tankProgressPercent = tankProgress/2000 ;
 
-            float tankProgressPercent = tankProgress/200 ;
 
-            Log.i(TAG ,"tankProgessPercent:" +(int) mTankLayout.getHeight()*  tankProgressPercent ) ;
+            Log.i(TAG ,"tankProgess" + tankProgress ) ;
+
+
 
             tankProgressPercent = Math.abs(tankProgressPercent) ;
             ViewGroup.LayoutParams layoutParams = mProgressTankImageView.getLayoutParams() ;
-
             layoutParams.height =(int)( mTankLayout.getHeight()*  tankProgressPercent) ;
             mProgressTankImageView.setLayoutParams(layoutParams);
         }

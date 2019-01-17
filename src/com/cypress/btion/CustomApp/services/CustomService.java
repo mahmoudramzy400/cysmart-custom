@@ -251,6 +251,14 @@ public class CustomService extends Service {
         disconnected();
     }
 
+    @Override
+    public void onDestroy() {
+
+        Log.i(TAG ,"onDestroy");
+       // unregisterReceiver(mGattUpdateReceiver);
+        super.onDestroy();
+    }
+
     Runnable readVoltageRunnable = new Runnable() {
         @Override
         public void run() {
@@ -429,6 +437,7 @@ public class CustomService extends Service {
     private void disconnected(){
 
         mHandler.removeCallbacks(readVoltageRunnable);
+        unregisterReceiver(mGattUpdateReceiver);
        // FilesManager.closeWriter();
         stopSelf();
        // startActivity(new Intent(this , SplashPageActivity.class));

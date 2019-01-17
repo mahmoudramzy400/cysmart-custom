@@ -925,6 +925,7 @@ public class BluetoothLeService extends Service {
         if (device == null) {
             return;
         }
+        Log.i("ProfileScan","reconnect");
         mBluetoothGatt = null;//Creating a new instance of GATT before connect
         mBluetoothGatt = device.connectGatt(mContext, false, mGattCallback);
         /**
@@ -993,10 +994,10 @@ public class BluetoothLeService extends Service {
             return;
         } else {
             //Clearing Bluetooth cache before disconnecting to the device
-            if (Utils.getBooleanSharedPreference(mContext, Constants.PREF_PAIR_CACHE_STATUS)) {
+           if (Utils.getBooleanSharedPreference(mContext, Constants.PREF_PAIR_CACHE_STATUS)) {
                 //Logger.e(getActivity().getClass().getName() + "Cache cleared on disconnect!");
                 BluetoothLeService.refreshDeviceCache(BluetoothLeService.mBluetoothGatt);
-            }
+           }
             mBluetoothGatt.disconnect();
             String dataLog = mContext.getResources().getString(R.string.dl_commaseparator)
                     + "[" + mBluetoothDeviceName + "|" + mBluetoothDeviceAddress + "] " +

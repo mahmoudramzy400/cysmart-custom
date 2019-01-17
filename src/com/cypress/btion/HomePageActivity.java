@@ -291,12 +291,12 @@ public class HomePageActivity extends FragmentActivity implements
         getTitle();
 
         // Getting the id of the navigation fragment from the attached xml
-        mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
-                .findFragmentById(R.id.navigation_drawer);
+       // mNavigationDrawerFragment = (NavigationDrawerFragment) getSupportFragmentManager()
+                //.findFragmentById(R.id.navigation_drawer);
 
         // Set up the drawer.
-        mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
-                (DrawerLayout) findViewById(R.id.drawer_layout));
+       // mNavigationDrawerFragment.setUp(R.id.navigation_drawer,
+           ///     (DrawerLayout) findViewById(R.id.drawer_layout));
 
         // Set the Clear chash on disconnect as true by devfault
         if (!Utils.ifContainsSharedPreference(this, Constants.PREF_PAIR_CACHE_STATUS)) {
