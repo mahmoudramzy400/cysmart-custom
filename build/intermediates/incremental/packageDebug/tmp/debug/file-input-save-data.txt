@@ -1,0 +1,7 @@
+#Internal package file, do not edit.
+#Wed Jul 17 00:50:35 CEST 2019
+0.baseType=DIRECTORY
+0.base=C\:\\Users\\pitma\\Desktop\\ANDROID_2\\bluetoochapp\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+0.path=classes.dex
+0.set=DEX
+count=1
