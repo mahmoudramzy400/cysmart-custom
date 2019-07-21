@@ -47,6 +47,7 @@ import java.util.UUID;
 public class ServiceDiscoveryFragment extends Fragment {
     // UUID key
     private static final String LIST_UUID = "UUID";
+    private static final String TAG = "ServiceDiscoveryFra" ;
     // Stops scanning after 2 seconds.
     private static final long DELAY_PERIOD = 2000;
     private static final long SERVICE_DISCOVERY_TIMEOUT = 60000 ;
@@ -71,6 +72,8 @@ public class ServiceDiscoveryFragment extends Fragment {
 
     private int channelMode = -1 ;
 
+
+    private Context mContext ;
     private void startCustomService (){
 
         if (!CommonUtils.isOurCustomService())
@@ -82,6 +85,7 @@ public class ServiceDiscoveryFragment extends Fragment {
         builder.setSingleChoiceItems(R.array.channel_mode, -1, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Log.d(TAG ,"Select Channel mode  : " +which ) ;
                 // set Channel mode
                 channelMode = which ;
             }
@@ -91,12 +95,13 @@ public class ServiceDiscoveryFragment extends Fragment {
         builder.setPositiveButton(R.string.action_connect, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                if ( channelMode == 0 ) {
 
-                    getActivity().startService(new Intent(getActivity(), CustomService2Channels.class )) ;
+                dialog.dismiss();
+                if ( channelMode == 0 ) {
+                    mContext.startService(new Intent(mContext, CustomService2Channels.class )) ;
 
                 }else if (channelMode ==1 ){
-                    getActivity().startService(new Intent(getActivity(), CustomService3Channels.class )) ;
+                    mContext.startService(new Intent(mContext, CustomService3Channels.class )) ;
                 }
             }
         }) ;
@@ -113,6 +118,7 @@ public class ServiceDiscoveryFragment extends Fragment {
 
 
     }
+
     private final BroadcastReceiver mServiceDiscoveryListner=new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -155,6 +161,7 @@ public class ServiceDiscoveryFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.servicediscovery_temp_fragment, container, false);
         mNoserviceDiscovered=rootView.findViewById(R.id.no_service_text);
         mProgressDialog=new ProgressDialog(getActivity());
+        mContext = getActivity();
         mTimer=showServiceDiscoveryAlert(false);
         mApplication = (CySmartApplication) getActivity().getApplication();
         Handler delayHandler = new Handler();

@@ -137,7 +137,7 @@
         <!-- __________________ out custom service ____________ -->
         <service android:name="com.cypress.btion.CustomApp.services.CustomService3Channels" />
 
-
+        <service android:name="com.cypress.btion.CustomApp.services.CustomService2Channels" />
     </application>
 
 </manifest>

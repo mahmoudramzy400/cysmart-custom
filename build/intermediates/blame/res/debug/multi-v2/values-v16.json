@@ -1,20 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Software Engineering\\android development\\Android\\AndroidStudioProjects\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\pitma\\Desktop\\ANDROID_2\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-2\\files-2.1\\747f07dc3b3f5ecc85d0b8a517f6a8ba\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-2\\files-2.1\\e996bc30207c4aafbb86badd8cd6c9b8\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\pitma\\.gradle\\caches\\transforms-2\\files-2.1\\b9759908b8d206fe1d4c6ce244ce50ba\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -30,6 +20,16 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\pitma\\.gradle\\caches\\transforms-2\\files-2.1\\2c985646c5f8eb436daed93e1cca10a2\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
                     }
                 }
             ]

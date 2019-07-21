@@ -44,11 +44,12 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
+import android.support.annotation.Nullable;
 
 import com.cypress.btion.CommonUtils.Logger;
 
-import androidx.annotation.NonNull;
 
 /**
  * Activity to display the initial splash screen

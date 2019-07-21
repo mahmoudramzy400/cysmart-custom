@@ -81,15 +81,16 @@ import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
 public class ProfileScanningFragment extends Fragment {
 
     // Stops scanning after 2 seconds.
-    private static final long SCAN_PERIOD_TIMEOUT = 3000;
+    private static final long SCAN_PERIOD_TIMEOUT = 2000;
     private Timer mScanTimer;
     private boolean mScanning;
 
     // Connection time out after 10 seconds.
-    private static final long CONNECTION_TIMEOUT = 30000;
+    private static final long CONNECTION_TIMEOUT = 40000;
     private Timer mConnectTimer;
     private boolean mConnectTimerON=false;
 
@@ -121,8 +122,8 @@ public class ProfileScanningFragment extends Fragment {
     private boolean mSearchEnabled = false;
     public static boolean isInFragment = false;
 
-    //Delay Time out 500
-    private static final long DELAY_PERIOD = 3000;
+    //Delay Time out
+    private static final long DELAY_PERIOD = 500;
 
 
     /**
@@ -132,8 +133,8 @@ public class ProfileScanningFragment extends Fragment {
     private BluetoothAdapter.LeScanCallback mLeScanCallback = new BluetoothAdapter.LeScanCallback() {
 
         @Override
-        public void onLeScan(final BluetoothDevice device, final int rssi, byte[] scanRecord) {
-            Log.i("ProfileScanningFragment" , "onLeScan");
+        public void onLeScan(final BluetoothDevice device, final int rssi,
+                             byte[] scanRecord) {
             Activity mActivity = getActivity();
             if (mActivity != null) {
                 mActivity.runOnUiThread(new Runnable() {
@@ -154,7 +155,6 @@ public class ProfileScanningFragment extends Fragment {
         }
     };
 
-
     /**
      * BroadcastReceiver for receiving the GATT communication status
      */
@@ -164,9 +164,6 @@ public class ProfileScanningFragment extends Fragment {
             final String action = intent.getAction();
             // Status received when connected to GATT Server
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
-
-                Log.i("ProfileSca" ,"Action connected ") ;
-
                 mProgressdialog.setMessage(getString(R.string.alert_message_bluetooth_connect));
                 if (mScanning) {
                     mBluetoothAdapter.stopLeScan(mLeScanCallback);
@@ -179,7 +176,6 @@ public class ProfileScanningFragment extends Fragment {
                 mConnectTimerON=false;
                 updateWithNewFragment();
             }else if(BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)){
-                Log.i("ProfileScan","action disconnected");
                 /**
                  * Disconnect event.When the connect timer is ON,Reconnect the device
                  * else show disconnect message
@@ -323,53 +319,34 @@ public class ProfileScanningFragment extends Fragment {
      * @param device
      */
 
-    private void connectDevice(BluetoothDevice device, final boolean isFirstConnect) {
-
+    private void connectDevice(BluetoothDevice device,boolean isFirstConnect) {
         mDeviceAddress = device.getAddress();
         mDeviceName = device.getName();
         // Get the connection status of the device
         if (BluetoothLeService.getConnectionState() == BluetoothLeService.STATE_DISCONNECTED) {
-            Log.i("ProfileScanningFr" ,"disconnect State") ;
             Logger.v("BLE DISCONNECTED STATE");
             // Disconnected,so connect
             BluetoothLeService.connect(mDeviceAddress, mDeviceName, getActivity());
             showConnectAlertMessage(mDeviceName, mDeviceAddress);
-
-            if(isFirstConnect){
-                startConnectTimer();
-                mConnectTimerON=true;
-            }
         }
         else {
             Logger.v("BLE OTHER STATE-->" + BluetoothLeService.getConnectionState());
-            Log.i("ProfileScanningFr","other state") ;
             // Connecting to some devices,so disconnect and then connect
             BluetoothLeService.disconnect();
-            mConnectTimerON =false ;
-            if(mConnectTimer!=null)
-                mConnectTimer.cancel();
-
             Handler delayHandler = new Handler();
             delayHandler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
                     BluetoothLeService.connect(mDeviceAddress, mDeviceName, getActivity());
-                   getActivity().runOnUiThread(new Runnable() {
-                       @Override
-                       public void run() {
-                           if(isFirstConnect){
-                               startConnectTimer();
-                               mConnectTimerON=true;
-                           }
-                       }
-                   });
-
                     showConnectAlertMessage(mDeviceName, mDeviceAddress);
                 }
             }, DELAY_PERIOD);
 
         }
-
+        if(isFirstConnect){
+            startConnectTimer();
+            mConnectTimerON=true;
+        }
 
     }
 
@@ -443,7 +420,6 @@ public class ProfileScanningFragment extends Fragment {
 
     @Override
     public void onPause() {
-        Log.i("ProfileScanningFr","onPause") ;
         Logger.e("Scanning onPause");
         isInFragment = false;
         if (mProgressdialog != null && mProgressdialog.isShowing()) {
@@ -685,19 +661,18 @@ public class ProfileScanningFragment extends Fragment {
         mScanTimer.schedule(new TimerTask() {
             @Override
             public void run() {
-               if (getActivity() != null)
+                mScanning = false;
+                mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                mRefreshText.post(new Runnable() {
+                    @Override
+                    public void run() {
+                        mRefreshText.setText(getResources().getString(
+                                R.string.profile_control_no_device_message));
+                    }
+                });
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        mScanning = false;
-                        mBluetoothAdapter.stopLeScan(mLeScanCallback);
-                        mRefreshText.post(new Runnable() {
-                            @Override
-                            public void run() {
-                                mRefreshText.setText(getResources().getString(
-                                        R.string.profile_control_no_device_message));
-                            }
-                        });
                         mSwipeLayout.setRefreshing(false);
                         scanLeDevice(false);
                     }

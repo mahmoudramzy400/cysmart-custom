@@ -10,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.cypress.btion.CustomApp.services.CustomService2Channels;
@@ -19,6 +20,7 @@ import com.cypress.btion.R;
 
 public class ChannelsDataActivity extends AppCompatActivity {
 
+    private static final String TAG = "ChannelsDataActivity" ;
 
     private ViewPager mViewPager;
     private Toolbar mToolbar;
@@ -82,10 +84,11 @@ public class ChannelsDataActivity extends AppCompatActivity {
         });
 
         if (CustomService3Channels.mIsRunning) {
+            Log.d(TAG , "3 Channels") ;
             bindService(new Intent(this, CustomService3Channels.class), connection3, Context.BIND_AUTO_CREATE);
             channelNumber =3 ;
         } else if (CustomService2Channels.mIsRunning){
-
+            Log.d(TAG , "2 Channels") ;
             bindService(new Intent(this, CustomService2Channels.class), connection2, Context.BIND_AUTO_CREATE);
             channelNumber = 2 ;
         }
@@ -105,7 +108,7 @@ public class ChannelsDataActivity extends AppCompatActivity {
 
         if (channelNumber == 2 ){ // Two channel mode
             mPagerAdapter = new ChannelsPagerAdapter(getSupportFragmentManager() , 2);
-        }else
+        }else if (channelNumber == 3 )
             mPagerAdapter = new ChannelsPagerAdapter(getSupportFragmentManager());
 
         mViewPager.setAdapter(mPagerAdapter);

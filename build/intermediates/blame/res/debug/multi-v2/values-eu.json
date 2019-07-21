@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Software Engineering\\android development\\Android\\AndroidStudioProjects\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-eu\\values-eu.xml",
+            "outputFile": "C:\\Users\\pitma\\Desktop\\ANDROID_2\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-eu\\values-eu.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-2\\files-2.1\\e996bc30207c4aafbb86badd8cd6c9b8\\res\\values-eu\\values-eu.xml",
+                    "source": "C:\\Users\\pitma\\.gradle\\caches\\transforms-2\\files-2.1\\b9759908b8d206fe1d4c6ce244ce50ba\\res\\values-eu\\values-eu.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -14,7 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-2\\files-2.1\\747f07dc3b3f5ecc85d0b8a517f6a8ba\\res\\values-eu\\values-eu.xml",
+                    "source": "C:\\Users\\pitma\\.gradle\\caches\\transforms-2\\files-2.1\\2c985646c5f8eb436daed93e1cca10a2\\res\\values-eu\\values-eu.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

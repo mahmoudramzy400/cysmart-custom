@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Software Engineering\\android development\\Android\\AndroidStudioProjects\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
+            "outputFile": "C:\\Users\\pitma\\Desktop\\ANDROID_2\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v23\\values-v23.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-2\\files-2.1\\94c41c63504e7bc2dbea7c7b795eb68a\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\pitma\\.gradle\\caches\\transforms-2\\files-2.1\\ef959323761434106a38b1fb14d8f9ac\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-2\\files-2.1\\e996bc30207c4aafbb86badd8cd6c9b8\\res\\values-v23\\values-v23.xml",
+                    "source": "C:\\Users\\pitma\\.gradle\\caches\\transforms-2\\files-2.1\\b9759908b8d206fe1d4c6ce244ce50ba\\res\\values-v23\\values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,19,32,33,34,35,36",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
