@@ -20,7 +20,8 @@ import android.widget.TextView;
 
 import com.cypress.btion.CustomApp.data.models.CycleChannelG3;
 import com.cypress.btion.CustomApp.data.models.SessionG3;
-import com.cypress.btion.CustomApp.services.CustomService;
+import com.cypress.btion.CustomApp.services.CustomService2Channels;
+import com.cypress.btion.CustomApp.services.CustomService3Channels;
 import com.cypress.btion.CustomApp.ui.maactivitychart.MaActivityChart;
 import com.cypress.btion.CustomApp.ui.mbactivitychart.MbActivityChart;
 import com.cypress.btion.CustomApp.utils.BroadCastHandler;
@@ -39,7 +40,7 @@ import java.util.Map;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class Channel3Fragment extends Fragment {
+public class Channel3Fragment extends Fragment implements View.OnClickListener {
 
 
     public static final String TITLE  = "Channel G3";
@@ -59,7 +60,9 @@ public class Channel3Fragment extends Fragment {
     private ImageButton mMbDone ;
     private ImageButton mMADone ;
     private ChannelsDataActivity mActivity;
-    private CustomService mCustomService ;
+    private CustomService3Channels mCustomService3Channels;
+    private CustomService2Channels mCustomService2Channels;
+
     private ImageView mProgressTankImageView ;
     private RelativeLayout mTankLayout ;
     public static Fragment newInstance(){
@@ -89,83 +92,14 @@ public class Channel3Fragment extends Fragment {
         mMbDone  =rootView.findViewById(R.id.btn_mb_done ) ;
         mProgressTankImageView = rootView.findViewById(R.id.image_tank_progress) ;
         mTankLayout =            rootView.findViewById(R.id.layout_tank);
-        mMADone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                if( mMaxMaValueEditText != null  && mMaxMaValueEditText.getText()!= null && !mMaxMaValueEditText.getText().toString().isEmpty()) {
-                    float maMaxValue = Float.valueOf(mMaxMaValueEditText.getText().toString()) ;
+        mMADone.setOnClickListener(this );
+        mMbDone.setOnClickListener(this );
 
-                    if ( mCustomService != null && mCustomService.getSessionG3() != null  ){
-                        mCustomService.getSessionG3().setMaxMavalue(maMaxValue );
-                        mMaxMaValueEditText.setText("");
-                        mMaxMaValueEditText.setHint(""+maMaxValue);
-                    }
-                }
-            }
-        });
+        mM3aButton.setOnClickListener(this );
+        mM3bButton.setOnClickListener(this );
 
-
-        mMbDone.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (mMaxMBVaueEditText != null && mMaxMBVaueEditText.getText() != null && !mMaxMBVaueEditText.getText().toString().isEmpty()){
-                    float mbMaxValue = Float.valueOf(mMaxMBVaueEditText.getText().toString() )  ;
-
-                    if ( mCustomService != null && mCustomService.getSessionG3() != null  ){
-                        mCustomService.getSessionG3().setMaxMbValue(mbMaxValue );
-                        mMaxMBVaueEditText.setText("");
-                        mMaxMBVaueEditText.setHint(""+mbMaxValue);
-                    }
-                }
-            }
-        });
-
-        mM3aButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (sessionG3 != null){
-
-                    Intent intent = new Intent(getActivity() , MaActivityChart.class);
-                    intent.putExtra(BroadCastHandler.EXTRA_ACTIVATE_CHANNEL , 3 ) ;
-                    intent.putExtra(BroadCastHandler.EXTRA_SESSIONG3, sessionG3 ) ;
-                    startActivity(intent);
-                }
-
-            }
-        });
-
-        mM3bButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                if (sessionG3 != null){
-
-                    Intent intent = new Intent(getActivity() , MbActivityChart.class);
-                    intent.putExtra(BroadCastHandler.EXTRA_ACTIVATE_CHANNEL , 3 ) ;
-                    intent.putExtra(BroadCastHandler.EXTRA_SESSIONG3, sessionG3 ) ;
-                    startActivity(intent);
-                }
-            }
-        });
-        if (mActivity != null && mActivity.getCustomService() != null ){
-
-            mCustomService = mActivity.getCustomService() ;
-
-            if (mCustomService.getmLastCycleG3() != null ){
-                cycleChannelG3 = mCustomService.getmLastCycleG3() ;
-                drawCycle1Chart();
-            }
-
-            if (mCustomService.getSessionG3() != null){
-                sessionG3 = mCustomService.getSessionG3() ;
-            }
-            if (mCustomService.getmCurrentChannelVoltageOn() == 3)
-                mActiveTextView.setVisibility(View.VISIBLE);
-            else
-                mActiveTextView.setVisibility(View.INVISIBLE);
-        }
+        checkCustomService();
 
         return rootView ;
     }
@@ -185,25 +119,25 @@ public class Channel3Fragment extends Fragment {
     }
 
     private void checkCustomService (){
-        if (mActivity != null && mActivity.getCustomService() != null ){
+        if (mActivity != null && mActivity.get3ChannelsCustomService() != null ){
 
-            mCustomService = mActivity.getCustomService() ;
+            mCustomService3Channels = mActivity.get3ChannelsCustomService() ;
 
-            if (mCustomService.getmLastCycleG3() != null ){
-                cycleChannelG3 = mCustomService.getmLastCycleG3() ;
+            if (mCustomService3Channels.getmLastCycleG3() != null ){
+                cycleChannelG3 = mCustomService3Channels.getmLastCycleG3() ;
             }
 
-            if (mCustomService.getSessionG3() != null){
-                sessionG3 = mCustomService.getSessionG3() ;
+            if (mCustomService3Channels.getSessionG3() != null){
+                sessionG3 = mCustomService3Channels.getSessionG3() ;
                 setupTank();
             }
 
-            if (mCustomService.getmCurrentChannelVoltageOn() == 3)
+            if (mCustomService3Channels.getmCurrentChannelVoltageOn() == 3)
                 mActiveTextView.setVisibility(View.VISIBLE);
             else
                 mActiveTextView.setVisibility(View.INVISIBLE);
 
-            setupTank();
+
         }
     }
 
@@ -246,7 +180,7 @@ public class Channel3Fragment extends Fragment {
 
     }
     /**
-     * BroadcastReceiver to receive broadcast from CustomService
+     * BroadcastReceiver to receive broadcast from CustomService3Channels
      */
     private BroadcastReceiver mCustomServiceReceiver = new BroadcastReceiver() {
         @Override
@@ -339,4 +273,69 @@ public class Channel3Fragment extends Fragment {
 
     }
 
+    @Override
+    public void onClick(View v) {
+        int id = v.getId() ;
+
+        switch (id ){
+
+            case R.id.btn_ma_done :
+                onMaDoneClicked () ;
+                break;
+
+            case R.id.btn_mb_done :
+                onMbDoneClicked () ;
+                break ;
+
+            case R.id.btn_m3a :
+                onMaClicked ();
+                break;
+
+            case R.id.btn_m3b :
+                onMbClicked ();
+                break;
+
+        }
+    }
+
+
+
+    private void onMbDoneClicked() {
+
+        if (mMaxMBVaueEditText != null && mMaxMBVaueEditText.getText() != null && !mMaxMBVaueEditText.getText().toString().isEmpty()){
+            float mbMaxValue = Float.valueOf(mMaxMBVaueEditText.getText().toString() )  ;
+
+            if ( mCustomService3Channels != null && mCustomService3Channels.getSessionG3() != null  ){
+                mCustomService3Channels.getSessionG3().setMaxMbValue(mbMaxValue );
+                mMaxMBVaueEditText.setText("");
+                mMaxMBVaueEditText.setHint(""+mbMaxValue);
+            }
+        }
+    }
+
+    private void onMaDoneClicked() {
+        if( mMaxMaValueEditText != null  && mMaxMaValueEditText.getText()!= null && !mMaxMaValueEditText.getText().toString().isEmpty()) {
+            float maMaxValue = Float.valueOf(mMaxMaValueEditText.getText().toString()) ;
+
+            if ( mCustomService3Channels != null && mCustomService3Channels.getSessionG3() != null  ){
+                mCustomService3Channels.getSessionG3().setMaxMavalue(maMaxValue );
+                mMaxMaValueEditText.setText("");
+                mMaxMaValueEditText.setHint(""+maMaxValue);
+            }
+        }
+    }
+
+    private void onMbClicked() {
+
+    }
+
+    private void onMaClicked() {
+        if (sessionG3 != null){
+
+            Intent intent = new Intent(getActivity() , MaActivityChart.class);
+            intent.putExtra(BroadCastHandler.EXTRA_ACTIVATE_CHANNEL , 3 ) ;
+            intent.putExtra(BroadCastHandler.EXTRA_SESSIONG3, sessionG3 ) ;
+            startActivity(intent);
+        }
+    }
 }

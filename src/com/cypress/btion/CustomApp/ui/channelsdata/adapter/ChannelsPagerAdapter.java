@@ -12,7 +12,7 @@ public class ChannelsPagerAdapter extends FragmentStatePagerAdapter {
 
 
 
-    private static final int TAB_COUNT = 3 ;
+    private static  int TAB_COUNT = 3 ;
 
 
 
@@ -20,6 +20,10 @@ public class ChannelsPagerAdapter extends FragmentStatePagerAdapter {
         super(fm);
     }
 
+    public ChannelsPagerAdapter(FragmentManager fm , int channelCount ) {
+        super(fm);
+        TAB_COUNT = channelCount ;
+    }
     @Override
     public Fragment getItem(int position) {
         switch ( position ){

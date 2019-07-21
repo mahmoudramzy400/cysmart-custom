@@ -1,11 +1,13 @@
 package com.cypress.btion.CommonFragments;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -26,7 +28,9 @@ import com.cypress.btion.CommonUtils.Constants;
 import com.cypress.btion.CommonUtils.Logger;
 import com.cypress.btion.CommonUtils.UUIDDatabase;
 import com.cypress.btion.CommonUtils.Utils;
-import com.cypress.btion.CustomApp.services.CustomService;
+import com.cypress.btion.CustomApp.services.CustomService2Channels;
+import com.cypress.btion.CustomApp.services.CustomService3Channels;
+import com.cypress.btion.CustomApp.utils.CommonUtils;
 import com.cypress.btion.CySmartApplication;
 import com.cypress.btion.R;
 
@@ -65,8 +69,49 @@ public class ServiceDiscoveryFragment extends Fragment {
     private TextView mNoserviceDiscovered;
     public  static boolean isInServiceFragment = false;
 
+    private int channelMode = -1 ;
+
     private void startCustomService (){
-        getActivity().startService(new Intent(getActivity(), CustomService.class )) ;
+
+        if (!CommonUtils.isOurCustomService())
+            return;
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity() );
+
+        builder.setTitle(R.string.title_channel_number);
+        builder.setSingleChoiceItems(R.array.channel_mode, -1, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // set Channel mode
+                channelMode = which ;
+            }
+        });
+
+
+        builder.setPositiveButton(R.string.action_connect, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if ( channelMode == 0 ) {
+
+                    getActivity().startService(new Intent(getActivity(), CustomService2Channels.class )) ;
+
+                }else if (channelMode ==1 ){
+                    getActivity().startService(new Intent(getActivity(), CustomService3Channels.class )) ;
+                }
+            }
+        }) ;
+        builder.setNegativeButton(R.string.action_cancel, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+
+        builder.show() ;
+
+
+
     }
     private final BroadcastReceiver mServiceDiscoveryListner=new BroadcastReceiver() {
         @Override

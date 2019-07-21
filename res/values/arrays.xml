@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <string-array name="channel_mode" >
+
+        <item >2 Channels </item>
+        <item>3 Channels </item>
+
+    </string-array>
+</resources>

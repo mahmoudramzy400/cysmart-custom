@@ -560,5 +560,8 @@
     <string name="title_alert">Alert from Channel G</string>
     <string name="msg_high_dehydration">high dehydration, suggested water drinking</string>
     <string name="msg_high_saline">high saline loss, replace with saline drink”</string>
+    <string name="title_channel_number">Select channel number</string>
+    <string name="action_connect">Connect</string>
+    <string name="action_cancel">Cancel</string>
 
 </resources>

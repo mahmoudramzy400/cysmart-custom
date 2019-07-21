@@ -30,6 +30,7 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array channel_mode
 array filter_configuration_alert_array
 array findme_immediate_alert_array
 array gls_context_health
@@ -1989,6 +1990,8 @@ string abc_searchview_description_voice
 string abc_shareactionprovider_share_with
 string abc_shareactionprovider_share_with_application
 string abc_toolbar_collapse_description
+string action_cancel
+string action_connect
 string alert_csc_weight
 string alert_message_bluetooth_connect
 string alert_message_bluetooth_disconnect
@@ -2425,6 +2428,7 @@ string status_bar_notification_info_overflow
 string title_about
 string title_activate_channel
 string title_alert
+string title_channel_number
 string title_character_instance_id
 string title_contact
 string title_devices

@@ -12,37 +12,53 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.cypress.btion.CustomApp.services.CustomService;
+import com.cypress.btion.CustomApp.services.CustomService2Channels;
+import com.cypress.btion.CustomApp.services.CustomService3Channels;
 import com.cypress.btion.CustomApp.ui.channelsdata.adapter.ChannelsPagerAdapter;
 import com.cypress.btion.R;
 
 public class ChannelsDataActivity extends AppCompatActivity {
 
 
+    private ViewPager mViewPager;
+    private Toolbar mToolbar;
+    private ChannelsPagerAdapter mPagerAdapter;
+    private TabLayout mTablayout;
 
-    private ViewPager mViewPager ;
-    private Toolbar mToolbar ;
-    private ChannelsPagerAdapter  mPagerAdapter ;
-    private TabLayout mTablayout ;
-
-    private CustomService mCustomService ;
+    private CustomService3Channels mCustomService3Channels;
+    private CustomService2Channels mCustomService2Channels;
+    private int channelNumber = 0 ;
 
 
-    ServiceConnection connection = new ServiceConnection() {
+    ServiceConnection connection3 = new ServiceConnection() {
         @Override
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
 
-            CustomService.CustomBinder binder = (CustomService.CustomBinder) iBinder;
-            mCustomService = binder.getService() ;
+            CustomService3Channels.CustomBinder binder = (CustomService3Channels.CustomBinder) iBinder;
+            mCustomService3Channels = binder.getService();
         }
 
         @Override
         public void onServiceDisconnected(ComponentName componentName) {
 
-            mCustomService = null ;
+            mCustomService3Channels = null;
         }
-    } ;
+    };
 
+    ServiceConnection connection2 = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+
+            CustomService2Channels.CustomBinder binder = (CustomService2Channels.CustomBinder) iBinder;
+            mCustomService2Channels = binder.getService();
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName componentName) {
+
+            mCustomService2Channels = null;
+        }
+    };
 
 
     @Override
@@ -50,12 +66,12 @@ public class ChannelsDataActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_channles_data);
 
-        mTablayout = findViewById(R.id.tablayout) ;
-        mToolbar   = findViewById (R.id.toolbar ) ;
-        mViewPager = findViewById (R.id.viewpager );
+        mTablayout = findViewById(R.id.tablayout);
+        mToolbar = findViewById(R.id.toolbar);
+        mViewPager = findViewById(R.id.viewpager);
 
 
-        setSupportActionBar(mToolbar );
+        setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -65,25 +81,47 @@ public class ChannelsDataActivity extends AppCompatActivity {
             }
         });
 
-        bindService(new Intent(this,CustomService.class) , connection ,Context.BIND_AUTO_CREATE) ;
+        if (CustomService3Channels.mIsRunning) {
+            bindService(new Intent(this, CustomService3Channels.class), connection3, Context.BIND_AUTO_CREATE);
+            channelNumber =3 ;
+        } else if (CustomService2Channels.mIsRunning){
+
+            bindService(new Intent(this, CustomService2Channels.class), connection2, Context.BIND_AUTO_CREATE);
+            channelNumber = 2 ;
+        }
+
+
+
         setViewPager();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        unbindService(connection);
+        unbindService(connection3);
     }
 
     private void setViewPager() {
 
-        mPagerAdapter = new ChannelsPagerAdapter(getSupportFragmentManager() ) ;
-        mViewPager.setAdapter(mPagerAdapter );
-        mTablayout.setupWithViewPager(mViewPager ) ;
+        if (channelNumber == 2 ){ // Two channel mode
+            mPagerAdapter = new ChannelsPagerAdapter(getSupportFragmentManager() , 2);
+        }else
+            mPagerAdapter = new ChannelsPagerAdapter(getSupportFragmentManager());
+
+        mViewPager.setAdapter(mPagerAdapter);
+        mTablayout.setupWithViewPager(mViewPager);
     }
 
 
-    public CustomService getCustomService() {
-        return mCustomService;
+    public CustomService3Channels get3ChannelsCustomService() {
+        return mCustomService3Channels;
+    }
+
+    public CustomService2Channels get2ChannelsCustomService (){
+        return mCustomService2Channels ;
+    }
+
+    public int getChannelNumber() {
+        return channelNumber;
     }
 }
