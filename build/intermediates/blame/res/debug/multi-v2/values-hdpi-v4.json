@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "E:\\Software Engineering\\android development\\Android\\AndroidStudioProjects\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
+            "outputFile": "C:\\Users\\pitma\\Desktop\\ANDROID_2\\bluetoochapp\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-hdpi-v4\\values-hdpi-v4.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Mahmoud Ramzy\\.gradle\\caches\\transforms-2\\files-2.1\\e996bc30207c4aafbb86badd8cd6c9b8\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
+                    "source": "C:\\Users\\pitma\\.gradle\\caches\\transforms-2\\files-2.1\\b9759908b8d206fe1d4c6ce244ce50ba\\res\\values-hdpi-v4\\values-hdpi-v4.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

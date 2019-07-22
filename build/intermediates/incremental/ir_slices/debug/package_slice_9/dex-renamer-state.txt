@@ -1,0 +1,4 @@
+#Mon Jul 22 19:18:17 CEST 2019
+base.0=C\:\\Users\\pitma\\Desktop\\ANDROID_2\\bluetoochapp\\build\\intermediates\\transforms\\dexMerger\\debug\\9
+path.0=classes.dex
+renamed.0=classes.dex

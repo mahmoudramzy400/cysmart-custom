@@ -92,13 +92,13 @@ public class ProfileScanningFragment extends Fragment {
 
     // Stops scanning after 2 seconds.
     private static final long SCAN_PERIOD_TIMEOUT = 2000;
-
+    private static final String TAG = "ProfileScanningFra";
     private boolean mScanning;
 
     // Connection time out after 10 seconds.
     private static final long CONNECTION_TIMEOUT = 40000;
-    private Timer mConnectTimer;
-    private boolean mConnectTimerON=false;
+    private Handler mConnectTimer = new Handler(Looper.getMainLooper());
+    private boolean mConnectTimerON = false;
 
     // Activity request constant
     private static final int REQUEST_ENABLE_BT = 1;
@@ -144,6 +144,22 @@ public class ProfileScanningFragment extends Fragment {
         }
     };
 
+    private Runnable mConnectTimerTask = new Runnable() {
+        @Override
+        public void run() {
+            Logger.e("PSF: connect: connection time out");
+            mConnectTimerON = false;
+            BluetoothLeService.disconnect();
+            mProgressdialog.dismiss();
+
+            if (getActivity() != null) {
+                Toast.makeText(getActivity(), R.string.profile_cannot_connect_message, Toast.LENGTH_SHORT).show();
+                mLeDeviceListAdapter.clear();
+                scanLeDevice(true);
+            }
+        }
+    };
+
     /**
      * Call back for BLE Scan
      * This call back is called when a BLE device is found near by.
@@ -152,7 +168,7 @@ public class ProfileScanningFragment extends Fragment {
     private ScanCallback mLeScanCallback = new ScanCallback() {
 
         @Override
-        public void onScanResult(int callbackType, final ScanResult result ) {
+        public void onScanResult(int callbackType, final ScanResult result) {
             if (callbackType != ScanSettings.CALLBACK_TYPE_ALL_MATCHES) {
                 // Should not happen.
                 return;
@@ -169,7 +185,7 @@ public class ProfileScanningFragment extends Fragment {
                     @Override
                     public void run() {
                         if (!mSearchEnabled) {
-                            mLeDeviceListAdapter.addDevice(result.getDevice() , result.getRssi() );
+                            mLeDeviceListAdapter.addDevice(result.getDevice(), result.getRssi());
                             try {
                                 mLeDeviceListAdapter.notifyDataSetChanged();
                             } catch (Exception e) {
@@ -194,23 +210,22 @@ public class ProfileScanningFragment extends Fragment {
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
                 mProgressdialog.setMessage(getString(R.string.alert_message_bluetooth_connect));
                 if (mScanning) {
-                   stopScan();
+                    stopScan();
                     mScanning = false;
                 }
                 mProgressdialog.dismiss();
                 mLeDevices.clear();
-                if(mConnectTimer!=null)
-                    mConnectTimer.cancel();
-                mConnectTimerON=false;
+                cancelConnectTimer();
+
                 updateWithNewFragment();
-            }else if(BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)){
+            } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
                 /**
                  * Disconnect event.When the connect timer is ON,Reconnect the device
                  * else show disconnect message
                  */
-                if(mConnectTimerON){
+                if (mConnectTimerON) {
                     BluetoothLeService.reconnect();
-                }else{
+                } else {
                     Toast.makeText(getActivity(),
                             R.string.profile_cannot_connect_message,
                             Toast.LENGTH_SHORT).show();
@@ -307,7 +322,7 @@ public class ProfileScanningFragment extends Fragment {
                     final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
                     if (device != null) {
                         scanLeDevice(false);
-                        connectDevice(device,true);
+                        connectDevice(device, true);
                     }
                 }
             }
@@ -346,17 +361,18 @@ public class ProfileScanningFragment extends Fragment {
      * @param device
      */
 
-    private void connectDevice(BluetoothDevice device,boolean isFirstConnect) {
+    private void connectDevice(BluetoothDevice device, boolean isFirstConnect) {
         mDeviceAddress = device.getAddress();
         mDeviceName = device.getName();
         // Get the connection status of the device
         if (BluetoothLeService.getConnectionState() == BluetoothLeService.STATE_DISCONNECTED) {
+            Log.d(TAG, "Divce Not connected : will connect ");
             Logger.v("BLE DISCONNECTED STATE");
             // Disconnected,so connect
             BluetoothLeService.connect(mDeviceAddress, mDeviceName, getActivity());
             showConnectAlertMessage(mDeviceName, mDeviceAddress);
-        }
-        else {
+        } else {
+            Log.d(TAG, "BLE other stat connection ");
             Logger.v("BLE OTHER STATE-->" + BluetoothLeService.getConnectionState());
             // Connecting to some devices,so disconnect and then connect
             BluetoothLeService.disconnect();
@@ -370,14 +386,13 @@ public class ProfileScanningFragment extends Fragment {
             }, DELAY_PERIOD);
 
         }
-        if(isFirstConnect){
-            startConnectTimer();
-            mConnectTimerON=true;
-        }
+
+        startConnectTimer();
+
 
     }
 
-    private void showConnectAlertMessage(String devicename,String deviceaddress) {
+    private void showConnectAlertMessage(String devicename, String deviceaddress) {
         mProgressdialog.setTitle(getResources().getString(
                 R.string.alert_message_connect_title));
         mProgressdialog.setMessage(getResources().getString(
@@ -406,7 +421,7 @@ public class ProfileScanningFragment extends Fragment {
                 startScanTimer();
                 mScanning = true;
                 mRefreshText.setText(getResources().getString(R.string.profile_control_device_scanning));
-               // mBluetoothAdapter.startLeScan(mLeScanCallback);
+                // mBluetoothAdapter.startLeScan(mLeScanCallback);
                 mSwipeLayout.setRefreshing(true);
                 startScan();
             }
@@ -426,6 +441,7 @@ public class ProfileScanningFragment extends Fragment {
         }
         return scanner;
     }
+
     private void startScan() {
         BluetoothLeScanner scanner = getScanner();
         if (scanner != null) {
@@ -434,7 +450,7 @@ public class ProfileScanningFragment extends Fragment {
                     .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY) // Scan using highest duty cycle
                     .build();
 
-            scanner.startScan(null, settings , mLeScanCallback);
+            scanner.startScan(null, settings, mLeScanCallback);
         }
     }
 
@@ -463,7 +479,7 @@ public class ProfileScanningFragment extends Fragment {
         super.onResume();
         Logger.e("Scanning onResume");
         isInFragment = true;
-        if(checkBluetoothStatus()){
+        if (checkBluetoothStatus()) {
             prepareList();
         }
         Logger.e("Registering receiver in Profile scannng");
@@ -673,47 +689,26 @@ public class ProfileScanningFragment extends Fragment {
     /**
      * Connect Timer
      */
-    private void startConnectTimer(){
-        mConnectTimer=new Timer();
-        mConnectTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                mProgressdialog.dismiss();
-                Logger.v("CONNECTION TIME OUT");
-                mConnectTimerON=false;
-                BluetoothLeService.disconnect();
-                if(getActivity()!=null){
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            Toast.makeText(getActivity(),
-                                    R.string.profile_cannot_connect_message,
-                                    Toast.LENGTH_SHORT).show();
-                            if (mLeDeviceListAdapter != null)
-                                mLeDeviceListAdapter.clear();
-                            if (mLeDeviceListAdapter != null) {
-                                try {
-                                    mLeDeviceListAdapter.notifyDataSetChanged();
-                                } catch (Exception e) {
-                                    e.printStackTrace();
-                                }
-                            }
-                            scanLeDevice(true);
-                            mScanning = true;
-                        }
-                    });
-                }
+    private void startConnectTimer() {
 
-            }
-        }, CONNECTION_TIMEOUT);
+        cancelConnectTimer();
+        mConnectTimer.postDelayed(mConnectTimerTask, CONNECTION_TIMEOUT);
+        mConnectTimerON = true;
     }
+
+    private void cancelConnectTimer() {
+        mConnectTimer.removeCallbacks(mConnectTimerTask);
+        mConnectTimerON = false;
+    }
+
     /**
      * Swipe refresh timer
      */
-    public void startScanTimer(){
+    public void startScanTimer() {
         cancelScanTimer();
-        mScanTimer.postDelayed(mScanTimerTask, SCAN_PERIOD_TIMEOUT );
+        mScanTimer.postDelayed(mScanTimerTask, SCAN_PERIOD_TIMEOUT);
     }
+
     private void cancelScanTimer() {
         mScanTimer.removeCallbacks(mScanTimerTask);
     }

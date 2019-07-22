@@ -900,10 +900,12 @@ public class BluetoothLeService extends Service {
         // parameter to false.
         mBluetoothGatt = device.connectGatt(context, false , mGattCallback);
         //Clearing Bluetooth cache before disconnecting to the device
+        /*
         if (Utils.getBooleanSharedPreference(mContext, Constants.PREF_PAIR_CACHE_STATUS)) {
             //Logger.e(getActivity().getClass().getName() + "Cache cleared on disconnect!");
             BluetoothLeService.refreshDeviceCache(BluetoothLeService.mBluetoothGatt);
         }
+         */
         mBluetoothDeviceAddress = address;
         mBluetoothDeviceName = devicename;
         /**
