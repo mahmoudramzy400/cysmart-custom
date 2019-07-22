@@ -898,7 +898,7 @@ public class BluetoothLeService extends Service {
         // We want to directly connect to the device, so we are setting the
         // autoConnect
         // parameter to false.
-        mBluetoothGatt = device.connectGatt(context, true, mGattCallback);
+        mBluetoothGatt = device.connectGatt(context, false , mGattCallback);
         //Clearing Bluetooth cache before disconnecting to the device
         if (Utils.getBooleanSharedPreference(mContext, Constants.PREF_PAIR_CACHE_STATUS)) {
             //Logger.e(getActivity().getClass().getName() + "Cache cleared on disconnect!");

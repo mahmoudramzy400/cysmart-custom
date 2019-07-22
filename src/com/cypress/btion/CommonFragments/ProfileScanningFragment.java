@@ -38,6 +38,11 @@ import android.app.ProgressDialog;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothManager;
+import android.bluetooth.le.BluetoothLeScanner;
+import android.bluetooth.le.ScanCallback;
+import android.bluetooth.le.ScanRecord;
+import android.bluetooth.le.ScanResult;
+import android.bluetooth.le.ScanSettings;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -45,6 +50,7 @@ import android.content.pm.PackageManager;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Looper;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -86,7 +92,7 @@ public class ProfileScanningFragment extends Fragment {
 
     // Stops scanning after 2 seconds.
     private static final long SCAN_PERIOD_TIMEOUT = 2000;
-    private Timer mScanTimer;
+
     private boolean mScanning;
 
     // Connection time out after 10 seconds.
@@ -124,24 +130,46 @@ public class ProfileScanningFragment extends Fragment {
 
     //Delay Time out
     private static final long DELAY_PERIOD = 500;
-
+    private Handler mScanTimer = new Handler(Looper.getMainLooper());
+    private Runnable mScanTimerTask = new Runnable() {
+        @Override
+        public void run() {
+            BluetoothLeScanner scanner = getScanner();
+            if (scanner != null && mBluetoothAdapter.isEnabled()) {
+                mScanning = false;
+                stopScan();
+                mSwipeLayout.setRefreshing(false);
+                mRefreshText.setText(getResources().getString(R.string.profile_control_no_device_message));
+            }
+        }
+    };
 
     /**
      * Call back for BLE Scan
      * This call back is called when a BLE device is found near by.
      */
-    private BluetoothAdapter.LeScanCallback mLeScanCallback = new BluetoothAdapter.LeScanCallback() {
+
+    private ScanCallback mLeScanCallback = new ScanCallback() {
 
         @Override
-        public void onLeScan(final BluetoothDevice device, final int rssi,
-                             byte[] scanRecord) {
+        public void onScanResult(int callbackType, final ScanResult result ) {
+            if (callbackType != ScanSettings.CALLBACK_TYPE_ALL_MATCHES) {
+                // Should not happen.
+                return;
+            }
+            ScanRecord scanRecord = result.getScanRecord();
+            if (scanRecord == null) {
+                return;
+            }
+
+
             Activity mActivity = getActivity();
             if (mActivity != null) {
                 mActivity.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         if (!mSearchEnabled) {
-                            mLeDeviceListAdapter.addDevice(device, rssi);
+                            mLeDeviceListAdapter.addDevice(result.getDevice() , result.getRssi() );
                             try {
                                 mLeDeviceListAdapter.notifyDataSetChanged();
                             } catch (Exception e) {
@@ -166,7 +194,7 @@ public class ProfileScanningFragment extends Fragment {
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
                 mProgressdialog.setMessage(getString(R.string.alert_message_bluetooth_connect));
                 if (mScanning) {
-                    mBluetoothAdapter.stopLeScan(mLeScanCallback);
+                   stopScan();
                     mScanning = false;
                 }
                 mProgressdialog.dismiss();
@@ -276,8 +304,7 @@ public class ProfileScanningFragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 if (mLeDeviceListAdapter.getCount() > 0) {
-                    final BluetoothDevice device = mLeDeviceListAdapter
-                            .getDevice(position);
+                    final BluetoothDevice device = mLeDeviceListAdapter.getDevice(position);
                     if (device != null) {
                         scanLeDevice(false);
                         connectDevice(device,true);
@@ -378,17 +405,44 @@ public class ProfileScanningFragment extends Fragment {
             if (!mScanning) {
                 startScanTimer();
                 mScanning = true;
-                mRefreshText.setText(getResources().getString(
-                        R.string.profile_control_device_scanning));
-                mBluetoothAdapter.startLeScan(mLeScanCallback);
+                mRefreshText.setText(getResources().getString(R.string.profile_control_device_scanning));
+               // mBluetoothAdapter.startLeScan(mLeScanCallback);
                 mSwipeLayout.setRefreshing(true);
+                startScan();
             }
         } else {
+            cancelScanTimer();
             mScanning = false;
             mSwipeLayout.setRefreshing(false);
-            mBluetoothAdapter.stopLeScan(mLeScanCallback);
+            stopScan();
         }
 
+    }
+
+    private BluetoothLeScanner getScanner() {
+        BluetoothLeScanner scanner = mBluetoothAdapter.getBluetoothLeScanner();
+        if (scanner == null) {
+            Logger.e("PSF: getScanner: cannot get BluetoothLeScanner");
+        }
+        return scanner;
+    }
+    private void startScan() {
+        BluetoothLeScanner scanner = getScanner();
+        if (scanner != null) {
+            ScanSettings settings = new ScanSettings.Builder()
+//                    .setCallbackType(ScanSettings.CALLBACK_TYPE_ALL_MATCHES)
+                    .setScanMode(ScanSettings.SCAN_MODE_LOW_LATENCY) // Scan using highest duty cycle
+                    .build();
+
+            scanner.startScan(null, settings , mLeScanCallback);
+        }
+    }
+
+    private void stopScan() {
+        BluetoothLeScanner scanner = getScanner();
+        if (scanner != null) {
+            scanner.stopScan(mLeScanCallback);
+        }
     }
 
     /**
@@ -657,30 +711,13 @@ public class ProfileScanningFragment extends Fragment {
      * Swipe refresh timer
      */
     public void startScanTimer(){
-        mScanTimer=new Timer();
-        mScanTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                mScanning = false;
-                mBluetoothAdapter.stopLeScan(mLeScanCallback);
-                mRefreshText.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        mRefreshText.setText(getResources().getString(
-                                R.string.profile_control_no_device_message));
-                    }
-                });
-                getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        mSwipeLayout.setRefreshing(false);
-                        scanLeDevice(false);
-                    }
-                });
-
-            }
-        },SCAN_PERIOD_TIMEOUT);
+        cancelScanTimer();
+        mScanTimer.postDelayed(mScanTimerTask, SCAN_PERIOD_TIMEOUT );
     }
+    private void cancelScanTimer() {
+        mScanTimer.removeCallbacks(mScanTimerTask);
+    }
+
 
     /**
      * List Adapter for holding devices found through scanning.
