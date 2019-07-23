@@ -125,9 +125,7 @@ public class ServiceDiscoveryFragment extends Fragment {
             final String action = intent.getAction();
             if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
 
-                Log.i("ServiceDiscovery" ,"Services dicovery");
-                Logger.e("Service discovered");
-
+                Log.d(TAG  ,"Services discover done ");
 
 
                 if(mTimer!=null)
@@ -143,15 +141,22 @@ public class ServiceDiscoveryFragment extends Fragment {
                 */
 
                 if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                  //  BluetoothLeService.exchangeGattMtu(512);
+                    BluetoothLeService.exchangeGattMtu(512);
                 }
-            } else if (BluetoothLeService.ACTION_GATT_SERVICE_DISCOVERY_UNSUCCESSFUL
-                    .equals(action)) {
-                Log.i("ServiceDis" ,"Failed in dscover service ");
+            } else if (BluetoothLeService.ACTION_GATT_SERVICE_DISCOVERY_UNSUCCESSFUL.equals(action)) {
+                Log.d(TAG  ,"Failed in discover services ");
                     mProgressDialog.dismiss();
                       if(mTimer!=null)
                     mTimer.cancel();
                     showNoServiceDiscoverAlert();
+                BluetoothLeService.disconnect();
+
+                // Get the user back to the profile scanning fragment
+                Intent homePageIntent = getActivity().getIntent();
+                getActivity().finish();
+                getActivity().overridePendingTransition(R.anim.slide_left, R.anim.push_left);
+                startActivity(homePageIntent);
+                getActivity().overridePendingTransition(R.anim.slide_right, R.anim.push_right);
             }
         }
     };
@@ -164,17 +169,42 @@ public class ServiceDiscoveryFragment extends Fragment {
         mContext = getActivity();
         mTimer=showServiceDiscoveryAlert(false);
         mApplication = (CySmartApplication) getActivity().getApplication();
+
+
+        setHasOptionsMenu(true);
+        return rootView;
+    }
+
+    private void discoverServices (){
+
         Handler delayHandler = new Handler();
         delayHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 Logger.e("Discover service called");
-                if(BluetoothLeService.getConnectionState()==BluetoothLeService.STATE_CONNECTED)
-                BluetoothLeService.discoverServices();
+                if(BluetoothLeService.getConnectionState()==BluetoothLeService.STATE_CONNECTED){
+
+                   boolean discoverResult =  BluetoothLeService.discoverServices();
+                   Log.d(TAG , "Discover services started result : " + discoverResult  );
+                }
+
             }
         }, DELAY_PERIOD);
-        setHasOptionsMenu(true);
-        return rootView;
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        Logger.e("Service discovery onResume");
+        isInServiceFragment=true;
+        getActivity().registerReceiver(mServiceDiscoveryListner, Utils.makeGattUpdateIntentFilter());
+
+        // start discover services after two seconds
+        discoverServices();
+
+        // Initialize ActionBar as per requirement
+        Utils.setUpActionBar(getActivity(),
+                getResources().getString(R.string.profile_control_fragment));
+
     }
 
     private Timer showServiceDiscoveryAlert(boolean isReconnect) {
@@ -459,17 +489,7 @@ public class ServiceDiscoveryFragment extends Fragment {
         getActivity().unregisterReceiver(mServiceDiscoveryListner);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        Logger.e("Service discovery onResume");
-        isInServiceFragment=true;
-        getActivity().registerReceiver(mServiceDiscoveryListner,
-                Utils.makeGattUpdateIntentFilter());
-        // Initialize ActionBar as per requirement
-        Utils.setUpActionBar(getActivity(),
-                getResources().getString(R.string.profile_control_fragment));
-    }
+
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

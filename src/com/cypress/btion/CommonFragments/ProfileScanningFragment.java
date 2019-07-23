@@ -96,7 +96,7 @@ public class ProfileScanningFragment extends Fragment {
     private boolean mScanning;
 
     // Connection time out after 10 seconds.
-    private static final long CONNECTION_TIMEOUT = 40000;
+    private static final long CONNECTION_TIMEOUT = 20000;
     private Handler mConnectTimer = new Handler(Looper.getMainLooper());
     private boolean mConnectTimerON = false;
 

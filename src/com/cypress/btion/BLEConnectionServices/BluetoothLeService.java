@@ -550,6 +550,7 @@ public class BluetoothLeService extends Service {
     private static void broadcastConnectionUpdate(final String action) {
         Logger.i("action :" + action);
         final Intent intent = new Intent(action);
+        intent.setPackage(mContext.getPackageName() );
         mContext.sendBroadcast(intent);
     }
 
@@ -927,6 +928,9 @@ public class BluetoothLeService extends Service {
         if (device == null) {
             return;
         }
+        if (mBluetoothGatt != null ){
+            mBluetoothGatt.close();
+        }
         Log.i("ProfileScan","reconnect");
         mBluetoothGatt = null;//Creating a new instance of GATT before connect
         mBluetoothGatt = device.connectGatt(mContext, false, mGattCallback);
@@ -1010,18 +1014,16 @@ public class BluetoothLeService extends Service {
 
     }
 
-    public static void discoverServices() {
-        // Logger.datalog(mContext.getResources().getString(R.string.dl_service_discover_request));
+    public static boolean discoverServices() {
         if (mBluetoothAdapter == null || mBluetoothGatt == null) {
-            return;
+            return false;
         } else {
-            mBluetoothGatt.discoverServices();
+            boolean result = mBluetoothGatt.discoverServices();
             String dataLog = mContext.getResources().getString(R.string.dl_commaseparator)
                     + "[" + mBluetoothDeviceName + "|" + mBluetoothDeviceAddress + "] " +
                     mContext.getResources().getString(R.string.dl_service_discovery_request);
-            Logger.datalog(dataLog);
+            return result;
         }
-
     }
 
     /**
