@@ -678,8 +678,6 @@ public class CustomService2Channels extends Service {
 
 
 
-
-
         FilesManager.saveChannelsData(this , fileBody);
         this.fileBody = "\n" ;
 
